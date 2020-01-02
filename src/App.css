@@ -8,6 +8,7 @@
   --light-color: #f1f1f3;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --accent-color: #3962db;
 }
 
 * {
@@ -364,7 +365,7 @@ table th {
   padding: 0.7rem 2rem;
   z-index: 1;
   width: 100%;
-  opacity: 0.9;
+  /* opacity: 0.9; */
   margin-bottom: 1rem;
 }
 
@@ -385,6 +386,28 @@ table th {
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+/* Footer */
+.footer {
+  height: 10rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.social-media-link {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  background-color: white;
+  display: inline-block;
+  width: 2rem;
+  margin: 1rem 0.2rem 1rem 0.2rem;
+}
+.social-media-link:hover {
+  color: var(--accent-color);
 }
 
 /* Mobile Styles */
