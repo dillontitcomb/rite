@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
   return (
-    <div>
-      <h1>RITE Editions Homepage!</h1>
-    </div>
+    <Link to="/editions">
+      <div class="home-header-backdrop"></div>
+    </Link>
   );
 };
 

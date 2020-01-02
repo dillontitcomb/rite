@@ -1,9 +1,10 @@
 import React from 'react';
+import './About.css';
 
 const About = () => {
   return (
     <div>
-      <h1>About RITE Editions</h1>
+      <h1>About Page!</h1>
     </div>
   );
 };
