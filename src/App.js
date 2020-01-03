@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Editions from './components/editions/Editions';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import About from './components/pages/About';
@@ -14,6 +15,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/about" component={About}></Route>
+          <Route exact path="/editions" component={Editions}></Route>
         </Switch>
         <Footer></Footer>
       </div>
