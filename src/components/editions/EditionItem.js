@@ -6,6 +6,6 @@ export const EditionItem = () => {
   return (
     <div>
       <h1>Here's a little edition example!</h1>
-    </div>
+    </div> 
   );
 };

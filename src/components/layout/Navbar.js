@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar bg-primary">
-        <Link className="rite-logo" to="/home">
+        <Link className="rite-logo" to="/">
           <img src="/img/rite_logo.png" alt="RITE Editions Logo" />
         </Link>
         <ul>
