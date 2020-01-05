@@ -1,19 +1,27 @@
 {
-  "name": "rite",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dillontitcomb/rite.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dillontitcomb/rite/issues"
-  },
-  "homepage": "https://github.com/dillontitcomb/rite#readme"
+	"name": "rite",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"server": "nodemon server",
+		"start": "node server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dillontitcomb/rite.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/dillontitcomb/rite/issues"
+	},
+	"homepage": "https://github.com/dillontitcomb/rite#readme",
+	"dependencies": {
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"concurrently": "^5.0.2",
+		"nodemon": "^2.0.2"
+	}
 }
