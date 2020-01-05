@@ -21,7 +21,9 @@
 	},
 	"homepage": "https://github.com/dillontitcomb/rite#readme",
 	"dependencies": {
-		"express": "^4.17.1"
+		"config": "^3.2.4",
+		"express": "^4.17.1",
+		"mongoose": "^5.8.4"
 	},
 	"devDependencies": {
 		"concurrently": "^5.0.2",
