@@ -2,7 +2,6 @@
 
 ## TO DO - MVP
 
-- implement react-router
 - determine color palette
 - gather images
 - implement image optimization tool
