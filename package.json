@@ -1,35 +1,35 @@
 {
-	"name": "rite",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"client-install": "npm install --prefix client",
-		"server": "nodemon server",
-		"start": "node server",
-		"client": "npm start --prefix client",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/dillontitcomb/rite.git"
-	},
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/dillontitcomb/rite/issues"
-	},
-	"homepage": "https://github.com/dillontitcomb/rite#readme",
-	"dependencies": {
-		"bcryptjs": "^2.4.3",
-		"config": "^3.2.4",
-		"express": "^4.17.1",
-		"express-validator": "^6.3.1",
-		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^5.8.4"
-	},
-	"devDependencies": {
-		"concurrently": "^5.0.2",
-		"nodemon": "^2.0.2"
-	}
+  "name": "rite-editions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "server": "nodemon server",
+    "start": "node server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dillontitcomb/rite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dillontitcomb/rite/issues"
+  },
+  "homepage": "https://github.com/dillontitcomb/rite#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.4",
+    "express": "^4.17.1",
+    "express-validator": "^6.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.4"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  }
 }
