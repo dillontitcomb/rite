@@ -1,5 +1,7 @@
 # RITE EDITIONS
 
+### *Install npm i top-level directory before installing the client.*
+
 ## TO DO - MVP
 
 - determine color palette
