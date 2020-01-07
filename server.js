@@ -16,6 +16,7 @@ app.get('/', (req, res) => res.send('Hello from your express API'));
 // Define Routes
 app.use('/api/editions', require('./routes/api/editions'));
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 const PORT = process.env.port || 5000;
 
