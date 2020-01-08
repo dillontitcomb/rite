@@ -1,4 +1,4 @@
-import { SET_LOADING } from '../types';
+import { SET_LOADING, REGISTER_SUCCESS, REGISTER_FAILURE } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
