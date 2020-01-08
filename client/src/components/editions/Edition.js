@@ -12,15 +12,13 @@ const Edition = ({ edition: { author, title, date, imageLinks, blurb } }) => {
         {author}, <em>{title}</em>, {date}
       </p>
       <img src={imageLinks} alt={`${title}`} />
-      <p>
-        {blurb.split('\n').map((str, key) => {
-          return (
-            <p className="my-1" key={key}>
-              {str}
-            </p>
-          );
-        })}
-      </p>
+      {blurb.split('\n').map((str, key) => {
+        return (
+          <p className="my-1" key={key}>
+            {str}
+          </p>
+        );
+      })}
     </div>
   );
 };
