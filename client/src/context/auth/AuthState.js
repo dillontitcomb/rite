@@ -28,10 +28,11 @@ const AuthState = (props) => {
       email,
       password
     });
+    console.log(body);
 
     try {
+      console.log('Trying to dispatch api call!');
       const res = await axios.post('/api/users', body, config);
-
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data
@@ -47,7 +48,8 @@ const AuthState = (props) => {
         token: state.users,
         user: state.user,
         isAuthenticated: state.isAuthenticated,
-        loading: state.loading
+        loading: state.loading,
+        register
       }}
     >
       {props.children}

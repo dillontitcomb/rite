@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import React, { useContext, useState } from 'react';
+import AuthContext from '../../context/auth/authContext';
 
 const Register = () => {
+  const authContext = useContext(AuthContext);
+  const { register } = authContext;
+
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -17,7 +22,13 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(state.name, state.email, state.password);
+    const user = {
+      name: state.name,
+      email: state.email,
+      password: state.password
+    };
+    console.log(user);
+    register(user);
   };
 
   return (
@@ -59,6 +70,10 @@ const Register = () => {
       </div>
     </div>
   );
+};
+
+Register.propTypes = {
+  register: PropTypes.func.isRequired
 };
 
 export default Register;
