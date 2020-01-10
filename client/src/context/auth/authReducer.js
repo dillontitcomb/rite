@@ -1,5 +1,7 @@
 import {
   AUTH_ERROR,
+  LOGIN_FAILURE,
+  LOGIN_SUCCESS,
   REGISTER_FAILURE,
   REGISTER_SUCCESS,
   USER_LOADED
@@ -18,6 +20,7 @@ export default (state, action) => {
       };
 
     case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS:
       localStorage.setItem('token', action.payload.token);
       return {
         ...state,
@@ -26,10 +29,8 @@ export default (state, action) => {
         loading: false
       };
     case REGISTER_FAILURE:
-      localStorage.removeItem('token');
-      return { ...state, token: null, isAuthenticated: false, loading: false };
-
     case AUTH_ERROR:
+    case LOGIN_FAILURE:
       localStorage.removeItem('token');
       return { ...state, token: null, isAuthenticated: false, loading: false };
   }

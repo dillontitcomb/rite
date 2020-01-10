@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import AuthContext from '../../context/auth/authContext';
 
 const Login = () => {
+  const authContext = useContext(AuthContext);
+  const { login } = authContext;
+
   const [state, setState] = useState({
     email: '',
     password: ''
@@ -17,6 +21,7 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(state.email, state.password);
+    login(state.email, state.password);
   };
 
   return (
