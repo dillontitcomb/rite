@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
 const Register = () => {
   const authContext = useContext(AuthContext);
-  const { register } = authContext;
+  const { register, isAuthenticated } = authContext;
 
   const [state, setState] = useState({
     name: '',
@@ -29,6 +30,11 @@ const Register = () => {
     console.log(user);
     register(user);
   };
+
+  // Redirect if already logged in
+  if (isAuthenticated) {
+    return <Redirect to="/editions"></Redirect>;
+  }
 
   return (
     <div>

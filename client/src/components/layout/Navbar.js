@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 
 //Don't use <a> tags for client-side routing (clears app state!)
 
 const Navbar = () => {
+  const authContext = useContext(AuthContext);
+  const { isAuthenticated } = authContext;
+
   return (
     <div>
       <nav className="navbar bg-primary">
@@ -29,12 +33,18 @@ const Navbar = () => {
           <Link className="nav-item" to="/shop">
             Buy Rite
           </Link>
-          <Link className="nav-item" to="/register">
-            Register
-          </Link>
-          <Link className="nav-item" to="/login">
-            Log In
-          </Link>
+          {!isAuthenticated ? (
+            <>
+              <Link className="nav-item" to="/register">
+                Register
+              </Link>
+              <Link className="nav-item" to="/login">
+                Log In
+              </Link>
+            </>
+          ) : (
+            ''
+          )}
         </ul>
       </nav>
     </div>

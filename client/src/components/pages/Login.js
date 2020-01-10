@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
 const Login = () => {
   const authContext = useContext(AuthContext);
-  const { login } = authContext;
+  const { login, isAuthenticated } = authContext;
 
   const [state, setState] = useState({
     email: '',
@@ -23,6 +24,11 @@ const Login = () => {
     console.log(state.email, state.password);
     login(state.email, state.password);
   };
+
+  // Redirect if already logged in
+  if (isAuthenticated) {
+    return <Redirect to="/editions"></Redirect>;
+  }
 
   return (
     <div>
