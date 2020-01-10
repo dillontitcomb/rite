@@ -6,8 +6,12 @@ import AuthContext from '../../context/auth/authContext';
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated } = authContext;
+  const { isAuthenticated, logout } = authContext;
 
+  const onClick = () => {
+    console.log('Loggin Out!');
+    logout();
+  };
   return (
     <div>
       <nav className="navbar bg-primary">
@@ -43,7 +47,9 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            ''
+            <Link to="/" className="nav-item" onClick={onClick}>
+              Logout
+            </Link>
           )}
         </ul>
       </nav>

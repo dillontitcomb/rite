@@ -7,7 +7,8 @@ import {
   LOGIN_SUCCESS,
   REGISTER_FAILURE,
   REGISTER_SUCCESS,
-  USER_LOADED
+  USER_LOADED,
+  LOGOUT
 } from '../types';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
@@ -98,6 +99,10 @@ const AuthState = (props) => {
     }
   };
 
+  const logout = () => {
+    dispatch({type: LOGOUT})
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -107,7 +112,8 @@ const AuthState = (props) => {
         loading: state.loading,
         register,
         loadUser,
-        login
+        login,
+        logout
       }}
     >
       {props.children}
