@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import AuthContext from '../../context/auth/authContext';
 
@@ -70,10 +69,6 @@ const Register = () => {
       </div>
     </div>
   );
-};
-
-Register.propTypes = {
-  register: PropTypes.func.isRequired
 };
 
 export default Register;
