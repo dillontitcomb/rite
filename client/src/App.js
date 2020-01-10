@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Editions from './components/editions/Editions';
@@ -8,28 +8,35 @@ import About from './components/pages/About';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
-import AuthState from './context/auth/AuthState';
-import UserState from './context/user/UserState';
+import AuthContext from './context/auth/authContext';
+import setAuthToken from './utils/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
+  const authContext = useContext(AuthContext);
+  const { loadUser } = authContext;
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
   return (
-    <UserState>
-      <AuthState>
-        <Router>
-          <div className="App">
-            <Navbar title="Rite Editions" />
-            <Switch>
-              <Route exact path="/" component={Home}></Route>
-              <Route exact path="/about" component={About}></Route>
-              <Route exact path="/editions" component={Editions}></Route>
-              <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/register" component={Register}></Route>
-            </Switch>
-            <Footer></Footer>
-          </div>
-        </Router>
-      </AuthState>
-    </UserState>
+    <Router>
+      <div className="App">
+        <Navbar title="Rite Editions" />
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/about" component={About}></Route>
+          <Route exact path="/editions" component={Editions}></Route>
+          <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/register" component={Register}></Route>
+        </Switch>
+        <Footer></Footer>
+      </div>
+    </Router>
   );
 };
 
