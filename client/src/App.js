@@ -5,6 +5,7 @@ import Editions from './components/editions/Editions';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import About from './components/pages/About';
+import Admin from './components/pages/Admin';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
@@ -33,6 +34,7 @@ const App = () => {
           <Route exact path="/editions" component={Editions}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route>
+          <Route exact path="/admin" component={Admin}></Route>
         </Switch>
         <Footer></Footer>
       </div>
