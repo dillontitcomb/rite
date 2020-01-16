@@ -5,8 +5,7 @@ import React, { useState } from 'react';
 
 const Admin = () => {
   const [state, setState] = useState({
-    first: '',
-    last: '',
+    author: '',
     title: '',
     year: '',
     description: '',
@@ -38,21 +37,13 @@ const Admin = () => {
     for (const file of state.files) {
       formData.append('fileGroup', file);
     }
-    formData.append('first', state.first);
-    formData.append('last', state.last);
+    formData.append('author', state.author);
     formData.append('title', state.title);
     formData.append('year', state.year);
     formData.append('description', state.description);
 
-    // console.log(formData.getAll('fileGroup'));
-    // console.log(formData.get('first'));
-    // console.log(formData.get('last'));
-    // console.log(formData.get('title'));
-    // console.log(formData.get('year'));
-    // console.log(formData.get('description'));
 
     // TODO: Add POST request to /upload
-
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
@@ -90,17 +81,9 @@ const Admin = () => {
 
         <input
           type="text"
-          name="first"
-          placeholder="First Name"
-          value={state.first}
-          onChange={onChange}
-        />
-
-        <input
-          type="text"
-          name="last"
-          placeholder="Last Name"
-          value={state.last}
+          name="author"
+          placeholder="Author Name"
+          value={state.author}
           onChange={onChange}
         />
 
