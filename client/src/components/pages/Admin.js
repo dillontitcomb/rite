@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 // TODO: Create forms to add editions, newsPosts, and artworks, break them into separate components
@@ -50,7 +51,20 @@ const Admin = () => {
     // console.log(formData.get('year'));
     // console.log(formData.get('description'));
 
-    // TODO: Add POST request to /editions
+    // TODO: Add POST request to /upload
+
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    };
+
+    axios
+      .post('/api/upload', formData, config)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
