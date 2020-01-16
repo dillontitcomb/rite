@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs')
 
 router.post('/', (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
@@ -10,7 +11,10 @@ router.post('/', (req, res) => {
 
   const files = req.files.fileGroup;
 
-  files.forEach((file) => console.log(file));
+  files.forEach((file) => {
+    console.log(file);
+    
+  });
 
   return res.status(200).json({ msg: 'Tried to console log the files!' });
 });
