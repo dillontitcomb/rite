@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-// Create form to add new edition with multiple image uploads
+// TODO: Create forms to add editions, newsPosts, and artworks, break them into separate components
+
 const Admin = () => {
   const [state, setState] = useState({
     first: '',
@@ -30,8 +31,26 @@ const Admin = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
-    console.log(state);
+
+    // Create form data to be sent via POST request
+    const formData = new FormData();
+    for (const file of state.files) {
+      formData.append('fileGroup', file);
+    }
+    formData.append('first', state.first);
+    formData.append('last', state.last);
+    formData.append('title', state.title);
+    formData.append('year', state.year);
+    formData.append('description', state.description);
+
+    // console.log(formData.getAll('fileGroup'));
+    // console.log(formData.get('first'));
+    // console.log(formData.get('last'));
+    // console.log(formData.get('title'));
+    // console.log(formData.get('year'));
+    // console.log(formData.get('description'));
+
+    // TODO: Add POST request to /editions
   };
 
   return (
@@ -42,7 +61,7 @@ const Admin = () => {
         <p>
           <strong>Edition Images:</strong>
         </p>
-        <input type="file" multiple onChange={onFileChange} />
+        <input type="file" name="fileGroup" multiple onChange={onFileChange} />
 
         {state.files.length > 0 && (
           <p>

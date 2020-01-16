@@ -51,7 +51,6 @@ const Navbar = () => {
               <Link to="/admin" className="nav-item">
                 Admin
               </Link>
-
               <Link to="/" className="nav-item" onClick={onClick}>
                 Logout
               </Link>
