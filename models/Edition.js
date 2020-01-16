@@ -14,13 +14,13 @@ const EditionSchema = new mongoose.Schema({
     required: true
   },
   description: {
-    type: Date,
-    default: Date.now
+    type: String,
+    required: true
   },
-  files: {
+  filePaths: {
     type: [String],
     required: true
   }
 });
 
-module.exports = User = mongoose.model('user', EditionSchema);
+module.exports = Edition = mongoose.model('edition', EditionSchema);
