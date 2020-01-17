@@ -1,9 +1,13 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import EditionContext from '../../context/edition/editionContext';
 
 // TODO: Create forms to add editions, newsPosts, and artworks, break them into separate components
 
 const Admin = () => {
+  const editionContext = useContext(EditionContext);
+  const { addEdition } = editionContext;
+
   const [state, setState] = useState({
     author: '',
     title: '',
@@ -31,6 +35,7 @@ const Admin = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    addEdition({ ...state, files: ['fileOne', 'fileTwo'] });
 
     // Create form data to be sent via POST request
     const formData = new FormData();
@@ -41,7 +46,6 @@ const Admin = () => {
     formData.append('title', state.title);
     formData.append('year', state.year);
     formData.append('description', state.description);
-
 
     // TODO: Add POST request to /upload
     const config = {

@@ -7,3 +7,6 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGOUT = 'LOGOUT';
+
+export const ADD_EDITION_SUCCESS = 'ADD_EDITION_SUCCESS';
+export const ADD_EDITION_FAILURE = 'ADD_EDITION_FAILURE';

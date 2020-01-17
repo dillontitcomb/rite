@@ -5,10 +5,10 @@ import {
   AUTH_ERROR,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
+  LOGOUT,
   REGISTER_FAILURE,
   REGISTER_SUCCESS,
-  USER_LOADED,
-  LOGOUT
+  USER_LOADED
 } from '../types';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
@@ -100,8 +100,8 @@ const AuthState = (props) => {
   };
 
   const logout = () => {
-    dispatch({type: LOGOUT})
-  }
+    dispatch({ type: LOGOUT });
+  };
 
   return (
     <AuthContext.Provider

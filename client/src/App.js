@@ -10,6 +10,7 @@ import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import AuthContext from './context/auth/authContext';
+import EditionState from './context/edition/EditionState';
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
@@ -26,20 +27,22 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <div className="App">
-        <Navbar title="Rite Editions" />
-        <Switch>
-          <Route exact path="/" component={Home}></Route>
-          <Route exact path="/about" component={About}></Route>
-          <Route exact path="/editions" component={Editions}></Route>
-          <Route exact path="/login" component={Login}></Route>
-          <Route exact path="/register" component={Register}></Route>
-          <Route exact path="/admin" component={Admin}></Route>
-        </Switch>
-        <Footer></Footer>
-      </div>
-    </Router>
+    <EditionState>
+      <Router>
+        <div className="App">
+          <Navbar title="Rite Editions" />
+          <Switch>
+            <Route exact path="/" component={Home}></Route>
+            <Route exact path="/about" component={About}></Route>
+            <Route exact path="/editions" component={Editions}></Route>
+            <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/register" component={Register}></Route>
+            <Route exact path="/admin" component={Admin}></Route>
+          </Switch>
+          <Footer></Footer>
+        </div>
+      </Router>
+    </EditionState>
   );
 };
 
