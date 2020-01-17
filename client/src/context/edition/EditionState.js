@@ -1,7 +1,8 @@
+import axios from 'axios';
 import React, { useReducer } from 'react';
+import { ADD_EDITION_FAILURE, ADD_EDITION_SUCCESS } from '../types';
 import EditionContext from './editionContext';
 import EditionReducer from './editionReducer';
-import { ADD_EDITION_SUCCESS } from '../types';
 
 const EditionState = (props) => {
   const initialState = {
@@ -12,12 +13,51 @@ const EditionState = (props) => {
 
   const [state, dispatch] = useReducer(EditionReducer, initialState);
 
-  const addEdition = (edition) => {
-    // Create POST request to /editions, which returns ID
-    console.log(edition);
-    // Create 2nd POST request to /upload
-    dispatch({type: ADD_EDITION_SUCCESS})
-    // On completion of both, dispatch ADD_EDITION_SUCCESS
+  const addEdition = async (edition) => {
+    const { author, title, year, description, files } = edition;
+
+    // Create POST request to /upload, returning filePaths
+    const formData = new FormData();
+    for (const file of files) {
+      formData.append('fileGroup', file);
+    }
+    formData.append('title', title);
+
+    const uploadConfig = {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    };
+
+    const editionConfig = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      console.log('Trying POST request to /upload');
+      // Upload images and get their filepaths back
+      const res = await axios.post('/api/upload', formData, uploadConfig);
+      console.log(res);
+      const { filePaths } = res.data;
+      console.log(filePaths);
+      // Upload remaining edition data with filepaths
+      const editionData = { filePaths, title, author, year, description };
+      const editionRes = await axios.post(
+        '/api/editions',
+        editionData,
+        editionConfig
+      );
+      console.log(editionRes.data);
+
+      dispatch({
+        type: ADD_EDITION_SUCCESS
+      });
+    } catch (err) {
+      console.log('Uh oh! Error found: ', err);
+      dispatch({ type: ADD_EDITION_FAILURE });
+    }
   };
 
   return (

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import EditionContext from '../../context/edition/editionContext';
 
@@ -33,33 +32,11 @@ const Admin = () => {
     console.log(state);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    addEdition({ ...state, files: ['fileOne', 'fileTwo'] });
-
-    // Create form data to be sent via POST request
-    const formData = new FormData();
-    for (const file of state.files) {
-      formData.append('fileGroup', file);
-    }
-    formData.append('author', state.author);
-    formData.append('title', state.title);
-    formData.append('year', state.year);
-    formData.append('description', state.description);
-
-    // TODO: Add POST request to /upload
-    const config = {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    };
-
-    axios
-      .post('/api/upload', formData, config)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
+    addEdition({
+      ...state
+    });
   };
 
   return (

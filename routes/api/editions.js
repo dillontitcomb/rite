@@ -16,16 +16,11 @@ router.post('/', auth, async (req, res) => {
 
   try {
     let edition = await Edition.findOne({ title });
-    console.log('Awaited findOne');
     if (edition) {
       return res.status(400).json({ msg: 'Edition already exists.' });
     }
-    console.log('Checked for duplicate');
     edition = new Edition({ author, title, year, description, filePaths });
-    console.log('Tried to create edition');
-    console.log(edition);
     await edition.save();
-    console.log('Tried to save');
     return res.json({
       msg: `${author}'s edition, titled ${title}, was saved to the database successfully!`
     });
