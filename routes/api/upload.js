@@ -1,22 +1,61 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs')
+const mkdirp = require('mkdirp');
+const auth = require('../../middleware/auth');
 
-router.post('/', (req, res) => {
+// Converts to lowercase & hyphenated
+const convertTitleToDirName = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^0-9a-z|\s]/gi, '')
+    .split(' ')
+    .join('-');
+};
+
+// @route POST api/upload
+// @desc Upload file(s) to new directory
+// @access Private
+router.post('/', auth, (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).json({ msg: 'No files were uploaded.' });
   }
 
-  console.log(req.body);
+  if (!req.body.title)
+    return res
+      .status(400)
+      .json({ msg: 'No title was provided for the file upload.' });
 
+  // Get files and title for directory name
   const files = req.files.fileGroup;
+  const title = req.body.title;
 
-  files.forEach((file) => {
-    console.log(file);
-    
+  const directoryName = convertTitleToDirName(title);
+
+  // Create directory for files
+  const dirPath = `${process.cwd()}/client/public/img/uploads/${directoryName}`;
+  mkdirp(dirPath, (err) => {
+    if (err) {
+      console.error('This directory could not be created');
+    } else {
+      console.log('Directory created!');
+    }
   });
 
-  return res.status(200).json({ msg: 'Tried to console log the files!' });
+  // Move each image into directory
+  const filePaths = [];
+  for (const file of files) {
+    const filePath = `${dirPath}/${file.name}`;
+    filePaths.push(filePath);
+    file.mv(filePath, (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ err });
+      }
+    });
+  }
+
+  // Return new file paths to frontend
+  return res.json({ filePaths });
 });
 
 module.exports = router;
