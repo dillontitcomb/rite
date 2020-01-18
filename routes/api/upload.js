@@ -28,7 +28,6 @@ router.post('/', auth, (req, res) => {
   // Get files and title for directory name
   const files = req.files.fileGroup;
   const title = req.body.title;
-
   const directoryName = convertTitleToDirName(title);
 
   // Create directory for files
@@ -41,15 +40,19 @@ router.post('/', auth, (req, res) => {
     }
   });
 
-  // Move each image into directory
+  // Move each image into directory and return relative filePaths to frontend
   const filePaths = [];
   for (const file of files) {
+    // Relative img path to store in db
+    const relativePath = `/client/public/img/uploads/${file.name}`;
+    // Filepath to move img to
     const filePath = `${dirPath}/${file.name}`;
-    filePaths.push(filePath);
+    filePaths.push(relativePath);
     file.mv(filePath, (err) => {
       if (err) {
-        console.error(err);
-        return res.status(500).json({ err });
+        return res
+          .status(500)
+          .json({ msg: 'Error moving file to newly created directory.' });
       }
     });
   }

@@ -36,20 +36,21 @@ const EditionState = (props) => {
     };
 
     try {
-      console.log('Trying POST request to /upload');
+      console.log('Form Data being sent to /api/upload: ', formData);
       // Upload images and get their filepaths back
       const res = await axios.post('/api/upload', formData, uploadConfig);
-      console.log(res);
+      console.log('Response from /api/upload: ', res);
       const { filePaths } = res.data;
-      console.log(filePaths);
+      console.log('Flepaths returned by /api/upload:', filePaths);
       // Upload remaining edition data with filepaths
       const editionData = { filePaths, title, author, year, description };
+      console.log('Data being sent to /api/editions: ', editionData);
       const editionRes = await axios.post(
         '/api/editions',
         editionData,
         editionConfig
       );
-      console.log(editionRes.data);
+      console.log('Response from /api/editions: ', editionRes);
 
       dispatch({
         type: ADD_EDITION_SUCCESS
