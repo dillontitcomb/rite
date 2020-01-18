@@ -32,7 +32,9 @@ router.post('/', auth, (req, res) => {
   const directoryName = convertTitleToDirName(title);
 
   // Create directory for files
-  const dirPath = `${process.cwd()}/client/public/img/uploads/${directoryName}`;
+  const relImgFilePath = 'client/public/img/uploads';
+  const dirPath = `${process.cwd()}/${relImgFilePath}/${directoryName}`;
+  console.log('Directory Path: ', dirPath);
   mkdirp(dirPath, (err) => {
     if (err) {
       console.error('This directory could not be created');
@@ -44,11 +46,14 @@ router.post('/', auth, (req, res) => {
   // Move each image into directory
   const filePaths = [];
   for (const file of files) {
-    const filePath = `${dirPath}/${file.name}`;
-    filePaths.push(filePath);
+    const filePath = `/${dirPath}/${file.name}`;
+    console.log('File Path! ', filePath);
+    const relPath = `/${relImgFilePath}/${directoryName}/${file.name}`;
+    console.log(relPath);
+    filePaths.push(relPath);
     file.mv(filePath, (err) => {
       if (err) {
-        console.error(err);
+        // console.error(err);
         return res.status(500).json({ err });
       }
     });
