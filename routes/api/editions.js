@@ -4,11 +4,26 @@ const auth = require('../../middleware/auth');
 
 const Edition = require('../../models/Edition');
 
-// @route api/editions
-// @desc Test route
+// @route GET api/editions
+// @desc Get all editions
 // @access Public
-router.get('/', (req, res) => res.send('Editions route!'));
+router.get('/', async (req, res) => {
+  try {
+    const editions = await Edition.find();
+    console.log(editions);
+    return res.json({ editions });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ msg: 'There was a problem with the server.' });
+  }
 
+  res.send('Editions route!');
+});
+
+// @route POST api/editions
+// @desc Create a new edition
+// @access Private
 router.post('/', auth, async (req, res) => {
   const { author, title, year, description, filePaths } = req.body;
 
