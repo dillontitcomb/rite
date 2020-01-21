@@ -17,8 +17,6 @@ router.get('/', async (req, res) => {
       .status(500)
       .json({ msg: 'There was a problem with the server.' });
   }
-
-  res.send('Editions route!');
 });
 
 // @route POST api/editions
@@ -45,5 +43,30 @@ router.post('/', auth, async (req, res) => {
       .json({ msg: 'There was a problem with the server.' });
   }
 });
+
+// @route GET api/editions/:id
+// @desc Get a specific edition
+// @access Public
+
+router.get('/:id', async (req, res) => {
+  try {
+    let edition = await Edition.findById(req.params.id);
+    console.log(edition);
+    if (!edition) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: 'No edition could be found' }] });
+    }
+    return res.json({ edition });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ msg: 'There was a problem with the server.' });
+  }
+});
+
+
+
+
 
 module.exports = router;
