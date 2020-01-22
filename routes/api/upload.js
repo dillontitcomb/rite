@@ -44,7 +44,7 @@ router.post('/', auth, (req, res) => {
   const filePaths = [];
   for (const file of files) {
     // Relative img path to store in db
-    const relativePath = `/client/public/img/uploads/${file.name}`;
+    const relativePath = `/img/uploads/${directoryName}/${file.name}`;
     // Filepath to move img to
     const filePath = `${dirPath}/${file.name}`;
     filePaths.push(relativePath);

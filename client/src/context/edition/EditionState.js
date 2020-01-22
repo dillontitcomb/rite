@@ -1,6 +1,11 @@
 import axios from 'axios';
 import React, { useReducer } from 'react';
-import { ADD_EDITION_FAILURE, ADD_EDITION_SUCCESS } from '../types';
+import {
+  ADD_EDITION_FAILURE,
+  ADD_EDITION_SUCCESS,
+  GET_EDITIONS_FAILURE,
+  GET_EDITIONS_SUCCESS
+} from '../types';
 import EditionContext from './editionContext';
 import EditionReducer from './editionReducer';
 
@@ -13,10 +18,21 @@ const EditionState = (props) => {
 
   const [state, dispatch] = useReducer(EditionReducer, initialState);
 
+  // Get All Editions
+  const getEditions = async () => {
+    try {
+      const res = await axios.get('/api/editions');
+      const payload = res.data.editions;
+      dispatch({ type: GET_EDITIONS_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: GET_EDITIONS_FAILURE });
+    }
+  };
+
+  // Add New Edition
   const addEdition = async (edition) => {
     const { author, title, year, description, files } = edition;
-
-    // Create POST request to /upload, returning filePaths
     const formData = new FormData();
     for (const file of files) {
       formData.append('fileGroup', file);
@@ -67,7 +83,8 @@ const EditionState = (props) => {
         editions: state.editions,
         edition: state.edition,
         loading: state.loading,
-        addEdition
+        addEdition,
+        getEditions
       }}
     >
       {props.children}

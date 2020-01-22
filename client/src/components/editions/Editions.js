@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import editionContext from '../../context/edition/editionContext';
 import Edition from './Edition';
 
 const editionObject = {
@@ -11,11 +12,26 @@ const editionObject = {
 };
 
 const Editions = () => {
+  const EditionContext = useContext(editionContext);
+  const { getEditions, editions } = EditionContext;
+
+  useEffect(() => {
+    getEditions();
+  }, []);
+
+  console.log(editions);
+
   return (
     <div className="editions my-2">
       <div className="container">
+        <img
+          src="/client/public/img/uploads/pretty-colors/backcover.jpg"
+          alt="cool"
+        />
         <p className="x-large">Editions page!</p>
-        <Edition edition={editionObject}></Edition>
+        {editions.map((edition, key) => (
+          <Edition key={key} edition={edition}></Edition>
+        ))}
       </div>
     </div>
   );
