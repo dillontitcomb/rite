@@ -8,12 +8,18 @@ const Edition = ({
 }) => {
   return (
     <div>
-      <p className="large">EXAMPLE EDITION:</p>
-      <hr />
-      <p className="lead my-1">
+      <p className="x-large my-1">
         {author}, <em>{title}</em>, {year}
       </p>
       <img src={filePaths[0]} alt={`${title}`} />
+      <p className="large my-1">{author.toUpperCase()}</p>
+      <p className="lead">
+        <em>
+          <strong>
+            {title}, {year}
+          </strong>
+        </em>
+      </p>
       {description.split('\n').map((str, key) => {
         return (
           <p className="my-1" key={key}>

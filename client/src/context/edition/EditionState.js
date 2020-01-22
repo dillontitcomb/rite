@@ -13,7 +13,7 @@ const EditionState = (props) => {
   const initialState = {
     editions: [],
     edition: {},
-    loading: false
+    loading: true
   };
 
   const [state, dispatch] = useReducer(EditionReducer, initialState);

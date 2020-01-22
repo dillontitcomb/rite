@@ -37,6 +37,13 @@ const Admin = () => {
     addEdition({
       ...state
     });
+    setState({
+      author: '',
+      title: '',
+      year: '',
+      description: '',
+      files: []
+    });
   };
 
   return (
