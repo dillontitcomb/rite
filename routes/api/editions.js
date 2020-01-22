@@ -55,7 +55,7 @@ router.get('/:id', async (req, res) => {
     if (!edition) {
       return res
         .status(400)
-        .json({ errors: [{ msg: 'No edition could be found' }] });
+        .json({ errors: [{ msg: 'No edition could be found.' }] });
     }
     return res.json({ edition });
   } catch (err) {
@@ -65,8 +65,49 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// @route PUT api/editions/:id
+// @desc Update a specific edition
+// @access Private
+// TODO: If title is changed, need to change image directory name
+router.put('/:id', auth, async (req, res) => {
+  const { author, title, year, description, filePaths } = req.body;
+  try {
+    console.log(author, title, year, description, filePaths);
+    const updatedEdition = await Edition.findByIdAndUpdate(req.params.id, {
+      author,
+      title,
+      year,
+      description,
+      filePaths
+    });
+    if (!updatedEdition)
+      return res.status(400).json({ msg: 'Edition could not be updated.' });
+    return res.json({
+      msg: 'Edition was successfully updated'
+    });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ msg: 'There was a problem with the server.' });
+  }
+});
 
+// @route DELETE api/editions/:id
+// @desc Delete a specific edition
+// @access Private
+// TODO: Delete image files & dir associated with edition
 
-
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const deletedEdition = await Edition.findByIdAndRemove(req.params.id);
+    return res.json({
+      msg: `Edition ${deletedEdition.title} was successfully deleted.`
+    });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ msg: 'There was a problem with the server.' });
+  }
+});
 
 module.exports = router;
