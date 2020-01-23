@@ -400,6 +400,10 @@ table th {
   margin-right: 0.6rem;
 }
 
+.rite-logo {
+  width: 260px;
+}
+
 /* Footer */
 .footer {
   height: 10rem;

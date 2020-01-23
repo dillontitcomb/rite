@@ -15,8 +15,12 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar bg-primary">
-        <Link className="rite-logo" to="/">
-          <img src="/img/rite_logo.png" alt="RITE Editions Logo" />
+        <Link to="/">
+          <img
+            className="rite-logo"
+            src="/img/fb-logo-sm.jpg"
+            alt="RITE Editions Logo"
+          />
         </Link>
         <ul>
           <Link className="nav-item" to="/">

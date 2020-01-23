@@ -1,0 +1,38 @@
+.edition-item {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 300px;
+  margin: 0.5rem;
+}
+
+.edition-item-overlay {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edition-item-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.3s;
+}
+
+.edition-item-overlay:hover .edition-item-text {
+  visibility: visible;
+  transition: 0.4s;
+}
+
+.edition-item-text {
+  text-align: center;
+  margin: 1rem;
+  visibility: hidden;
+  color: white;
+}
