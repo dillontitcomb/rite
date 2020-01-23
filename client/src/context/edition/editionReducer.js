@@ -3,6 +3,8 @@ import {
   ADD_EDITION_SUCCESS,
   GET_EDITIONS_FAILURE,
   GET_EDITIONS_SUCCESS,
+  GET_EDITION_FAILURE,
+  GET_EDITION_SUCCESS,
   SET_LOADING
 } from '../types';
 
@@ -18,6 +20,10 @@ export default (state, action) => {
       return { ...state, editions: action.payload, loading: false };
     case GET_EDITIONS_FAILURE:
       return { ...state, editions: [], loading: false };
+    case GET_EDITION_SUCCESS:
+      return { ...state, edition: action.payload, loading: false };
+    case GET_EDITION_FAILURE:
+      return { ...state, loading: false };
     case SET_LOADING:
       return { ...state, loading: true };
   }

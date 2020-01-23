@@ -4,7 +4,9 @@ import {
   ADD_EDITION_FAILURE,
   ADD_EDITION_SUCCESS,
   GET_EDITIONS_FAILURE,
-  GET_EDITIONS_SUCCESS
+  GET_EDITIONS_SUCCESS,
+  GET_EDITION_FAILURE,
+  GET_EDITION_SUCCESS
 } from '../types';
 import EditionContext from './editionContext';
 import EditionReducer from './editionReducer';
@@ -12,7 +14,13 @@ import EditionReducer from './editionReducer';
 const EditionState = (props) => {
   const initialState = {
     editions: [],
-    edition: {},
+    edition: {
+      author: '',
+      title: '',
+      year: '',
+      description: '',
+      filePaths: []
+    },
     loading: true
   };
 
@@ -27,6 +35,19 @@ const EditionState = (props) => {
     } catch (err) {
       console.log(err);
       dispatch({ type: GET_EDITIONS_FAILURE });
+    }
+  };
+
+  // Get One Edition by ID
+  const getEdition = async (id) => {
+    const getEditionsRoute = `/api/editions/${id}`;
+    try {
+      const res = await axios.get(getEditionsRoute);
+      const payload = res.data.edition;
+      dispatch({ type: GET_EDITION_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: GET_EDITION_FAILURE });
     }
   };
 
@@ -84,7 +105,8 @@ const EditionState = (props) => {
         edition: state.edition,
         loading: state.loading,
         addEdition,
-        getEditions
+        getEditions,
+        getEdition
       }}
     >
       {props.children}

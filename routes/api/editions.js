@@ -10,7 +10,6 @@ const Edition = require('../../models/Edition');
 router.get('/', async (req, res) => {
   try {
     const editions = await Edition.find();
-    console.log(editions);
     return res.json({ editions });
   } catch (err) {
     return res
@@ -24,8 +23,6 @@ router.get('/', async (req, res) => {
 // @access Private
 router.post('/', auth, async (req, res) => {
   const { author, title, year, description, filePaths } = req.body;
-
-  console.log(author, title, year, description, filePaths);
 
   try {
     let edition = await Edition.findOne({ title });
@@ -51,7 +48,6 @@ router.post('/', auth, async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     let edition = await Edition.findById(req.params.id);
-    console.log(edition);
     if (!edition) {
       return res
         .status(400)
@@ -72,7 +68,6 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', auth, async (req, res) => {
   const { author, title, year, description, filePaths } = req.body;
   try {
-    console.log(author, title, year, description, filePaths);
     const updatedEdition = await Edition.findByIdAndUpdate(req.params.id, {
       author,
       title,

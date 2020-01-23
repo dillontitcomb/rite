@@ -1,38 +1,48 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import EditionContext from '../../context/edition/editionContext';
 
 // This is the full-page, detailed edition
 
-const Edition = ({
-  edition: { author, title, year, description, filePaths }
-}) => {
+const Edition = ({ match }) => {
+  const editionContext = useContext(EditionContext);
+  const { getEdition, edition, loading } = editionContext;
+
+  useEffect(() => {
+    getEdition(match.params.id);
+    // eslint-disable-next-line
+  }, []);
+
+  const { author, title, year, description, filePaths } = edition;
+
   return (
-    <div>
-      <p className="x-large my-1">
-        {author}, <em>{title}</em>, {year}
-      </p>
-      <img src={filePaths[0]} alt={`${title}`} />
-      <p className="large my-1">{author.toUpperCase()}</p>
-      <p className="lead">
-        <em>
-          <strong>
-            {title}, {year}
-          </strong>
-        </em>
-      </p>
-      {description.split('\n').map((str, key) => {
-        return (
-          <p className="my-1" key={key}>
-            {str}
+    <div className="container">
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <p className="x-large my-1">
+            {author}, <em>{title}</em>, {year}
           </p>
-        );
-      })}
+          <img src={filePaths[0]} alt={`${title}`} />
+          <p className="large my-1">{author.toUpperCase()}</p>
+          <p className="lead">
+            <em>
+              <strong>
+                {title}, {year}
+              </strong>
+            </em>
+          </p>
+          {description.split('\n').map((str, key) => {
+            return (
+              <p className="my-1" key={key}>
+                {str}
+              </p>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
-};
-
-Edition.propTypes = {
-  edition: PropTypes.object.isRequired
 };
 
 export default Edition;

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Edition from './components/editions/Edition';
 import Editions from './components/editions/Editions';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
@@ -38,6 +39,7 @@ const App = () => {
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/admin" component={Admin}></Route>
+            <Route exact path="/editions/:id" component={Edition}></Route>
           </Switch>
           <Footer></Footer>
         </div>
