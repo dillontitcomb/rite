@@ -51,7 +51,7 @@ router.post('/', auth, (req, res) => {
       // Filepath to move img to
       const filePath = `${dirPath}/${file.name}`;
       filePaths.push(relativePath);
-      console.log(filePaths);
+
       file.mv(filePath, (err) => {
         if (err) {
           return res
@@ -67,7 +67,6 @@ router.post('/', auth, (req, res) => {
     // Filepath to move img to
     const filePath = `${dirPath}/${file.name}`;
     filePaths.push(relativePath);
-    console.log(filePaths);
     file.mv(filePath, (err) => {
       if (err) {
         return res
