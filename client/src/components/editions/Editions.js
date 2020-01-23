@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import editionContext from '../../context/edition/editionContext';
 import EditionItem from './EditionItem';
+import './Editions.css';
 
 const Editions = () => {
   const EditionContext = useContext(editionContext);
@@ -11,18 +12,19 @@ const Editions = () => {
     // eslint-disable-next-line
   }, []);
 
-  // console.log(editions);
-
   return (
-    <div className="editions my-1">
+    <div className="editions">
       <div className="container">
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          editions.map((edition, key) => (
-            <EditionItem key={key} edition={edition}></EditionItem>
-          ))
-        )}
+        <p className="x-large my-2">The Editions</p>
+        <div className="editions-grid">
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            editions.map((edition, key) => (
+              <EditionItem key={key} edition={edition}></EditionItem>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
