@@ -42,12 +42,32 @@ router.post('/', auth, (req, res) => {
 
   // Move each image into directory and return relative filePaths to frontend
   const filePaths = [];
-  for (const file of files) {
+
+  // If only one file, files is an object rather than an array
+  if (files.length) {
+    for (const file of files) {
+      // Relative img path to store in db
+      const relativePath = `/img/uploads/${directoryName}/${file.name}`;
+      // Filepath to move img to
+      const filePath = `${dirPath}/${file.name}`;
+      filePaths.push(relativePath);
+      console.log(filePaths);
+      file.mv(filePath, (err) => {
+        if (err) {
+          return res
+            .status(500)
+            .json({ msg: 'Error moving file to newly created directory.' });
+        }
+      });
+    }
+  } else {
+    let file = files;
     // Relative img path to store in db
     const relativePath = `/img/uploads/${directoryName}/${file.name}`;
     // Filepath to move img to
     const filePath = `${dirPath}/${file.name}`;
     filePaths.push(relativePath);
+    console.log(filePaths);
     file.mv(filePath, (err) => {
       if (err) {
         return res
