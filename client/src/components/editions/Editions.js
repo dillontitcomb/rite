@@ -13,9 +13,9 @@ const Editions = () => {
   }, []);
 
   return (
-    <div className="editions">
+    <div>
       <div className="container">
-        <p className="x-large my-2">The Editions</p>
+        <p className="large my-1">The Editions</p>
         <div className="editions-grid">
           {loading ? (
             <p>Loading...</p>
