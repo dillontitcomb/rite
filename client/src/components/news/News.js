@@ -11,8 +11,6 @@ const News = () => {
     // eslint-disable-next-line
   }, []);
 
-  console.log(newsPostContext);
-
   return (
     <div className="container">
       {newsPosts.map((newsPost, key) => (

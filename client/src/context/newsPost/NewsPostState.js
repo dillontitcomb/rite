@@ -52,7 +52,7 @@ const NewsPostState = (props) => {
 
   const addNewsPost = async (newsPost) => {
     const { title, description, files } = newsPost;
-    const imageFile = files[0]
+    const imageFile = files[0];
     const formData = new FormData();
     formData.append('fileGroup', imageFile);
     formData.append('title', title);
@@ -79,11 +79,7 @@ const NewsPostState = (props) => {
         filePath
       };
 
-      const newsPostRes = await axios.post(
-        './api/newsPosts',
-        newsPostData,
-        addNewsPostConfig
-      );
+      await axios.post('./api/newsPosts', newsPostData, addNewsPostConfig);
       dispatch({ type: ADD_NEWSPOST_SUCCESS });
     } catch (err) {
       console.log('There was an error adding a news post.', err);
