@@ -32,7 +32,7 @@ router.post('/', auth, async (req, res) => {
     edition = new Edition({ author, title, year, description, filePaths });
     await edition.save();
     return res.json({
-      msg: `${author}'s edition, titled ${title}, was saved to the database successfully!`
+      msg: `${author}'s edition, titled ${title}, was saved to the database successfully.`
     });
   } catch (err) {
     return res
