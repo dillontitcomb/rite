@@ -2,8 +2,9 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #25408f;
+  --primary-color: #284a8b;
   --dark-color: #333333;
+  --dark-lighter: #bbbbbb;
   --white-color: #ffffff;
   --light-color: #f1f1f3;
   --danger-color: #dc3545;
@@ -52,6 +53,8 @@ img {
   min-height: calc(100vh - 300px);
   max-width: 1200px;
   margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   overflow: hidden;
   padding: 0 2rem;
 }
@@ -375,8 +378,8 @@ table th {
   background: var(--light-color);
 }
 
-/* Navbar */
 .navbar {
+  border: none;
   height: 120px;
   display: flex;
   justify-content: space-between;
@@ -384,26 +387,33 @@ table th {
   padding: 0.7rem 2rem;
   z-index: 1;
   width: 100%;
+  border-bottom: 1px solid var(--dark-lighter);
+  box-shadow: 0px 2px 2px 0 var(--dark-lighter);
   /* opacity: 0.9; */
 }
 
 .navbar ul {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .navbar .nav-item {
   font-weight: lighter;
-  color: #fff;
+  color: var(--dark-color);
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
 
 .navbar a:hover {
-  color: var(--light-color);
+  color: var(--dark-lighter);
 }
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+.nav-active {
+  border-bottom: 5px solid black;
 }
 
 .rite-logo {
@@ -413,8 +423,8 @@ table th {
 /* Footer */
 .footer {
   height: 180px;
-  background-color: var(--primary-color);
-  color: var(--white-color);
+  background-color: var(--white-color);
+  color: var(--primary-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -455,16 +465,5 @@ table th {
 
   .lead {
     font-size: 1rem;
-  }
-
-  /* Navbar */
-  .navbar {
-    display: block;
-    text-align: center;
-  }
-
-  .navbar ul {
-    text-align: center;
-    justify-content: center;
   }
 }
