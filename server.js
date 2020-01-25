@@ -19,6 +19,7 @@ app.use('/api/editions', require('./routes/api/editions'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/upload', require('./routes/api/upload'));
+app.use('/api/newsPosts', require('./routes/api/newsPosts'));
 
 const PORT = process.env.port || 5000;
 
