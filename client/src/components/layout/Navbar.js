@@ -27,18 +27,21 @@ const Navbar = () => {
   };
   return (
     <div>
-      <nav className="navbar bg-white">
-        <Link to="/">
-          <img
-            className="rite-logo"
-            src="/img/logo-on-white.png"
-            alt="RITE Editions Logo"
-          />
-        </Link>
+      <nav className="navbar">
+        <div>
+          <Link to="/">
+            <img
+              className="rite-logo"
+              src="/img/logo-on-white.png"
+              alt="RITE Editions Logo"
+            />
+          </Link>
+        </div>
         <ul>
           <Link className="nav-item nav-active" to="/">
             Home
           </Link>
+
           <Link className="nav-item" to="/about">
             About
           </Link>

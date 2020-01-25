@@ -14,7 +14,7 @@ const EditionItem = ({
   const editionRoute = `/editions/${_id}`;
 
   return (
-    <div className="edition-item" style={itemBackgroundStyle}>
+    <div className="edition-item nav-brand" style={itemBackgroundStyle}>
       <Link to={editionRoute}>
         <div className="edition-item-overlay">
           <p className="edition-item-text">

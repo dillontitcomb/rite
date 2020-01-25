@@ -15,7 +15,8 @@ const Editions = () => {
   return (
     <div>
       <div className="container">
-        <p className="large my-1">The Editions</p>
+        <p className="x-large my-1">The Editions</p>
+        <hr className="my-1" />
         <div className="editions-grid">
           {loading ? (
             <p>Loading...</p>
