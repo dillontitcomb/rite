@@ -1,21 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import NewsPostContext from '../../context/newsPost/newsPostContext';
 import NewsPostItem from './NewsPostItem';
 
 const News = () => {
   const newsPostContext = useContext(NewsPostContext);
+  const { getNewsPosts, newsPosts } = newsPostContext;
 
-  const newsPost = {
-    title: 'Hellow',
-    description: 'Description',
-    filePath: '/img/fb-logo.jpg',
-    _id: '5e2c9ab1e2481d3ae8099ba2'
-  };
+  useEffect(() => {
+    getNewsPosts();
+    // eslint-disable-next-line
+  }, []);
+
   console.log(newsPostContext);
 
   return (
     <div className="container">
-      <NewsPostItem newsPost={newsPost}></NewsPostItem>
+      {newsPosts.map((newsPost, key) => (
+        <NewsPostItem newsPost={newsPost} key={key}></NewsPostItem>
+      ))}
     </div>
   );
 };

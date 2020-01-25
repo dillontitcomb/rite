@@ -13,10 +13,16 @@ const NewsPost = ({ match }) => {
   const { title, description, filePath } = newsPost;
 
   return (
-    <div>
-      <p className="x-large">{title}</p>
-      <p className="lead">{description}</p>
-      <p>{filePath}</p>
+    <div className="container">
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="my-2">
+          <p className="large my-1">{title}</p>
+          <img src={filePath} alt="coolpix" />
+          <p className="my-1">{description}</p>
+        </div>
+      )}
     </div>
   );
 };
