@@ -92,4 +92,19 @@ router.put('/:id', auth, async (req, res) => {
 // @route DELETE api/newsPosts/:id
 // @desc Delete newsPost by ID
 // @access Private
+
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const deletedPost = await NewsPost.findByIdAndDelete(req.params.id);
+    return res.json({
+      msg: `Edition ${deletedPost.title} was succesfully deleted.`
+    });
+  } catch (err) {
+    if (err)
+      return res
+        .status(500)
+        .json({ msg: 'There was an issue with the server.' });
+  }
+});
+
 module.exports = router;
