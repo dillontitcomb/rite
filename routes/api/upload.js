@@ -16,6 +16,7 @@ const convertTitleToDirName = (title) => {
 // @desc Upload file(s) to new directory
 // @access Private
 router.post('/', auth, (req, res) => {
+  console.log(req.files);
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).json({ msg: 'No files were uploaded.' });
   }

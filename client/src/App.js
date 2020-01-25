@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Edition from './components/editions/Edition';
 import Editions from './components/editions/Editions';
+import AddNewsPost from './components/forms/AddNewsPost';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import News from './components/news/News';
@@ -44,6 +45,7 @@ const App = () => {
               <Route exact path="/login" component={Login}></Route>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/admin" component={Admin}></Route>
+              <Route exact path="/addNewsPost" component={AddNewsPost}></Route>
               <Route exact path="/editions/:id" component={Edition}></Route>
               <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
             </Switch>

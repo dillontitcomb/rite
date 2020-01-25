@@ -51,10 +51,10 @@ const NewsPostState = (props) => {
   };
 
   const addNewsPost = async (newsPost) => {
-    const { title, description, file } = newsPost;
-    console.log(title, description, file);
+    const { title, description, files } = newsPost;
+    const imageFile = files[0]
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('fileGroup', imageFile);
     formData.append('title', title);
 
     const uploadConfig = {
