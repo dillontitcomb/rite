@@ -12,6 +12,10 @@ const NewsPostSchema = new mongoose.Schema({
   filePath: {
     type: String,
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 

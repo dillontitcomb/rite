@@ -70,6 +70,24 @@ router.post('/', auth, async (req, res) => {
 // @route PUT api/newsPosts/:id
 // @desc Update newsPost by ID
 // @access Private
+router.put('/:id', auth, async (req, res) => {
+  const { title, description, filePath } = req.body;
+  try {
+    const newNewsPost = await NewsPost.findByIdAndUpdate(req.params.id, {
+      title,
+      description,
+      filePath
+    });
+    if (!newNewsPost)
+      return res.status(400).json({ msg: 'News post could not be updated.' });
+    return res.json({ msg: 'News post succesfully updated.' });
+  } catch (err) {
+    if (err)
+      return res
+        .status(500)
+        .json({ msg: 'There was an issue with the server.' });
+  }
+});
 
 // @route DELETE api/newsPosts/:id
 // @desc Delete newsPost by ID

@@ -20,6 +20,10 @@ const EditionSchema = new mongoose.Schema({
   filePaths: {
     type: [String],
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 
