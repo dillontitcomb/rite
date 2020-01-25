@@ -7,7 +7,19 @@ const NewsPost = require('../../models/NewsPost');
 // @route GET api/newsPosts
 // @desc Get all newsPosts
 // @access Public
-router.get('/', (req, res) => res.send('NewsPosts route!'));
+router.get('/', async (req, res) => {
+  try {
+    const newsPosts = await NewsPost.find();
+    if (!newsPosts)
+      return res.status(400).json({ msg: 'No news posts could be found.' });
+    return res.json({ newsPosts });
+  } catch (err) {
+    if (err)
+      return res
+        .status(500)
+        .json({ msg: 'There was an issue with the server.' });
+  }
+});
 
 // @route GET api/newsPosts/:id
 // @desc Get newsPost by ID
