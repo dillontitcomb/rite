@@ -8,7 +8,8 @@ const News = () => {
   const newsPost = {
     title: 'Hellow',
     description: 'Description',
-    filePath: '/img/fb-logo.jpg'
+    filePath: '/img/fb-logo.jpg',
+    _id: '5e2c9ab1e2481d3ae8099ba2'
   };
   console.log(newsPostContext);
 

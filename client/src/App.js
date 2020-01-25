@@ -6,6 +6,7 @@ import Editions from './components/editions/Editions';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import News from './components/news/News';
+import NewsPost from './components/news/NewsPost';
 import About from './components/pages/About';
 import Admin from './components/pages/Admin';
 import Home from './components/pages/Home';
@@ -44,6 +45,7 @@ const App = () => {
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/admin" component={Admin}></Route>
               <Route exact path="/editions/:id" component={Edition}></Route>
+              <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
             </Switch>
             <Footer></Footer>
           </div>
