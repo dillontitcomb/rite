@@ -24,6 +24,22 @@ router.get('/', async (req, res) => {
 // @route GET api/newsPosts/:id
 // @desc Get newsPost by ID
 // @access Public
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    let newsPost = await NewsPost.findById(id);
+    if (!newsPost)
+      return res
+        .status(400)
+        .json({ msg: 'No matching news post could be found.' });
+    return res.json({ newsPost });
+  } catch (err) {
+    if (err)
+      return res
+        .status(500)
+        .json({ msg: 'There was an issue with the server.' });
+  }
+});
 
 // @route POST api/newsPosts
 // @desc Create new newsPost
