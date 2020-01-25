@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useReducer } from 'react';
 import {
+  ADD_NEWSPOST_FAILURE,
+  ADD_NEWSPOST_SUCCESS,
   GET_NEWSPOSTS_FAILURE,
   GET_NEWSPOSTS_SUCCESS,
   GET_NEWSPOST_FAILURE,
@@ -48,6 +50,47 @@ const NewsPostState = (props) => {
     }
   };
 
+  const addNewsPost = async (newsPost) => {
+    const { title, description, file } = newsPost;
+    console.log(title, description, file);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('title', title);
+
+    const uploadConfig = {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    };
+
+    const addNewsPostConfig = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.post('/api/upload', formData, uploadConfig);
+      const filePath = res.data.filePaths[0];
+
+      const newsPostData = {
+        title,
+        description,
+        filePath
+      };
+
+      const newsPostRes = await axios.post(
+        './api/newsPosts',
+        newsPostData,
+        addNewsPostConfig
+      );
+      dispatch({ type: ADD_NEWSPOST_SUCCESS });
+    } catch (err) {
+      console.log('There was an error adding a news post.', err);
+      dispatch({ type: ADD_NEWSPOST_FAILURE });
+    }
+  };
+
   return (
     <NewsPostContext.Provider
       value={{
@@ -55,7 +98,8 @@ const NewsPostState = (props) => {
         newsPost: state.newsPost,
         loading: state.loading,
         getNewsPosts,
-        getNewsPost
+        getNewsPost,
+        addNewsPost
       }}
     >
       {props.children}
