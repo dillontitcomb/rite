@@ -12,7 +12,7 @@ const Edition = ({ match }) => {
     // eslint-disable-next-line
   }, []);
 
-  const { author, title, year, description, filePaths } = edition;
+  const { artist, title, year, description, filePaths } = edition;
 
   return (
     <div className="container">
@@ -21,10 +21,10 @@ const Edition = ({ match }) => {
       ) : (
         <div>
           <p className="x-large my-1">
-            {author}, <em>{title}</em>, {year}
+            {artist}, <em>{title}</em>, {year}
           </p>
           <img src={filePaths[0]} alt={`${title}`} />
-          <p className="large my-1">{author.toUpperCase()}</p>
+          <p className="large my-1">{artist.toUpperCase()}</p>
           <p className="lead">
             <em>
               <strong>

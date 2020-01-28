@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const EditionSchema = new mongoose.Schema({
-  author: {
+  artist: {
     type: String,
     required: true
   },

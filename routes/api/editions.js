@@ -22,17 +22,17 @@ router.get('/', async (req, res) => {
 // @desc Create a new edition
 // @access Private
 router.post('/', auth, async (req, res) => {
-  const { author, title, year, description, filePaths } = req.body;
+  const { artist, title, year, description, filePaths } = req.body;
 
   try {
     let edition = await Edition.findOne({ title });
     if (edition) {
       return res.status(400).json({ msg: 'Edition already exists.' });
     }
-    edition = new Edition({ author, title, year, description, filePaths });
+    edition = new Edition({ artist, title, year, description, filePaths });
     await edition.save();
     return res.json({
-      msg: `${author}'s edition, titled ${title}, was saved to the database successfully.`
+      msg: `${artist}'s edition, titled ${title}, was saved to the database successfully.`
     });
   } catch (err) {
     return res
@@ -66,10 +66,10 @@ router.get('/:id', async (req, res) => {
 // @access Private
 // TODO: If title is changed, need to change image directory name
 router.put('/:id', auth, async (req, res) => {
-  const { author, title, year, description, filePaths } = req.body;
+  const { artist, title, year, description, filePaths } = req.body;
   try {
     const updatedEdition = await Edition.findByIdAndUpdate(req.params.id, {
-      author,
+      artist,
       title,
       year,
       description,

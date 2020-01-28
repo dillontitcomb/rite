@@ -8,7 +8,7 @@ const Admin = () => {
   const { addEdition } = editionContext;
 
   const [state, setState] = useState({
-    author: '',
+    artist: '',
     title: '',
     year: '',
     description: '',
@@ -38,7 +38,7 @@ const Admin = () => {
       ...state
     });
     setState({
-      author: '',
+      artist: '',
       title: '',
       year: '',
       description: '',
@@ -69,9 +69,9 @@ const Admin = () => {
 
         <input
           type="text"
-          name="author"
-          placeholder="Author Name"
-          value={state.author}
+          name="artist"
+          placeholder="artist Name"
+          value={state.artist}
           onChange={onChange}
         />
 
