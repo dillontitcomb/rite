@@ -1,6 +1,17 @@
 import React, { useContext, useEffect } from 'react';
 import EditionContext from '../../context/edition/editionContext';
 
+// Format Artist Names
+const formatArtists = (artists) => {
+  if (artists.length < 3) {
+    return artists.join(' & ');
+  } else {
+    let last = artists[artists.length - 1];
+    let rest = artists.slice(0, artists.length - 1);
+    return rest.join(', ') + ', and ' + last;
+  }
+};
+
 // This is the full-page, detailed edition
 
 const Edition = ({ match }) => {
@@ -21,13 +32,11 @@ const Edition = ({ match }) => {
       ) : (
         <div>
           <p className="x-large my-1">
-            {artists[0]}, <em>{title}</em>, {year}
+            {artists.length > 0 && formatArtists(artists) + ', '}
+            <em>{title}</em>, {year}
           </p>
           <img src={filePaths[0]} alt={`${title}`} />
-          <p className="large my-1">
-            {artists.length > 0 &&
-              artists.map((artist, key) => <span key={key}>{artist} </span>)}
-          </p>
+          <p className="large my-1">{artists && formatArtists(artists)}</p>
           <p className="lead">
             <em>
               <strong>

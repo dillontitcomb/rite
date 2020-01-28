@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './EditionItem.css';
 
+// Format Artist Names
+const formatArtists = (artists) => {
+  if (artists.length < 3) {
+    return artists.join(' & ');
+  } else {
+    let last = artists[artists.length - 1];
+    let rest = artists.slice(0, artists.length - 1);
+    return rest.join(', ') + ', and ' + last;
+  }
+};
+
 // This is the condensed edition, viewable in a gallery on the Editions page
 
 const EditionItem = ({
@@ -19,9 +30,8 @@ const EditionItem = ({
         <div className="edition-item-overlay">
           <p className="edition-item-text">
             <u>
-              {artists.length > 0 &&
-                artists.map((artist, key) => <span key={key}>{artist}</span>)}
-              ,<em>{title}</em>, {year}
+              {artists.length > 0 && formatArtists(artists) + ', '}
+              <em>{title}</em>, {year}
             </u>
           </p>
         </div>

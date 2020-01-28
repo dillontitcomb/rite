@@ -9,7 +9,7 @@ const Admin = () => {
 
   // TODO: Add option to create multiple artists
   const [state, setState] = useState({
-    artists: [''],
+    artists: [],
     title: '',
     year: '',
     description: '',
@@ -79,7 +79,7 @@ const Admin = () => {
             <em>{file.name}</em>
           </p>
         ))}
-
+        <br />
         {state.artists.map((artist, index) => {
           return (
             <div key={index}>
@@ -94,7 +94,7 @@ const Admin = () => {
         })}
 
         <button className="btn btn-primary" onClick={handleAddArtist}>
-          Add Another Artist
+          Add Artist
         </button>
 
         <input
