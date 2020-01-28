@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const EditionSchema = new mongoose.Schema({
-  artist: {
-    type: String,
+  artists: {
+    type: [String],
     required: true
   },
   title: {

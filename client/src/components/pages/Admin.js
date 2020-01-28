@@ -7,13 +7,26 @@ const Admin = () => {
   const editionContext = useContext(EditionContext);
   const { addEdition } = editionContext;
 
+  // TODO: Add option to create multiple artists
   const [state, setState] = useState({
-    artist: '',
+    artists: [''],
     title: '',
     year: '',
     description: '',
     files: []
   });
+
+  const handleAddArtist = (e) => {
+    e.preventDefault();
+    setState({ ...state, artists: [...state.artists, ''] });
+  };
+
+  const onArtistsChange = (e, index) => {
+    e.preventDefault();
+    let artists = [...state.artists];
+    artists[index] = e.target.value;
+    setState({ ...state, artists: artists });
+  };
 
   const onChange = (e) => {
     const value = e.target.value;
@@ -21,7 +34,6 @@ const Admin = () => {
       ...state,
       [e.target.name]: value
     });
-    console.log(state);
   };
 
   const onFileChange = (e) => {
@@ -29,7 +41,6 @@ const Admin = () => {
       ...state,
       files: [...state.files, ...e.target.files]
     });
-    console.log(state);
   };
 
   const onSubmit = async (e) => {
@@ -38,13 +49,15 @@ const Admin = () => {
       ...state
     });
     setState({
-      artist: '',
+      artists: [],
       title: '',
       year: '',
       description: '',
       files: []
     });
   };
+
+  console.log(state);
 
   return (
     <div className="container">
@@ -67,13 +80,22 @@ const Admin = () => {
           </p>
         ))}
 
-        <input
-          type="text"
-          name="artist"
-          placeholder="artist Name"
-          value={state.artist}
-          onChange={onChange}
-        />
+        {state.artists.map((artist, index) => {
+          return (
+            <div key={index}>
+              <input
+                type="text"
+                value={artist}
+                onChange={(e) => onArtistsChange(e, index)}
+                placeholder="Artist Name"
+              />
+            </div>
+          );
+        })}
+
+        <button className="btn btn-primary" onClick={handleAddArtist}>
+          Add Another Artist
+        </button>
 
         <input
           type="text"

@@ -5,7 +5,7 @@ import './EditionItem.css';
 // This is the condensed edition, viewable in a gallery on the Editions page
 
 const EditionItem = ({
-  edition: { artist, title, year, description, filePaths, _id }
+  edition: { artists, title, year, description, filePaths, _id }
 }) => {
   const itemBackgroundStyle = {
     backgroundImage: `url(${filePaths[0]})`
@@ -19,7 +19,9 @@ const EditionItem = ({
         <div className="edition-item-overlay">
           <p className="edition-item-text">
             <u>
-              {artist},<em>{title}</em>, {year}
+              {artists.length > 0 &&
+                artists.map((artist, key) => <span key={key}>{artist}</span>)}
+              ,<em>{title}</em>, {year}
             </u>
           </p>
         </div>

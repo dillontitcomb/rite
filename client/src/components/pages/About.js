@@ -36,7 +36,7 @@ const About = () => {
           </p>
           <br />
           <p>
-            Steven Leiber passed away in 2012. RITE Editions published Artists &
+            Steven Leiber passed away in 2012. RITE Editions published artists &
             Editions in 2013 as a tribute to Steven and his work as a dealer,
             collector, and teacher. Fourteen artists, many of whom engaged in an
             ongoing dialogue with Steven during his lifetime, contributed
