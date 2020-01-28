@@ -6,7 +6,6 @@ import NewsPostContext from '../../context/newsPost/newsPostContext';
 const AddNewsPost = () => {
   const newsPostContext = useContext(NewsPostContext);
   const { addNewsPost } = newsPostContext;
-  console.log(newsPostContext);
 
   const [state, setState] = useState({
     title: '',
@@ -27,7 +26,6 @@ const AddNewsPost = () => {
       ...state,
       files: [...state.files, ...e.target.files]
     });
-    console.log(state);
   };
 
   const onSubmit = async (e) => {
@@ -43,8 +41,8 @@ const AddNewsPost = () => {
   };
 
   return (
-    <div className="container">
-      <p className="x-large text-center my-2">Add A News Post</p>
+    <div>
+      <p className="large">Add a News Post</p>
       <form className="form" onSubmit={onSubmit}>
         <p>
           <strong>Upload an Image</strong>

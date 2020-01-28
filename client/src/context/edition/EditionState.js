@@ -56,7 +56,7 @@ const EditionState = (props) => {
     const { artists, title, year, description, files } = edition;
     const formData = new FormData();
     for (const file of files) {
-      formData.append('fileGroup', file);
+      formData.append('fileGroup', file, file.name.replace(' ', ''));
     }
     formData.append('title', title);
 

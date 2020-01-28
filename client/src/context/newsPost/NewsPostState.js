@@ -54,7 +54,7 @@ const NewsPostState = (props) => {
     const { title, description, files } = newsPost;
     const imageFile = files[0];
     const formData = new FormData();
-    formData.append('fileGroup', imageFile);
+    formData.append('fileGroup', imageFile, imageFile.name.replace(' ', ''));
     formData.append('title', title);
 
     const uploadConfig = {
