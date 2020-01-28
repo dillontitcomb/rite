@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Artists from './components/artists/Artists';
 import Edition from './components/editions/Edition';
 import Editions from './components/editions/Editions';
-import AddNewsPost from './components/forms/AddNewsPost';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import News from './components/news/News';
@@ -41,11 +41,11 @@ const App = () => {
               <Route exact path="/" component={Home}></Route>
               <Route exact path="/about" component={About}></Route>
               <Route exact path="/editions" component={Editions}></Route>
+              <Route exact path="/artists" component={Artists}></Route>
               <Route exact path="/news" component={News}></Route>
               <Route exact path="/login" component={Login}></Route>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/admin" component={Admin}></Route>
-              <Route exact path="/addNewsPost" component={AddNewsPost}></Route>
               <Route exact path="/editions/:id" component={Edition}></Route>
               <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
             </Switch>

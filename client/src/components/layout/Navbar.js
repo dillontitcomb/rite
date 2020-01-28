@@ -41,21 +41,17 @@ const Navbar = () => {
           <Link className="nav-item nav-active" to="/">
             Home
           </Link>
-
-          <Link className="nav-item" to="/about">
-            About
+          <Link className="nav-item" to="/artists">
+            Artists
           </Link>
           <Link className="nav-item" to="/editions">
             Editions
           </Link>
-          <Link className="nav-item" to="/artworks">
-            Related Artwork
-          </Link>
           <Link className="nav-item" to="/news">
             News
           </Link>
-          <Link className="nav-item" to="/shop">
-            Buy Rite
+          <Link className="nav-item" to="/about">
+            About
           </Link>
           {!isAuthenticated ? (
             <>

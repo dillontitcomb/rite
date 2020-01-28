@@ -348,6 +348,14 @@ input {
   color: #888;
 }
 
+.form-container {
+  background-color: var(--white-color);
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 input[type='text'],
 input[type='email'],
 input[type='password'],
