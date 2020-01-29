@@ -1,8 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import EditionContext from '../../context/edition/editionContext';
+import EditionItem from '../editions/EditionItem';
 import './Artists.css';
 
 const Artists = () => {
+  const [state, setState] = useState({
+    displayEditions: false,
+    artistEditions: []
+  });
+
   const editionContext = useContext(EditionContext);
   const { getEditions, editions } = editionContext;
 
@@ -22,19 +28,8 @@ const Artists = () => {
     let artistEditions = editions.filter((edition) =>
       edition.artists.includes(e.target.value)
     );
-    displayEditions(artistEditions);
+    setState({ displayEditions: true, artistEditions: artistEditions });
   };
-
-  // TODO: Replace with separate display component
-  const displayEditions = (editions) => {
-    const displayContainer = document.getElementById('artists-edition-display');
-    displayContainer.innerHTML = `
-      <img src=${editions[0].filePaths[0]} alt="Edition on display"></img>
-    `;
-    displayContainer.style.visibility = 'visible';
-  };
-
-  console.log(artists);
 
   return (
     <div className="container">
@@ -52,7 +47,12 @@ const Artists = () => {
             </button>
           ))}
       </div>
-      <div id="artists-edition-display"></div>
+      <div className="artists-edition-display my-2">
+        {state.displayEditions &&
+          state.artistEditions.map((edition, key) => (
+            <EditionItem edition={edition} key={key}></EditionItem>
+          ))}
+      </div>
     </div>
   );
 };
