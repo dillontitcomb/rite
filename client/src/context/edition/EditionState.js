@@ -3,8 +3,6 @@ import React, { useReducer } from 'react';
 import {
   ADD_EDITION_FAILURE,
   ADD_EDITION_SUCCESS,
-  GET_ARTISTS_FAILURE,
-  GET_ARTISTS_SUCCESS,
   GET_EDITIONS_FAILURE,
   GET_EDITIONS_SUCCESS,
   GET_EDITION_FAILURE,
@@ -23,8 +21,6 @@ const EditionState = (props) => {
       description: '',
       filePaths: []
     },
-    artists: [],
-    artist: {},
     loading: true
   };
 
@@ -39,21 +35,6 @@ const EditionState = (props) => {
     } catch (err) {
       console.log(err);
       dispatch({ type: GET_EDITIONS_FAILURE });
-    }
-  };
-
-  // Get All Artists
-  const getArtists = async () => {
-    try {
-      const res = await axios.get('/api/editions');
-      const artists = res.data.editions.reduce((acc, val) => {
-        acc.push(...val.artists);
-        return acc;
-      }, []);
-      dispatch({ type: GET_ARTISTS_SUCCESS, payload: artists });
-    } catch (err) {
-      console.log(err);
-      dispatch({ type: GET_ARTISTS_FAILURE });
     }
   };
 
@@ -123,12 +104,10 @@ const EditionState = (props) => {
         editions: state.editions,
         edition: state.edition,
         loading: state.loading,
-        artists: state.artists,
-        artist: state.artist,
+
         addEdition,
         getEditions,
-        getEdition,
-        getArtists
+        getEdition
       }}
     >
       {props.children}

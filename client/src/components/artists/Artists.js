@@ -4,22 +4,25 @@ import './Artists.css';
 
 const Artists = () => {
   const editionContext = useContext(EditionContext);
-  const { getEditions, editions, getArtists, artists } = editionContext;
-
-  const getEditionsByArtist = (artist) => {
-    return editions.filter((edition) => edition.artists.includes(artist));
-  };
+  const { getEditions, editions } = editionContext;
 
   useEffect(() => {
     getEditions();
-    getArtists();
     //eslint-disable-next-line
   }, []);
 
-  const handleSelectArtist = async (e) => {
+  const artists = editions.reduce((acc, val) => {
+    acc.push(...val.artists);
+    return acc;
+  }, []);
+
+  // Show artist's editions when artist name is selected
+  const handleSelectArtist = (e) => {
     e.preventDefault();
-    let editions = getEditionsByArtist(e.target.value);
-    displayEditions(editions);
+    let artistEditions = editions.filter((edition) =>
+      edition.artists.includes(e.target.value)
+    );
+    displayEditions(artistEditions);
   };
 
   // TODO: Replace with separate display component
@@ -30,6 +33,8 @@ const Artists = () => {
     `;
     displayContainer.style.visibility = 'visible';
   };
+
+  console.log(artists);
 
   return (
     <div className="container">

@@ -28,14 +28,6 @@ export default (state, action) => {
       return { ...state, edition: action.payload, loading: false };
     case GET_EDITION_FAILURE:
       return { ...state, loading: false };
-    case GET_ARTISTS_SUCCESS:
-      return { ...state, artists: action.payload, loading: false };
-    case GET_ARTISTS_FAILURE:
-      return { ...state, artists: [], loading: false };
-    case GET_EDITIONS_BY_ARTIST_SUCCESS:
-      return { ...state, artists: action.payload, loading: false };
-    case GET_EDITIONS_BY_ARTIST_FAILURE:
-      return { ...state, artists: [], loading: false };
     case SET_LOADING:
       return { ...state, loading: true };
   }
