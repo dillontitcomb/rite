@@ -3,6 +3,8 @@ import {
   ADD_EDITION_SUCCESS,
   GET_ARTISTS_FAILURE,
   GET_ARTISTS_SUCCESS,
+  GET_EDITIONS_BY_ARTIST_FAILURE,
+  GET_EDITIONS_BY_ARTIST_SUCCESS,
   GET_EDITIONS_FAILURE,
   GET_EDITIONS_SUCCESS,
   GET_EDITION_FAILURE,
@@ -29,6 +31,10 @@ export default (state, action) => {
     case GET_ARTISTS_SUCCESS:
       return { ...state, artists: action.payload, loading: false };
     case GET_ARTISTS_FAILURE:
+      return { ...state, artists: [], loading: false };
+    case GET_EDITIONS_BY_ARTIST_SUCCESS:
+      return { ...state, artists: action.payload, loading: false };
+    case GET_EDITIONS_BY_ARTIST_FAILURE:
       return { ...state, artists: [], loading: false };
     case SET_LOADING:
       return { ...state, loading: true };

@@ -24,6 +24,7 @@ const EditionState = (props) => {
       filePaths: []
     },
     artists: [],
+    artist: {},
     loading: true
   };
 
@@ -123,6 +124,7 @@ const EditionState = (props) => {
         edition: state.edition,
         loading: state.loading,
         artists: state.artists,
+        artist: state.artist,
         addEdition,
         getEditions,
         getEdition,
