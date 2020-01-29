@@ -33,7 +33,7 @@ const Login = () => {
   return (
     <div>
       <div className="container">
-        <p className="x-large my-2">Login</p>
+        <p className="x-large my-3 text-center text-weight-light">LOGIN</p>
         <p className="lead">Log into your RITE Editions member account.</p>
         <div className="my-1">
           <form className="form" onSubmit={onSubmit}>

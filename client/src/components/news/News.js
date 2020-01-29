@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import NewsPostContext from '../../context/newsPost/newsPostContext';
+import './News.css';
 import NewsPostItem from './NewsPostItem';
 
 const News = () => {
@@ -13,9 +14,12 @@ const News = () => {
 
   return (
     <div className="container">
-      {newsPosts.map((newsPost, key) => (
-        <NewsPostItem newsPost={newsPost} key={key}></NewsPostItem>
-      ))}
+      <p className="x-large text-weight-light text-center my-3">NEWS</p>
+      <div className="news-post-grid">
+        {newsPosts.reverse().map((newsPost, key) => (
+          <NewsPostItem newsPost={newsPost} key={key}></NewsPostItem>
+        ))}
+      </div>
     </div>
   );
 };

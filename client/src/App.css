@@ -26,7 +26,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: var(--light-color);
+  background-color: var(--white-color);
   color: var(--dark-color);
 }
 
@@ -251,9 +251,9 @@ img {
 }
 
 .btn-sm {
-  font-size: 0.8rem;
+  background-color: var(--white-color);
   padding: 0.3rem 1rem;
-  margin-right: 0.2rem;
+  margin: 0.2rem;
 }
 
 .badge {
@@ -393,7 +393,8 @@ table th {
   padding: 0.7rem 2rem;
   z-index: 1;
   width: 100%;
-  box-shadow: 0px 1px 5px 0 var(--dark-lighter);
+  border-bottom: 2px solid var(--light-color);
+  /* box-shadow: 0px 1px 5px 0 var(--dark-lighter); */
   background-color: var(--white-color);
   /* opacity: 0.9; */
 }
@@ -460,7 +461,8 @@ table th {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0px -1px 5px 0 var(--dark-lighter);
+  border-top: 2px solid var(--light-color);
+  /* box-shadow: 0px -1px 5px 0 var(--dark-lighter); */
 }
 
 .social-media-link {

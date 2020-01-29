@@ -6,7 +6,9 @@ const About = () => {
     <div>
       <div className="container">
         <div className="about">
-          <p className="x-large">About RITE Editions</p>
+          <p className="x-large text-weight-light text-center my-3">
+            ABOUT RITE EDITIONS
+          </p>
           <p>
             Steven Leiber and Robin Wright founded RITE Editions in 2007 in San
             Francisco with the intent of commissioning artists to make limited

@@ -15,15 +15,19 @@ const Editions = () => {
   return (
     <div>
       <div className="container">
-        <p className="x-large my-1">The Editions</p>
-        <hr className="my-1" />
+        <p className="x-large text-center text-weight-light my-3">
+          THE EDITIONS
+        </p>
+
         <div className="editions-grid">
           {loading ? (
             <p>Loading...</p>
           ) : (
-            editions.map((edition, key) => (
-              <EditionItem key={key} edition={edition}></EditionItem>
-            ))
+            editions
+              .reverse()
+              .map((edition, key) => (
+                <EditionItem key={key} edition={edition}></EditionItem>
+              ))
           )}
         </div>
       </div>

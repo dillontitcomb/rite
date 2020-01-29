@@ -40,7 +40,7 @@ const Register = () => {
   return (
     <div>
       <div className="container">
-        <p className="x-large my-2">Register</p>
+        <p className="x-large my-3 text-center text-weight-light">REGISTER</p>
         <p className="lead">
           Subscribe to RITE Editions to access exclusive content and purchase
           editions.

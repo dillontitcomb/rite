@@ -1,3 +1,8 @@
+.artists-container {
+  margin: auto;
+  max-width: 700px;
+}
+
 .artists-edition-display {
   display: flex;
   justify-content: center;

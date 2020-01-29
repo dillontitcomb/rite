@@ -33,13 +33,13 @@ const Artists = () => {
 
   return (
     <div className="container">
-      <p className="x-large text-center my-2">The Artists</p>
+      <p className="x-large text-weight-light text-center my-3">THE ARTISTS</p>
       <div className="artists-container text-center">
         {artists &&
           artists.map((artist, key) => (
             <button
               value={artist}
-              className="btn artists-name"
+              className="btn btn-sm artists-name"
               key={key}
               onClick={handleSelectArtist}
             >
