@@ -27,7 +27,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <nav className="navbar">
+      <nav className="navbar-container">
         <div>
           <Link to="/">
             <img
@@ -37,42 +37,44 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <ul>
-          <Link className="nav-item nav-active" to="/">
-            Home
-          </Link>
-          <Link className="nav-item" to="/artists">
-            Artists
-          </Link>
-          <Link className="nav-item" to="/editions">
-            Editions
-          </Link>
-          <Link className="nav-item" to="/news">
-            News
-          </Link>
-          <Link className="nav-item" to="/about">
-            About
-          </Link>
-          {!isAuthenticated ? (
-            <>
-              <Link className="nav-item" to="/register">
-                Register
-              </Link>
-              <Link className="nav-item" to="/login">
-                Log In
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link to="/admin" className="nav-item">
-                Admin
-              </Link>
-              <Link to="/" className="nav-item" onClick={onClick}>
-                Logout
-              </Link>
-            </>
-          )}
-        </ul>
+        <div className="navbar">
+          <ul>
+            <Link className="nav-item nav-active" to="/">
+              Home
+            </Link>
+            <Link className="nav-item" to="/artists">
+              Artists
+            </Link>
+            <Link className="nav-item" to="/editions">
+              Editions
+            </Link>
+            <Link className="nav-item" to="/news">
+              News
+            </Link>
+            <Link className="nav-item" to="/about">
+              About
+            </Link>
+            {!isAuthenticated ? (
+              <>
+                <Link className="nav-item" to="/register">
+                  Register
+                </Link>
+                <Link className="nav-item" to="/login">
+                  Log In
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/admin" className="nav-item">
+                  Admin
+                </Link>
+                <Link to="/" className="nav-item" onClick={onClick}>
+                  Logout
+                </Link>
+              </>
+            )}
+          </ul>
+        </div>
       </nav>
     </div>
   );

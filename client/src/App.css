@@ -384,16 +384,18 @@ table th {
   background: var(--light-color);
 }
 
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  border-bottom: 2px solid var(--light-color);
+}
+
 .navbar {
   border: none;
-  height: 120px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 2rem;
-  z-index: 1;
   width: 100%;
-  border-bottom: 2px solid var(--light-color);
   /* box-shadow: 0px 1px 5px 0 var(--dark-lighter); */
   background-color: var(--white-color);
   /* opacity: 0.9; */
@@ -401,13 +403,15 @@ table th {
 
 .navbar ul {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .navbar .nav-item {
   font-weight: lighter;
   color: var(--dark-lighter);
-  margin: 0.1rem 0.35rem;
+  margin-right: 0.3rem;
+  margin-left: 0.3rem;
   position: relative;
   display: inline-block;
 }
@@ -428,10 +432,6 @@ table th {
 
 .navbar a:hover {
   color: var(--dark-primary);
-}
-
-.navbar .welcome span {
-  margin-right: 0.6rem;
 }
 
 .nav-item.nav-active {
