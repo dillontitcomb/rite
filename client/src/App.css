@@ -397,7 +397,7 @@ table th {
   border: none;
   width: 100%;
   /* box-shadow: 0px 1px 5px 0 var(--dark-lighter); */
-  background-color: var(--white-color);
+  /* background-color: var(--white-color); */
   /* opacity: 0.9; */
 }
 
