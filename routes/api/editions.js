@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
 router.post('/', auth, async (req, res) => {
   const {
     artists,
+    newsPosts,
     title,
     year,
     description,
@@ -39,6 +40,7 @@ router.post('/', auth, async (req, res) => {
     }
     edition = new Edition({
       artists,
+      newsPosts,
       title,
       year,
       description,
@@ -82,14 +84,26 @@ router.get('/:id', async (req, res) => {
 // @access Private
 // TODO: If title is changed, need to change image directory name
 router.put('/:id', auth, async (req, res) => {
-  const { artists, title, year, description, filePaths } = req.body;
+  const {
+    artists,
+    newsPosts,
+    title,
+    year,
+    description,
+    filePaths,
+    price,
+    available
+  } = req.body;
   try {
     const updatedEdition = await Edition.findByIdAndUpdate(req.params.id, {
       artists,
+      newsPosts,
       title,
       year,
       description,
-      filePaths
+      filePaths,
+      price,
+      available
     });
     if (!updatedEdition)
       return res.status(400).json({ msg: 'Edition could not be updated.' });

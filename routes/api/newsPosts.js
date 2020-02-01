@@ -45,7 +45,7 @@ router.get('/:id', async (req, res) => {
 // @desc Create new newsPost
 // @access Private
 router.post('/', auth, async (req, res) => {
-  const { title, description, filePath } = req.body;
+  const { artists, editions, title, description, filePath } = req.body;
 
   try {
     let newsPost = await NewsPost.findOne({ title });
@@ -54,7 +54,13 @@ router.post('/', auth, async (req, res) => {
         .status(400)
         .json({ msg: 'There is already a newsPost with that title.' });
 
-    newsPost = new NewsPost({ title, description, filePath });
+    newsPost = new NewsPost({
+      artists,
+      editions,
+      title,
+      description,
+      filePath
+    });
     await newsPost.save();
     return res.json({
       msg: `News post titled ${title} was saved to database successfully.`
@@ -71,9 +77,11 @@ router.post('/', auth, async (req, res) => {
 // @desc Update newsPost by ID
 // @access Private
 router.put('/:id', auth, async (req, res) => {
-  const { title, description, filePath } = req.body;
+  const { artists, editions, title, description, filePath } = req.body;
   try {
     const newNewsPost = await NewsPost.findByIdAndUpdate(req.params.id, {
+      artists,
+      editions,
       title,
       description,
       filePath

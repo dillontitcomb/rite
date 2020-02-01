@@ -8,6 +8,12 @@ const EditionSchema = new mongoose.Schema({
       ref: 'artist'
     }
   ],
+  newsPosts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'newsPost'
+    }
+  ],
   title: {
     type: String,
     required: true
