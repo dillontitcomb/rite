@@ -22,14 +22,30 @@ router.get('/', async (req, res) => {
 // @desc Create a new edition
 // @access Private
 router.post('/', auth, async (req, res) => {
-  const { artists, title, year, description, filePaths } = req.body;
+  const {
+    artists,
+    title,
+    year,
+    description,
+    filePaths,
+    price,
+    available
+  } = req.body;
 
   try {
     let edition = await Edition.findOne({ title });
     if (edition) {
       return res.status(400).json({ msg: 'Edition already exists.' });
     }
-    edition = new Edition({ artists, title, year, description, filePaths });
+    edition = new Edition({
+      artists,
+      title,
+      year,
+      description,
+      filePaths,
+      price,
+      available
+    });
     await edition.save();
     return res.json({
       msg: `Edition titled ${title} was saved to the database successfully.`

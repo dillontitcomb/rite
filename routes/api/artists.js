@@ -38,3 +38,5 @@ router.post('/', auth, async (req, res) => {
     return res.status(500).json({ msg: 'There was an error with the server' });
   }
 });
+
+module.exports = router;

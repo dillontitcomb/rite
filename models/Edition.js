@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const EditionSchema = new mongoose.Schema({
-  artists: {
-    type: [String],
-    required: true
-  },
+  artists: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'artist'
+    }
+  ],
   title: {
     type: String,
     required: true
@@ -20,6 +23,16 @@ const EditionSchema = new mongoose.Schema({
   filePaths: {
     type: [String],
     required: true
+  },
+  price: {
+    type: Number,
+    required: false,
+    default: -1
+  },
+  available: {
+    type: Boolean,
+    required: false,
+    default: false
   },
   date: {
     type: Date,
