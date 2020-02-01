@@ -13,7 +13,7 @@ import Admin from './components/pages/Admin';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
-import ArtistState from './context/artist/artistState';
+import ArtistState from './context/artist/ArtistState';
 import AuthContext from './context/auth/authContext';
 import EditionState from './context/edition/EditionState';
 import NewsPostState from './context/newsPost/NewsPostState';
