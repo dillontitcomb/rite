@@ -13,6 +13,7 @@ import Admin from './components/pages/Admin';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
+import ArtistState from './context/artist/artistState';
 import AuthContext from './context/auth/authContext';
 import EditionState from './context/edition/EditionState';
 import NewsPostState from './context/newsPost/NewsPostState';
@@ -33,26 +34,28 @@ const App = () => {
 
   return (
     <EditionState>
-      <NewsPostState>
-        <Router>
-          <div className="App">
-            <Navbar title="Rite Editions" />
-            <Switch>
-              <Route exact path="/" component={Home}></Route>
-              <Route exact path="/about" component={About}></Route>
-              <Route exact path="/editions" component={Editions}></Route>
-              <Route exact path="/artists" component={Artists}></Route>
-              <Route exact path="/news" component={News}></Route>
-              <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/register" component={Register}></Route>
-              <Route exact path="/admin" component={Admin}></Route>
-              <Route exact path="/editions/:id" component={Edition}></Route>
-              <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
-            </Switch>
-            <Footer></Footer>
-          </div>
-        </Router>
-      </NewsPostState>
+      <ArtistState>
+        <NewsPostState>
+          <Router>
+            <div className="App">
+              <Navbar title="Rite Editions" />
+              <Switch>
+                <Route exact path="/" component={Home}></Route>
+                <Route exact path="/about" component={About}></Route>
+                <Route exact path="/editions" component={Editions}></Route>
+                <Route exact path="/artists" component={Artists}></Route>
+                <Route exact path="/news" component={News}></Route>
+                <Route exact path="/login" component={Login}></Route>
+                <Route exact path="/register" component={Register}></Route>
+                <Route exact path="/admin" component={Admin}></Route>
+                <Route exact path="/editions/:id" component={Edition}></Route>
+                <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
+              </Switch>
+              <Footer></Footer>
+            </div>
+          </Router>
+        </NewsPostState>
+      </ArtistState>
     </EditionState>
   );
 };

@@ -54,8 +54,6 @@ const AddEdition = () => {
     });
   };
 
-  console.log(state);
-
   return (
     <div>
       <p className="large">Add an Edition</p>

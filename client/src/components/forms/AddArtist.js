@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
-import EditionContext from '../../context/edition/editionContext';
+import ArtistContext from '../../context/artist/artistContext';
 
 // TODO: Create artist context, render this form, test adding artist.
-const AddEdition = () => {
-  const editionContext = useContext(EditionContext);
-  const { addEdition } = editionContext;
+const AddArtist = () => {
+  const artistContext = useContext(ArtistContext);
+  const { addArtist } = artistContext;
 
   const [state, setState] = useState({
     name: '',
@@ -22,7 +22,7 @@ const AddEdition = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    addEdition({
+    addArtist({
       ...state
     });
     setState({
@@ -31,8 +31,6 @@ const AddEdition = () => {
       bio: ''
     });
   };
-
-  console.log(state);
 
   return (
     <div>
@@ -65,4 +63,4 @@ const AddEdition = () => {
   );
 };
 
-export default AddEdition;
+export default AddArtist;
