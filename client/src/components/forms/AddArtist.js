@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import ArtistContext from '../../context/artist/artistContext';
 
-// TODO: Create artist context, render this form, test adding artist.
 const AddArtist = () => {
   const artistContext = useContext(ArtistContext);
   const { addArtist } = artistContext;
