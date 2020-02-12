@@ -124,9 +124,9 @@ router.put('/:id', auth, async (req, res) => {
 
 router.delete('/:id', auth, async (req, res) => {
   try {
-    const deletedEdition = await Edition.findByIdAndRemove(req.params.id);
+    await Edition.findByIdAndRemove(req.params.id);
     return res.json({
-      msg: `Edition ${deletedEdition.title} was successfully deleted.`
+      msg: `Edition was successfully deleted.`
     });
   } catch (err) {
     return res

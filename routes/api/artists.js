@@ -65,9 +65,9 @@ router.put('/:id', auth, async (req, res) => {
 // @access Private
 router.delete('/:id', auth, async (req, res) => {
   try {
-    const deletedArtist = await Artist.findByIdAndRemove(req.params.id);
+    const deletedEdition = await Artist.findByIdAndRemove(req.params.id);
     return res.json({
-      msg: `Edition ${deletedArtist.title} was successfully deleted.`
+      deletedEdition
     });
   } catch (err) {
     return res
