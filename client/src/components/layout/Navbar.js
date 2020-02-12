@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
-const updateNavLinks = () => {
+const activateNavLinks = () => {
   const links = document.getElementsByClassName('nav-item');
   for (let i = 0; i < links.length; i++) {
     links[i].addEventListener('click', function() {
@@ -17,7 +17,7 @@ const updateNavLinks = () => {
 };
 
 const Navbar = () => {
-  updateNavLinks();
+  activateNavLinks();
   const authContext = useContext(AuthContext);
   const { isAuthenticated, logout } = authContext;
 

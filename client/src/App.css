@@ -48,6 +48,19 @@ img {
   display: block;
 }
 
+/* Admin */
+
+.btn.admin-view-item {
+  background-color: white;
+  margin: 0;
+  border: 1px solid var(--light-color);
+}
+
+.btn.admin-view-item.selected {
+  background-color: var(--primary-color);
+  color: white;
+}
+
 /* Utilities */
 .container {
   min-height: calc(100vh - 300px);
@@ -486,18 +499,5 @@ table th {
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
-  }
-
-  /* Text Styles */
-  .x-large {
-    font-size: 3rem;
-  }
-
-  .large {
-    font-size: 2rem;
-  }
-
-  .lead {
-    font-size: 1rem;
   }
 }

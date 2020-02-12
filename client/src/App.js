@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Admin from './components/admin/Admin';
 import Artists from './components/artists/Artists';
 import Edition from './components/editions/Edition';
 import Editions from './components/editions/Editions';
@@ -9,7 +10,6 @@ import Navbar from './components/layout/Navbar';
 import News from './components/news/News';
 import NewsPost from './components/news/NewsPost';
 import About from './components/pages/About';
-import Admin from './components/pages/Admin';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
