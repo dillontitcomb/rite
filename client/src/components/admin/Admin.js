@@ -1,59 +1,75 @@
 import React, { useState } from 'react';
-import AddArtist from '../forms/AddArtist';
 import AddEdition from '../forms/AddEdition';
 import AddNewsPost from '../forms/AddNewsPost';
+import AdminArtists from './AdminArtists';
+
+const editionsView = (
+  <div>
+    <AddEdition></AddEdition>
+    {/* TODO: Edit Edition, Delete Edition */}
+  </div>
+);
+
+const newsPostView = (
+  <div>
+    <AddNewsPost></AddNewsPost>
+    {/* TODO: Edit NewsPost, Delete NewsPost */}
+  </div>
+);
+
+const clearSelections = () => {
+  const selectionButtons = document.getElementsByClassName('admin-view-item');
+  for (let i = 0; i < selectionButtons.length; i++) {
+    selectionButtons[i].className = selectionButtons[i].className.replace(
+      'selected',
+      ''
+    );
+  }
+};
 
 const Admin = () => {
   const [selection, setSelection] = useState('artists');
 
-  const activateSelections = () => {
-    const selectionButtons = document.getElementsByClassName('admin-view-item');
-    for (let i = 0; i < selectionButtons.length; i++) {
-      selectionButtons[i].addEventListener('click', function() {
-        let selectedButton = document.getElementsByClassName('selected');
-
-        selectedButton[0].className = selectedButton[0].className.replace(
-          'selected',
-          ''
-        );
-        this.className += ' selected';
-        setSelection(selectedButton[0].value);
-      });
-    }
+  const onSelectionClick = (e) => {
+    const selection = e.target;
+    clearSelections();
+    selection.className += ' selected';
+    setSelection(selection.value);
   };
-
-  activateSelections();
 
   return (
     <div className="container">
       <p className="x-large text-center my-2">Admin Page</p>
       <div className="text-center">
-        <button value="artists" className="btn admin-view-item selected">
+        <button
+          value="artists"
+          className="btn admin-view-item selected"
+          onClick={onSelectionClick}
+        >
           Artists
         </button>
-        <button value="editions" className="btn admin-view-item">
+        <button
+          value="editions"
+          className="btn admin-view-item"
+          onClick={onSelectionClick}
+        >
           Editions
         </button>
-        <button value="newsposts" className="btn admin-view-item">
+        <button
+          value="newsposts"
+          className="btn admin-view-item"
+          onClick={onSelectionClick}
+        >
           Newsposts
         </button>
       </div>
       {selection === 'artists' ? (
-        <p>Artists!</p>
+        <AdminArtists></AdminArtists>
       ) : selection === 'editions' ? (
-        <p>Editions!</p>
+        editionsView
       ) : (
-        <p>NewsPosts!</p>
+        newsPostView
       )}
-      <div className="form-container">
-        <AddArtist></AddArtist>
-      </div>
-      <div className="form-container">
-        <AddEdition></AddEdition>
-      </div>
-      <div className="form-container">
-        <AddNewsPost></AddNewsPost>
-      </div>
     </div>
   );
 };

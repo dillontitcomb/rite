@@ -52,13 +52,13 @@ img {
 
 .btn.admin-view-item {
   background-color: white;
-  margin: 0;
-  border: 1px solid var(--light-color);
+  margin: 0rem;
 }
 
 .btn.admin-view-item.selected {
   background-color: var(--primary-color);
   color: white;
+  opacity: 1;
 }
 
 /* Utilities */
@@ -94,6 +94,10 @@ img {
 
 .text-primary {
   color: var(--primary-color);
+}
+
+.text-light {
+  color: var(--light-color);
 }
 
 .text-dark {
@@ -379,6 +383,9 @@ textarea {
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
+}
+textarea {
+  min-height: 120px;
 }
 
 input[type='submit'],
