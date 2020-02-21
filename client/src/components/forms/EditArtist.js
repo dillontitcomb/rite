@@ -3,7 +3,7 @@ import artistContext from '../../context/artist/artistContext';
 
 const EditArtist = () => {
   const ArtistContext = useContext(artistContext);
-  const { getArtists, artists, loading } = ArtistContext;
+  const { getArtists, artists } = ArtistContext;
 
   const [state, setState] = useState({
     name: '',

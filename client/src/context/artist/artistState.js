@@ -3,6 +3,8 @@ import React, { useReducer } from 'react';
 import {
   ADD_ARTIST_FAILURE,
   ADD_ARTIST_SUCCESS,
+  DELETE_ARTIST_FAILURE,
+  DELETE_ARTIST_SUCCESS,
   GET_ARTISTS_FAILURE,
   GET_ARTISTS_SUCCESS
 } from '../types';
@@ -38,11 +40,24 @@ const ArtistState = (props) => {
       }
     };
     try {
-      const res = await axios.post('/api/artists', artist, config);
+      await axios.post('/api/artists', artist, config);
       dispatch({ type: ADD_ARTIST_SUCCESS });
     } catch (err) {
       console.log('There was an error adding an artist', err);
       dispatch({ type: ADD_ARTIST_FAILURE });
+    }
+  };
+
+  // Delete Artist
+  const deleteArtist = async (id) => {
+    try {
+      await axios.delete(`/api/artists/${id}`);
+      const res = await axios.get('/api/artists');
+      const payload = res.data.artists;
+      dispatch({ type: DELETE_ARTIST_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log('There was an error deleting an artist');
+      dispatch({ type: DELETE_ARTIST_FAILURE });
     }
   };
 
@@ -53,7 +68,8 @@ const ArtistState = (props) => {
         artist: state.artist,
         loading: state.loading,
         getArtists,
-        addArtist
+        addArtist,
+        deleteArtist
       }}
     >
       {props.children}

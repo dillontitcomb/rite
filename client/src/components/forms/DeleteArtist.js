@@ -3,19 +3,20 @@ import artistContext from '../../context/artist/artistContext';
 
 const DeleteArtist = () => {
   const ArtistContext = useContext(artistContext);
-  const { getArtists, artists } = ArtistContext;
+  const { getArtists, artists, deleteArtist } = ArtistContext;
 
   const [state, setState] = useState({
-    name: ''
+    name: '',
+    id: ''
   });
 
-  const handleDeleteArtist = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(state.name);
-    // TODO: Add context for deleteArtist
-    // deleteArtist();
+    console.log(`Trying to delete artist ${state.name}`);
+    deleteArtist(state.id);
     setState({
-      name: ''
+      name: '',
+      id: ''
     });
   };
 
@@ -23,11 +24,12 @@ const DeleteArtist = () => {
     const index = e.target.options.selectedIndex;
     // If index < 1, the selected option is the placeholder, so reset state & form fields
     if (index < 1) {
-      setState({ name: '' });
+      setState({ name: '', id: '' });
     } else {
       const selectedArtist = artists[index - 1];
       setState({
-        name: selectedArtist.name || ''
+        name: selectedArtist.name || '',
+        id: selectedArtist._id || ''
       });
     }
   };
@@ -38,16 +40,14 @@ const DeleteArtist = () => {
   }, []);
 
   const selectArtistView = (
-    <div className="my-1">
-      <select onChange={onSelectChange} id="artists">
-        <option value="placeholder">Select an artist...</option>
-        {artists.map((artist, key) => (
-          <option key={key} value={artist._id}>
-            {artist.name}
-          </option>
-        ))}
-      </select>
-    </div>
+    <select onChange={onSelectChange} id="artists">
+      <option value="placeholder">Select an artist...</option>
+      {artists.map((artist, key) => (
+        <option key={key} value={artist._id}>
+          {artist.name}
+        </option>
+      ))}
+    </select>
   );
 
   return (
@@ -56,10 +56,14 @@ const DeleteArtist = () => {
       <p>
         <i>This option will delete an artist permanently. Use with caution!</i>
       </p>
-      {artists.length > 0 && selectArtistView}
-      <button onClick={handleDeleteArtist} className="btn btn-danger">
-        Delete Artist
-      </button>
+      <form onSubmit={onSubmit} className="form">
+        {artists.length > 0 && selectArtistView}
+        <input
+          type="submit"
+          value="Delete Artist"
+          className="btn btn-danger"
+        ></input>
+      </form>
     </div>
   );
 };
