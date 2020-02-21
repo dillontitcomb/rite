@@ -57,7 +57,7 @@ const EditArtist = () => {
       <select onChange={onSelectChange} id="artists">
         <option value="placeholder">Select an artist...</option>
         {artists.map((artist, key) => (
-          <option key={key} value={artist._id} helloo={artist.name}>
+          <option key={key} value={artist._id}>
             {artist.name}
           </option>
         ))}
