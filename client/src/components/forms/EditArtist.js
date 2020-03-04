@@ -3,12 +3,13 @@ import artistContext from '../../context/artist/artistContext';
 
 const EditArtist = () => {
   const ArtistContext = useContext(artistContext);
-  const { getArtists, artists } = ArtistContext;
+  const { getArtists, artists, updateArtist } = ArtistContext;
 
   const [state, setState] = useState({
     name: '',
     artistLink: '',
-    bio: ''
+    bio: '',
+    id: ''
   });
 
   const onChange = (e) => {
@@ -21,14 +22,15 @@ const EditArtist = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Add updateArtist function to artistState
-    // updateArtist({
-    //   ...state
-    // });
+    console.log(state);
+    updateArtist({
+      ...state
+    });
     setState({
       name: '',
       artistLink: '',
-      bio: ''
+      bio: '',
+      id: ''
     });
   };
 
@@ -36,13 +38,14 @@ const EditArtist = () => {
     const index = e.target.options.selectedIndex;
     // If index < 1, the selected option is the placeholder, so reset state & form fields
     if (index < 1) {
-      setState({ name: '', artistLink: '', bio: '' });
+      setState({ name: '', artistLink: '', bio: '', id: '' });
     } else {
       const selectedArtist = artists[index - 1];
       setState({
         name: selectedArtist.name || '',
         artistLink: selectedArtist.artistLink || '',
-        bio: selectedArtist.bio || ''
+        bio: selectedArtist.bio || '',
+        id: selectedArtist._id || ''
       });
     }
   };
@@ -64,7 +67,6 @@ const EditArtist = () => {
       </select>
     </div>
   );
-  console.log(artists[0]);
 
   return (
     <div className="my-2">

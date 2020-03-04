@@ -6,7 +6,9 @@ import {
   DELETE_ARTIST_FAILURE,
   DELETE_ARTIST_SUCCESS,
   GET_ARTISTS_FAILURE,
-  GET_ARTISTS_SUCCESS
+  GET_ARTISTS_SUCCESS,
+  UPDATE_ARTIST_FAILURE,
+  UPDATE_ARTIST_SUCCESS
 } from '../types';
 import ArtistContext from './artistContext';
 import ArtistReducer from './artistReducer';
@@ -48,6 +50,24 @@ const ArtistState = (props) => {
     }
   };
 
+  // Update Artist
+  const updateArtist = async (artist) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    try {
+      await axios.put(`/api/artists/${artist.id}`, artist, config);
+      const res = await axios.get('/api/artists');
+      const payload = res.data.artists;
+      dispatch({ type: UPDATE_ARTIST_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log('There was an error updating an artist');
+      dispatch({ type: UPDATE_ARTIST_FAILURE });
+    }
+  };
+
   // Delete Artist
   const deleteArtist = async (id) => {
     try {
@@ -69,7 +89,8 @@ const ArtistState = (props) => {
         loading: state.loading,
         getArtists,
         addArtist,
-        deleteArtist
+        deleteArtist,
+        updateArtist
       }}
     >
       {props.children}

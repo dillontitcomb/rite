@@ -4,7 +4,9 @@ import {
   DELETE_ARTIST_FAILURE,
   DELETE_ARTIST_SUCCESS,
   GET_ARTISTS_FAILURE,
-  GET_ARTISTS_SUCCESS
+  GET_ARTISTS_SUCCESS,
+  UPDATE_ARTIST_FAILURE,
+  UPDATE_ARTIST_SUCCESS
 } from '../types';
 
 export default (state, action) => {
@@ -20,6 +22,10 @@ export default (state, action) => {
     case DELETE_ARTIST_SUCCESS:
       return { ...state, artists: action.payload, loading: false };
     case DELETE_ARTIST_FAILURE:
+      return { ...state, loading: false };
+    case UPDATE_ARTIST_SUCCESS:
+      return { ...state, artists: action.payload, loading: false };
+    case UPDATE_ARTIST_FAILURE:
       return { ...state, loading: false };
     default:
       return state;
