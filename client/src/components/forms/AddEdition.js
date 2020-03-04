@@ -1,28 +1,34 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import ArtistContext from '../../context/artist/artistContext';
 import EditionContext from '../../context/edition/editionContext';
+import AddArtist from '../forms/AddArtist';
 
 const AddEdition = () => {
   const editionContext = useContext(EditionContext);
   const { addEdition } = editionContext;
 
+  const artistContext = useContext(ArtistContext);
+  const { getArtists, artists } = artistContext;
+
   const [state, setState] = useState({
     artists: [],
+    newsPosts: [],
     title: '',
     year: '',
     description: '',
-    files: []
+    files: [],
+    price: -1,
+    available: '',
+    showAddArtist: false,
+    showSelectArtist: false
   });
 
-  const handleAddArtist = (e) => {
-    e.preventDefault();
-    setState({ ...state, artists: [...state.artists, ''] });
+  const handleAddArtist = () => {
+    setState({ ...state, showAddArtist: true, showSelectArtist: false });
   };
 
-  const onArtistsChange = (e, index) => {
-    e.preventDefault();
-    let artists = [...state.artists];
-    artists[index] = e.target.value;
-    setState({ ...state, artists: artists });
+  const handleSelectArtist = () => {
+    console.log('Selecting artist!');
   };
 
   const onChange = (e) => {
@@ -47,19 +53,36 @@ const AddEdition = () => {
     });
     setState({
       artists: [],
+      newsPosts: [],
       title: '',
       year: '',
       description: '',
-      files: []
+      files: [],
+      price: -1,
+      available: ''
     });
   };
+
+  useEffect(() => {
+    getArtists();
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <div>
       <p className="large">Add an Edition</p>
-      <form className="form" onSubmit={onSubmit}>
+      {state.showAddArtist && <AddArtist></AddArtist>}
+      {!state.showAddArtist && (
+        <button className="btn btn-primary" onClick={handleAddArtist}>
+          Add New Artist
+        </button>
+      )}
+      <button className="btn btn-dark" onClick={handleSelectArtist}>
+        Select Existing Artist
+      </button>
+      <form className="form my-2" onSubmit={onSubmit}>
         <p>
-          <strong>Edition Images:</strong>
+          <strong>Select Edition Images:</strong>
         </p>
         <input type="file" name="fileGroup" multiple onChange={onFileChange} />
 
@@ -74,22 +97,6 @@ const AddEdition = () => {
           </p>
         ))}
         <br />
-        {state.artists.map((artist, index) => {
-          return (
-            <div key={index}>
-              <input
-                type="text"
-                value={artist}
-                onChange={(e) => onArtistsChange(e, index)}
-                placeholder="Artist Name"
-              />
-            </div>
-          );
-        })}
-
-        <button className="btn btn-primary" onClick={handleAddArtist}>
-          Add Artist
-        </button>
 
         <input
           type="text"
