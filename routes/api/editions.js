@@ -48,6 +48,7 @@ router.post('/', auth, async (req, res) => {
       price,
       available
     });
+    console.log(edition);
     await edition.save();
     return res.json({
       msg: `Edition titled ${title} was saved to the database successfully.`

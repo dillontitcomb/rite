@@ -18,10 +18,8 @@ const Artists = () => {
         {artists &&
           artists.map((artist, key) => (
             // TODO: Create ArtistItem component and use here
-            <div className="card">
-              <p className="lead" key={key}>
-                {artist.name}
-              </p>
+            <div className="card" key={key}>
+              <p className="lead">{artist.name}</p>
               <p>{artist.bio}</p>
               <p>
                 Check out their work at{' '}

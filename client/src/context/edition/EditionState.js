@@ -16,10 +16,13 @@ const EditionState = (props) => {
     editions: [],
     edition: {
       artists: [],
+      newsPosts: [],
       title: '',
       year: '',
       description: '',
-      filePaths: []
+      filePaths: [],
+      price: -1,
+      available: false
     },
     loading: true
   };
@@ -53,7 +56,16 @@ const EditionState = (props) => {
 
   // Add New Edition
   const addEdition = async (edition) => {
-    const { artists, title, year, description, files } = edition;
+    const {
+      artists,
+      newsposts,
+      title,
+      year,
+      description,
+      files,
+      price,
+      available
+    } = edition;
     const formData = new FormData();
     for (const file of files) {
       formData.append('fileGroup', file, file.name.replace(' ', ''));
@@ -80,7 +92,16 @@ const EditionState = (props) => {
       const { filePaths } = res.data;
       console.log('Flepaths returned by /api/upload:', filePaths);
       // Upload remaining edition data with filepaths
-      const editionData = { filePaths, title, artists, year, description };
+      const editionData = {
+        artists,
+        newsposts,
+        title,
+        year,
+        description,
+        filePaths,
+        price,
+        available
+      };
       console.log('Data being sent to /api/editions: ', editionData);
       const editionRes = await axios.post(
         '/api/editions',
