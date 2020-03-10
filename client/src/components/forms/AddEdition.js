@@ -12,6 +12,7 @@ const AddEdition = () => {
 
   const [state, setState] = useState({
     artists: [],
+    artist: null,
     newsPosts: [],
     title: '',
     year: '',
@@ -23,12 +24,31 @@ const AddEdition = () => {
     showSelectArtist: false
   });
 
-  const handleAddArtist = () => {
+  const handleCreateArtist = () => {
     setState({ ...state, showAddArtist: true, showSelectArtist: false });
   };
 
   const handleSelectArtist = () => {
     console.log('Selecting artist!');
+    setState({ ...state, showAddArtist: false, showSelectArtist: true });
+  };
+
+  const handleAddSelectedArtist = () => {
+    console.log('Adding selected artist to edition');
+    const newArtistsList = [...state.artists, state.artist];
+    setState({ ...state, artist: [], artists: newArtistsList });
+    console.log(state);
+  };
+
+  const onSelectArtistChange = (e) => {
+    const index = e.target.options.selectedIndex;
+    // If index < 1, the selected option is the placeholder, so reset state & form fields
+    if (index < 1) {
+      setState({ ...state, artist: [] });
+    } else {
+      const selectedArtist = artists[index - 1];
+      setState({ ...state, artist: selectedArtist });
+    }
   };
 
   const onChange = (e) => {
@@ -68,18 +88,52 @@ const AddEdition = () => {
     //eslint-disable-next-line
   }, []);
 
-  return (
-    <div>
-      <p className="large">Add an Edition</p>
-      {state.showAddArtist && <AddArtist></AddArtist>}
-      {!state.showAddArtist && (
-        <button className="btn btn-primary" onClick={handleAddArtist}>
-          Add New Artist
+  const selectArtistView = (
+    <div className="my-1">
+      <select onChange={onSelectArtistChange} id="artists">
+        <option value="placeholder">Select an artist...</option>
+        {artists.map((artist, key) => (
+          <option key={key} value={artist._id}>
+            {artist.name}
+          </option>
+        ))}
+      </select>
+      {state.artist && (
+        <button
+          className="btn btn-primary my-1"
+          onClick={handleAddSelectedArtist}
+        >
+          Add
         </button>
       )}
-      <button className="btn btn-dark" onClick={handleSelectArtist}>
-        Select Existing Artist
-      </button>
+    </div>
+  );
+
+  return (
+    <div>
+      <p className="x-large">Add an Edition</p>
+      {state.artists.length > 0 && (
+        <ul className="large">
+          Selected Artists:{' '}
+          {state.artists.map((artist, key) => (
+            <li key={key}>
+              <strong>{artist.name}</strong>
+            </li>
+          ))}
+        </ul>
+      )}
+      {!state.showSelectArtist && (
+        <button className="btn btn-primary" onClick={handleSelectArtist}>
+          Select Artist
+        </button>
+      )}
+      {state.showAddArtist && <AddArtist></AddArtist>}
+      {state.showSelectArtist && selectArtistView}
+      {!state.showAddArtist && (
+        <button className="btn btn-primary" onClick={handleCreateArtist}>
+          Create New Artist
+        </button>
+      )}
       <form className="form my-2" onSubmit={onSubmit}>
         <p>
           <strong>Select Edition Images:</strong>
