@@ -111,7 +111,7 @@ const AddEdition = () => {
 
   return (
     <div>
-      <p className="x-large">Add an Edition</p>
+      <p className="large">Add an Edition</p>
       {state.artists.length > 0 && (
         <ul className="large">
           Selected Artists:{' '}
@@ -130,7 +130,7 @@ const AddEdition = () => {
       {state.showAddArtist && <AddArtist></AddArtist>}
       {state.showSelectArtist && selectArtistView}
       {!state.showAddArtist && (
-        <button className="btn btn-primary" onClick={handleCreateArtist}>
+        <button className="btn btn-white" onClick={handleCreateArtist}>
           Create New Artist
         </button>
       )}
