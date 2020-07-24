@@ -45,7 +45,7 @@ const ArtistState = (props) => {
       dispatch({ type: GET_ARTIST_SUCCESS, payload: payload });
     } catch (err) {
       console.log(err);
-      dispatch({type: GET_ARTIST_FAILURE})
+      dispatch({ type: GET_ARTIST_FAILURE });
     }
   };
 

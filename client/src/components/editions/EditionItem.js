@@ -14,14 +14,12 @@ const formatArtists = (artists) => {
 };
 
 // This is the condensed edition, viewable in a gallery on the Editions page
-
 const EditionItem = ({
-  edition: { artists, title, year, description, filePaths, _id }
+  edition: { artists, title, year, description, filePaths, _id },
 }) => {
   const itemBackgroundStyle = {
-    backgroundImage: `url(${filePaths[0]})`
+    backgroundImage: `url(${filePaths[0]})`,
   };
-
   const editionRoute = `/editions/${_id}`;
 
   return (
