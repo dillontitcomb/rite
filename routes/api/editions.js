@@ -30,7 +30,7 @@ router.post('/', auth, async (req, res) => {
     description,
     filePaths,
     price,
-    available
+    available,
   } = req.body;
 
   try {
@@ -46,12 +46,12 @@ router.post('/', auth, async (req, res) => {
       description,
       filePaths,
       price,
-      available
+      available,
     });
     console.log(edition);
     await edition.save();
     return res.json({
-      msg: `Edition titled ${title} was saved to the database successfully.`
+      msg: `Edition titled ${title} was saved to the database successfully.`,
     });
   } catch (err) {
     return res
@@ -61,7 +61,7 @@ router.post('/', auth, async (req, res) => {
 });
 
 // @route GET api/editions/:id
-// @desc Get a specific edition
+// @desc Get edition by ID
 // @access Public
 
 router.get('/:id', async (req, res) => {
@@ -93,7 +93,7 @@ router.put('/:id', auth, async (req, res) => {
     description,
     filePaths,
     price,
-    available
+    available,
   } = req.body;
   try {
     const updatedEdition = await Edition.findByIdAndUpdate(req.params.id, {
@@ -104,12 +104,12 @@ router.put('/:id', auth, async (req, res) => {
       description,
       filePaths,
       price,
-      available
+      available,
     });
     if (!updatedEdition)
       return res.status(400).json({ msg: 'Edition could not be updated.' });
     return res.json({
-      msg: 'Edition was successfully updated'
+      msg: 'Edition was successfully updated',
     });
   } catch (err) {
     return res
@@ -127,7 +127,7 @@ router.delete('/:id', auth, async (req, res) => {
   try {
     await Edition.findByIdAndRemove(req.params.id);
     return res.json({
-      msg: `Edition was successfully deleted.`
+      msg: `Edition was successfully deleted.`,
     });
   } catch (err) {
     return res

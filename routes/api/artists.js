@@ -18,6 +18,28 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route GET api/artists/:id
+// @desc Get artist by ID
+// @access Public
+
+router.get('/:id', async (req, res) => {
+  console.log('trying!');
+  try {
+    let artist = await Artist.findById(req.params.id);
+    console.log(artist);
+    if (!artist) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: 'No artist could be found.' }] });
+    }
+    return res.json({ artist });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ msg: 'There was a problem with the server.' });
+  }
+});
+
 // @route POST api/artists
 // @desc Create new artist
 // @access Private
@@ -32,7 +54,7 @@ router.post('/', auth, async (req, res) => {
     const newArtist = new Artist({ name, artistLink, bio });
     await newArtist.save();
     return res.json({
-      msg: `Artist ${name} was successfully added to the database.`
+      msg: `Artist ${name} was successfully added to the database.`,
     });
   } catch (err) {
     return res.status(500).json({ msg: 'There was an error with the server' });
@@ -48,7 +70,7 @@ router.put('/:id', auth, async (req, res) => {
     const updatedArtist = await Artist.findByIdAndUpdate(req.params.id, {
       name,
       artistLink,
-      bio
+      bio,
     });
     if (!updatedArtist)
       return res.status(400).json({ msg: 'Artist could not be updated.' });
@@ -67,7 +89,7 @@ router.delete('/:id', auth, async (req, res) => {
   try {
     const deletedEdition = await Artist.findByIdAndRemove(req.params.id);
     return res.json({
-      deletedEdition
+      deletedEdition,
     });
   } catch (err) {
     return res

@@ -8,7 +8,7 @@ import {
   GET_ARTISTS_FAILURE,
   GET_ARTISTS_SUCCESS,
   UPDATE_ARTIST_FAILURE,
-  UPDATE_ARTIST_SUCCESS
+  UPDATE_ARTIST_SUCCESS,
 } from '../types';
 import ArtistContext from './artistContext';
 import ArtistReducer from './artistReducer';
@@ -17,7 +17,7 @@ const ArtistState = (props) => {
   const initialState = {
     artists: [],
     artist: {},
-    loading: true
+    loading: true,
   };
 
   const [state, dispatch] = useReducer(ArtistReducer, initialState);
@@ -34,12 +34,15 @@ const ArtistState = (props) => {
     }
   };
 
+  // Get Artist by ID
+  const getArtist = async () => {};
+
   // Add New Artist
   const addArtist = async (artist) => {
     const config = {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     };
     try {
       await axios.post('/api/artists', artist, config);
@@ -54,8 +57,8 @@ const ArtistState = (props) => {
   const updateArtist = async (artist) => {
     const config = {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     };
     try {
       await axios.put(`/api/artists/${artist.id}`, artist, config);
@@ -90,7 +93,7 @@ const ArtistState = (props) => {
         getArtists,
         addArtist,
         deleteArtist,
-        updateArtist
+        updateArtist,
       }}
     >
       {props.children}
