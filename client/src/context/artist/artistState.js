@@ -7,6 +7,8 @@ import {
   DELETE_ARTIST_SUCCESS,
   GET_ARTISTS_FAILURE,
   GET_ARTISTS_SUCCESS,
+  GET_ARTIST_FAILURE,
+  GET_ARTIST_SUCCESS,
   UPDATE_ARTIST_FAILURE,
   UPDATE_ARTIST_SUCCESS,
 } from '../types';
@@ -35,7 +37,17 @@ const ArtistState = (props) => {
   };
 
   // Get Artist by ID
-  const getArtist = async () => {};
+  const getArtist = async (id) => {
+    const getArtistsRoute = `/api/artists/${id}`;
+    try {
+      const res = await axios.get(getArtistsRoute);
+      const payload = res.data.artist;
+      dispatch({ type: GET_ARTIST_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log(err);
+      dispatch({type: GET_ARTIST_FAILURE})
+    }
+  };
 
   // Add New Artist
   const addArtist = async (artist) => {
@@ -91,6 +103,7 @@ const ArtistState = (props) => {
         artist: state.artist,
         loading: state.loading,
         getArtists,
+        getArtist,
         addArtist,
         deleteArtist,
         updateArtist,
