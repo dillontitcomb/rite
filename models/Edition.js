@@ -5,45 +5,45 @@ const EditionSchema = new mongoose.Schema({
   artists: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'artist'
-    }
+      ref: 'artist',
+    },
   ],
   newsPosts: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'newsPost'
-    }
+      ref: 'newsPost',
+    },
   ],
   title: {
     type: String,
-    required: true
+    required: true,
   },
   year: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   filePaths: {
     type: [String],
-    required: true
+    required: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: false,
-    default: -1
+    default: '',
   },
   available: {
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = Edition = mongoose.model('edition', EditionSchema);

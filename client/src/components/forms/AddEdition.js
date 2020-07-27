@@ -18,10 +18,10 @@ const AddEdition = () => {
     year: '',
     description: '',
     files: [],
-    price: -1,
-    available: '',
+    price: '',
+    available: false,
     showAddArtist: false,
-    showSelectArtist: false
+    showSelectArtist: false,
   });
 
   const handleCreateArtist = () => {
@@ -31,11 +31,12 @@ const AddEdition = () => {
   const handleSelectArtist = () => {
     console.log('Selecting artist!');
     setState({ ...state, showAddArtist: false, showSelectArtist: true });
+    console.log(state);
   };
 
   const handleAddSelectedArtist = () => {
     console.log('Adding selected artist to edition');
-    const newArtistsList = [...state.artists, state.artist];
+    const newArtistsList = [...state.artists, state.artist._id];
     setState({ ...state, artist: [], artists: newArtistsList });
     console.log(state);
   };
@@ -55,21 +56,21 @@ const AddEdition = () => {
     const value = e.target.value;
     setState({
       ...state,
-      [e.target.name]: value
+      [e.target.name]: value,
     });
   };
 
   const onFileChange = (e) => {
     setState({
       ...state,
-      files: [...state.files, ...e.target.files]
+      files: [...state.files, ...e.target.files],
     });
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
     addEdition({
-      ...state
+      ...state,
     });
     setState({
       artists: [],
@@ -78,8 +79,8 @@ const AddEdition = () => {
       year: '',
       description: '',
       files: [],
-      price: -1,
-      available: ''
+      price: '',
+      available: false,
     });
   };
 
@@ -166,6 +167,14 @@ const AddEdition = () => {
           value={state.year}
           onChange={onChange}
         />
+        <label htmlFor="price">Edition Price: </label>
+        <input
+          type="text"
+          name="price"
+          placeholder=""
+          value={state.price}
+          onChange={onChange}
+        />
         <textarea
           type="text"
           name="description"
@@ -173,6 +182,14 @@ const AddEdition = () => {
           value={state.description}
           onChange={onChange}
         />
+        <input
+          type="checkbox"
+          name="available"
+          value={state.available}
+          onChange={onChange}
+        />
+        <label htmlFor="available"> Available for purchase?</label>
+        <br />
         <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
     </div>

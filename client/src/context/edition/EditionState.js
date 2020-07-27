@@ -6,7 +6,7 @@ import {
   GET_EDITIONS_FAILURE,
   GET_EDITIONS_SUCCESS,
   GET_EDITION_FAILURE,
-  GET_EDITION_SUCCESS
+  GET_EDITION_SUCCESS,
 } from '../types';
 import EditionContext from './editionContext';
 import EditionReducer from './editionReducer';
@@ -22,9 +22,9 @@ const EditionState = (props) => {
       description: '',
       filePaths: [],
       price: -1,
-      available: false
+      available: false,
     },
-    loading: true
+    loading: true,
   };
 
   const [state, dispatch] = useReducer(EditionReducer, initialState);
@@ -58,13 +58,13 @@ const EditionState = (props) => {
   const addEdition = async (edition) => {
     const {
       artists,
-      newsposts,
+      newsPosts,
       title,
       year,
       description,
       files,
       price,
-      available
+      available,
     } = edition;
     const formData = new FormData();
     for (const file of files) {
@@ -74,14 +74,14 @@ const EditionState = (props) => {
 
     const uploadConfig = {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+        'Content-Type': 'multipart/form-data',
+      },
     };
 
     const editionConfig = {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     };
 
     try {
@@ -94,13 +94,13 @@ const EditionState = (props) => {
       // Upload remaining edition data with filepaths
       const editionData = {
         artists,
-        newsposts,
+        newsPosts,
         title,
         year,
         description,
         filePaths,
         price,
-        available
+        available,
       };
       console.log('Data being sent to /api/editions: ', editionData);
       const editionRes = await axios.post(
@@ -111,7 +111,7 @@ const EditionState = (props) => {
       console.log('Response from /api/editions: ', editionRes);
 
       dispatch({
-        type: ADD_EDITION_SUCCESS
+        type: ADD_EDITION_SUCCESS,
       });
     } catch (err) {
       console.log('Uh oh! Error found: ', err);
@@ -128,7 +128,7 @@ const EditionState = (props) => {
 
         addEdition,
         getEditions,
-        getEdition
+        getEdition,
       }}
     >
       {props.children}

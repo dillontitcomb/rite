@@ -32,7 +32,6 @@ router.post('/', auth, async (req, res) => {
     price,
     available,
   } = req.body;
-
   try {
     let edition = await Edition.findOne({ title });
     if (edition) {
@@ -49,6 +48,7 @@ router.post('/', auth, async (req, res) => {
       available,
     });
     console.log(edition);
+    console.log('Going to try to save the edition!');
     await edition.save();
     return res.json({
       msg: `Edition titled ${title} was saved to the database successfully.`,
@@ -63,7 +63,6 @@ router.post('/', auth, async (req, res) => {
 // @route GET api/editions/:id
 // @desc Get edition by ID
 // @access Public
-
 router.get('/:id', async (req, res) => {
   try {
     let edition = await Edition.findById(req.params.id);
