@@ -36,7 +36,7 @@ const AddEdition = () => {
 
   const handleAddSelectedArtist = () => {
     console.log('Adding selected artist to edition');
-    const newArtistsList = [...state.artists, state.artist._id];
+    const newArtistsList = [...state.artists, state.artist];
     setState({ ...state, artist: [], artists: newArtistsList });
     console.log(state);
   };
@@ -69,8 +69,10 @@ const AddEdition = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log(state.artists);
     addEdition({
       ...state,
+      artists: state.artists.map((obj) => obj._id),
     });
     setState({
       artists: [],

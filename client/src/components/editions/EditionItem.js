@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import artistContext from '../../context/artist/artistContext';
 import './EditionItem.css';
 
 // Format Artist Names
@@ -17,6 +18,16 @@ const formatArtists = (artists) => {
 const EditionItem = ({
   edition: { artists, title, year, description, filePaths, _id },
 }) => {
+  const ArtistContext = useContext(artistContext);
+  const { getArtist, artist } = ArtistContext;
+
+  console.log(ArtistContext);
+
+  useEffect(() => {
+    getArtist('5f1f2ab67117bf3d385871c1');
+    // eslint-disable-next-line
+  }, []);
+
   const itemBackgroundStyle = {
     backgroundImage: `url(${filePaths[0]})`,
   };
@@ -26,6 +37,7 @@ const EditionItem = ({
     <div className="edition-item" style={itemBackgroundStyle}>
       <Link to={editionRoute}>
         <div className="edition-item-overlay">
+          {/* <h1>{artist}</h1> */}
           <p className="edition-item-text">
             <u>
               {artists.length > 0 && formatArtists(artists) + ', '}
