@@ -5,6 +5,8 @@ import {
   ADD_ARTIST_SUCCESS,
   DELETE_ARTIST_FAILURE,
   DELETE_ARTIST_SUCCESS,
+  GET_ARTISTS_BY_IDS_FAILURE,
+  GET_ARTISTS_BY_IDS_SUCCESS,
   GET_ARTISTS_FAILURE,
   GET_ARTISTS_SUCCESS,
   GET_ARTIST_FAILURE,
@@ -46,6 +48,22 @@ const ArtistState = (props) => {
     } catch (err) {
       console.log(err);
       dispatch({ type: GET_ARTIST_FAILURE });
+    }
+  };
+
+  // Get multiple artists by multiple IDs
+  const getArtistsByIds = async (ids) => {
+    try {
+      console.log('Trying to get artists with these ids', ids);
+      const res = await axios.get('api/artists');
+      const artists = res.data.artists;
+      const payload = artists.filter((artist) => {
+        return ids.includes(artist._id);
+      });
+      dispatch({ type: GET_ARTISTS_BY_IDS_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: GET_ARTISTS_BY_IDS_FAILURE });
     }
   };
 
@@ -103,6 +121,7 @@ const ArtistState = (props) => {
         artist: state.artist,
         loading: state.loading,
         getArtists,
+        getArtistsByIds,
         getArtist,
         addArtist,
         deleteArtist,
