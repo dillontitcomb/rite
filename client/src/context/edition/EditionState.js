@@ -15,7 +15,7 @@ const EditionState = (props) => {
   const initialState = {
     editions: [],
     edition: {
-      artists: [],
+      editionArtists: [],
       newsPosts: [],
       title: '',
       year: '',
@@ -41,6 +41,33 @@ const EditionState = (props) => {
     }
   };
 
+  // Get All Editions and their associated Artists data
+  const getEditionsWithArtistData = async () => {
+    try {
+      const res = await axios.get('/api/editions');
+      let editions = res.data.editions;
+
+      // For each edition, get artist data for each associated artist
+      const addArtistsData = async (editions) => {
+        for (let edition of editions) {
+          for (let i = 0; i < edition.editionArtists.length; i++) {
+            let artistRes = await axios.get(
+              `/api/artists/${edition.editionArtists[i]}`
+            );
+            let artistData = artistRes.data.artist;
+            edition.editionArtists[i] = artistData;
+          }
+        }
+      };
+      await addArtistsData(editions);
+      let payload = editions;
+      dispatch({ type: GET_EDITIONS_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: GET_EDITIONS_FAILURE });
+    }
+  };
+
   // Get One Edition by ID
   const getEdition = async (id) => {
     const getEditionsRoute = `/api/editions/${id}`;
@@ -54,10 +81,31 @@ const EditionState = (props) => {
     }
   };
 
+  // Get One Edition by ID with Artist Data
+  const getEditionWithArtistData = async (id) => {
+    const getEditionsRoute = `/api/editions/${id}`;
+    try {
+      const res = await axios.get(getEditionsRoute);
+      let edition = res.data.edition;
+      for (let i = 0; i < edition.editionArtists.length; i++) {
+        let artistRes = await axios.get(
+          `/api/artists/${edition.editionArtists[i]}`
+        );
+        let artistData = artistRes.data.artist;
+        edition.editionArtists[i] = artistData;
+      }
+      const payload = edition;
+      dispatch({ type: GET_EDITION_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: GET_EDITION_FAILURE });
+    }
+  };
+
   // Add New Edition
   const addEdition = async (edition) => {
     const {
-      artists,
+      editionArtists,
       newsPosts,
       title,
       year,
@@ -93,7 +141,7 @@ const EditionState = (props) => {
       console.log('Flepaths returned by /api/upload:', filePaths);
       // Upload remaining edition data with filepaths
       const editionData = {
-        artists,
+        editionArtists,
         newsPosts,
         title,
         year,
@@ -125,7 +173,8 @@ const EditionState = (props) => {
         editions: state.editions,
         edition: state.edition,
         loading: state.loading,
-
+        getEditionsWithArtistData,
+        getEditionWithArtistData,
         addEdition,
         getEditions,
         getEdition,

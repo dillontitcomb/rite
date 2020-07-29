@@ -53,8 +53,14 @@ const ArtistState = (props) => {
 
   // Get multiple artists by multiple IDs
   const getArtistsByIds = async (ids) => {
+    if (!ids) {
+      dispatch({ type: GET_ARTISTS_BY_IDS_FAILURE });
+      console.log('no Ids passed to function');
+      return;
+    }
     try {
       console.log('Trying to get artists with these ids', ids);
+
       const res = await axios.get('api/artists');
       const artists = res.data.artists;
       const payload = artists.filter((artist) => {

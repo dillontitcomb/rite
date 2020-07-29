@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import artistContext from '../../context/artist/artistContext';
 import './EditionItem.css';
 
 // Format Artist Names
@@ -14,22 +13,15 @@ const formatArtists = (artists) => {
   }
 };
 
-// This is the condensed edition, viewable in a gallery on the Editions page
+// This is the condensed edition, viewable in a gallery on The Editions page
 const EditionItem = ({
-  edition: { artists, title, year, description, filePaths, _id },
+  edition: { editionArtists, title, year, filePaths, _id },
 }) => {
-  const ArtistContext = useContext(artistContext);
-  // const { getArtistsByIds, artists } = ArtistContext;
-
-  useEffect(() => {
-    // getArtist(artistId);
-    // eslint-disable-next-line
-  }, []);
-
   const itemBackgroundStyle = {
     backgroundImage: `url(${filePaths[0]})`,
   };
   const editionRoute = `/editions/${_id}`;
+  const artistNames = editionArtists.map((artist) => artist.name);
 
   return (
     <div className="edition-item" style={itemBackgroundStyle}>
@@ -37,7 +29,7 @@ const EditionItem = ({
         <div className="edition-item-overlay">
           <p className="edition-item-text">
             <u>
-              {artists.length > 0 && formatArtists(artists) + ', '}
+              {artistNames.length > 0 && formatArtists(artistNames) + ', '}
               <em>{title}</em>, {year}
             </u>
           </p>

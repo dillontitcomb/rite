@@ -5,10 +5,10 @@ import './Editions.css';
 
 const Editions = () => {
   const EditionContext = useContext(editionContext);
-  const { getEditions, editions, loading } = EditionContext;
+  const { getEditionsWithArtistData, editions, loading } = EditionContext;
 
   useEffect(() => {
-    getEditions();
+    getEditionsWithArtistData();
     // eslint-disable-next-line
   }, []);
 

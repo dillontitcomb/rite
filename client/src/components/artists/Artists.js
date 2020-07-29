@@ -4,7 +4,7 @@ import './Artists.css';
 
 const Artists = () => {
   const artistContext = useContext(ArtistContext);
-  const { getArtists, artists, getArtist } = artistContext;
+  const { getArtists, artists } = artistContext;
 
   useEffect(() => {
     getArtists();

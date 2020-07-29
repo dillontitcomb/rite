@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 // @access Private
 router.post('/', auth, async (req, res) => {
   const {
-    artists,
+    editionArtists,
     newsPosts,
     title,
     year,
@@ -38,7 +38,7 @@ router.post('/', auth, async (req, res) => {
       return res.status(400).json({ msg: 'Edition already exists.' });
     }
     edition = new Edition({
-      artists,
+      editionArtists,
       newsPosts,
       title,
       year,
@@ -85,7 +85,7 @@ router.get('/:id', async (req, res) => {
 // TODO: If title is changed, need to change image directory name
 router.put('/:id', auth, async (req, res) => {
   const {
-    artists,
+    editionArtists,
     newsPosts,
     title,
     year,
@@ -96,7 +96,7 @@ router.put('/:id', auth, async (req, res) => {
   } = req.body;
   try {
     const updatedEdition = await Edition.findByIdAndUpdate(req.params.id, {
-      artists,
+      editionArtists,
       newsPosts,
       title,
       year,

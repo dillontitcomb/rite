@@ -16,14 +16,15 @@ const formatArtists = (artists) => {
 
 const Edition = ({ match }) => {
   const editionContext = useContext(EditionContext);
-  const { getEdition, edition, loading } = editionContext;
+  const { getEditionWithArtistData, edition, loading } = editionContext;
 
   useEffect(() => {
-    getEdition(match.params.id);
+    getEditionWithArtistData(match.params.id);
     // eslint-disable-next-line
   }, []);
 
-  const { artists, title, year, description, filePaths } = edition;
+  const { editionArtists, title, year, description, filePaths } = edition;
+  const artistNames = editionArtists.map((artist) => artist.name);
 
   return (
     <div className="container">
@@ -32,11 +33,13 @@ const Edition = ({ match }) => {
       ) : (
         <div>
           <p className="x-large my-1">
-            {artists.length > 0 && formatArtists(artists) + ', '}
+            {artistNames.length > 0 && formatArtists(artistNames) + ', '}
             <em>{title}</em>, {year}
           </p>
           <img src={filePaths[0]} alt={`${title}`} />
-          <p className="large my-1">{artists && formatArtists(artists)}</p>
+          <p className="large my-1">
+            {artistNames && formatArtists(artistNames)}
+          </p>
           <p className="lead">
             <em>
               <strong>

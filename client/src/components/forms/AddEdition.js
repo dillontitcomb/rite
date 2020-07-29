@@ -11,7 +11,7 @@ const AddEdition = () => {
   const { getArtists, artists } = artistContext;
 
   const [state, setState] = useState({
-    artists: [],
+    editionArtists: [],
     artist: null,
     newsPosts: [],
     title: '',
@@ -36,8 +36,8 @@ const AddEdition = () => {
 
   const handleAddSelectedArtist = () => {
     console.log('Adding selected artist to edition');
-    const newArtistsList = [...state.artists, state.artist];
-    setState({ ...state, artist: [], artists: newArtistsList });
+    const newArtistsList = [...state.editionArtists, state.artist];
+    setState({ ...state, artist: [], editionArtists: newArtistsList });
     console.log(state);
   };
 
@@ -69,13 +69,13 @@ const AddEdition = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(state.artists);
+    console.log(state.editionArtists);
     addEdition({
       ...state,
-      artists: state.artists.map((obj) => obj._id),
+      editionArtists: state.editionArtists.map((obj) => obj._id),
     });
     setState({
-      artists: [],
+      editionArtists: [],
       newsPosts: [],
       title: '',
       year: '',
@@ -115,10 +115,10 @@ const AddEdition = () => {
   return (
     <div>
       <p className="large">Add an Edition</p>
-      {state.artists.length > 0 && (
+      {state.editionArtists.length > 0 && (
         <ul className="large">
           Selected Artists:{' '}
-          {state.artists.map((artist, key) => (
+          {state.editionArtists.map((artist, key) => (
             <li key={key}>
               <strong>{artist.name}</strong>
             </li>
@@ -173,7 +173,7 @@ const AddEdition = () => {
         <input
           type="text"
           name="price"
-          placeholder=""
+          placeholder="$"
           value={state.price}
           onChange={onChange}
         />

@@ -23,10 +23,8 @@ router.get('/', async (req, res) => {
 // @access Public
 
 router.get('/:id', async (req, res) => {
-  console.log('trying!');
   try {
     let artist = await Artist.findById(req.params.id);
-    console.log(artist);
     if (!artist) {
       return res
         .status(400)

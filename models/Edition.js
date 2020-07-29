@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const EditionSchema = new mongoose.Schema({
-  artists: [
+  editionArtists: [
     {
       type: Schema.Types.ObjectId,
       ref: 'artist',
