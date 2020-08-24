@@ -9,7 +9,7 @@ const Edition = require('../../models/Edition');
 // @access Public
 router.get('/', async (req, res) => {
   try {
-    const editions = await Edition.find();
+    const editions = await Edition.find().sort({ date: 1 });
     return res.json({ editions });
   } catch (err) {
     return res

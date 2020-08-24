@@ -9,7 +9,7 @@ const Artist = require('../../models/Artist');
 // @access Public
 router.get('/', async (req, res) => {
   try {
-    const artists = await Artist.find();
+    const artists = await Artist.find().sort({ date: 1 });
     if (!artists)
       return res.status(400).json({ msg: 'No artists could be found.' });
     return res.json({ artists });

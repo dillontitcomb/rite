@@ -12,6 +12,8 @@ const Editions = () => {
     // eslint-disable-next-line
   }, []);
 
+  console.log(editions);
+
   return (
     <div>
       <div className="container">
