@@ -16,7 +16,7 @@ const News = () => {
     <div className="container">
       <p className="x-large text-weight-light text-center my-3">NEWS</p>
       <div className="news-post-grid">
-        {newsPosts.reverse().map((newsPost, key) => (
+        {newsPosts.map((newsPost, key) => (
           <NewsPostItem newsPost={newsPost} key={key}></NewsPostItem>
         ))}
       </div>

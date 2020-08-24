@@ -6,7 +6,7 @@ import {
   GET_NEWSPOSTS_FAILURE,
   GET_NEWSPOSTS_SUCCESS,
   GET_NEWSPOST_FAILURE,
-  GET_NEWSPOST_SUCCESS
+  GET_NEWSPOST_SUCCESS,
 } from '../types';
 import NewsPostContext from './newsPostContext';
 import NewsPostReducer from './newsPostReducer';
@@ -17,9 +17,9 @@ const NewsPostState = (props) => {
     newsPost: {
       title: '',
       description: '',
-      filePath: ''
+      filePath: '',
     },
-    loading: true
+    loading: true,
   };
 
   const [state, dispatch] = useReducer(NewsPostReducer, initialState);
@@ -39,7 +39,7 @@ const NewsPostState = (props) => {
   const getNewsPosts = async () => {
     try {
       const res = await axios.get('/api/newsPosts');
-      const payload = res.data.newsPosts;
+      const payload = res.data.newsPosts.reverse();
       dispatch({ type: GET_NEWSPOSTS_SUCCESS, payload: payload });
     } catch (err) {
       console.log(
@@ -59,14 +59,14 @@ const NewsPostState = (props) => {
 
     const uploadConfig = {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+        'Content-Type': 'multipart/form-data',
+      },
     };
 
     const addNewsPostConfig = {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     };
 
     try {
@@ -76,7 +76,7 @@ const NewsPostState = (props) => {
       const newsPostData = {
         title,
         description,
-        filePath
+        filePath,
       };
 
       await axios.post('./api/newsPosts', newsPostData, addNewsPostConfig);
@@ -95,7 +95,7 @@ const NewsPostState = (props) => {
         loading: state.loading,
         getNewsPosts,
         getNewsPost,
-        addNewsPost
+        addNewsPost,
       }}
     >
       {props.children}

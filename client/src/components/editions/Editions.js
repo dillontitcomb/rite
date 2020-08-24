@@ -23,11 +23,9 @@ const Editions = () => {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            editions
-              .reverse()
-              .map((edition, key) => (
-                <EditionItem key={key} edition={edition}></EditionItem>
-              ))
+            editions.map((edition, key) => (
+              <EditionItem key={edition._id} edition={edition}></EditionItem>
+            ))
           )}
         </div>
       </div>

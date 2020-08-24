@@ -30,7 +30,7 @@ const ArtistState = (props) => {
   const getArtists = async () => {
     try {
       const res = await axios.get('/api/artists');
-      const payload = res.data.artists;
+      const payload = res.data.artists.reverse();
       dispatch({ type: GET_ARTISTS_SUCCESS, payload: payload });
     } catch (err) {
       console.log(err);

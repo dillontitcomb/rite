@@ -33,7 +33,7 @@ const EditionState = (props) => {
   const getEditions = async () => {
     try {
       const res = await axios.get('/api/editions');
-      const payload = res.data.editions;
+      const payload = res.data.editions.reverse();
       dispatch({ type: GET_EDITIONS_SUCCESS, payload: payload });
     } catch (err) {
       console.log(err);
@@ -60,7 +60,7 @@ const EditionState = (props) => {
         }
       };
       await addArtistsData(editions);
-      let payload = editions;
+      let payload = editions.reverse();
       dispatch({ type: GET_EDITIONS_SUCCESS, payload: payload });
     } catch (err) {
       console.log(err);
