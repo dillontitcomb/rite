@@ -47,13 +47,7 @@ const Edition = ({ match }) => {
               </strong>
             </em>
           </p>
-          {description.split('\n').map((str, key) => {
-            return (
-              <p className="my-1" key={key}>
-                {str}
-              </p>
-            );
-          })}
+          <div dangerouslySetInnerHTML={{ __html: description }}></div>
         </div>
       )}
     </div>

@@ -20,7 +20,7 @@ const Artists = () => {
             // TODO: Create ArtistItem component and use here
             <div className="card" key={key}>
               <p className="lead">{artist.name}</p>
-              <p>{artist.bio}</p>
+              <div dangerouslySetInnerHTML={{ __html: artist.bio }}></div>
               <p>
                 Check out their work at{' '}
                 <a
