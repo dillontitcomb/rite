@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/dillontitcomb/rite#readme",
   "dependencies": {
+    "@tinymce/tinymce-react": "^3.6.0",
     "axios": "^0.19.1",
     "bcryptjs": "^2.4.3",
     "config": "^3.2.4",

@@ -12,7 +12,7 @@ const NewsPostItem = ({ newsPost: { title, description, filePath, _id } }) => {
           <p className="large my-2">{title}</p>
         </Link>
         <img className="news-post-image" src={filePath} alt="coool thing" />
-        <p className="lead">{description}</p>
+        <div dangerouslySetInnerHTML={{ __html: description }}></div>
       </div>
     </div>
   );
