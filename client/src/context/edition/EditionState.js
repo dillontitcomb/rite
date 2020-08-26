@@ -47,25 +47,55 @@ const EditionState = (props) => {
   };
 
   // Get All Editions and their associated Artists data
+  // const getEditionsWithArtistData = async () => {
+  //   try {
+  //     const res = await axios.get('/api/editions');
+  //     let editions = res.data.editions;
+
+  //     // For each edition, get artist data for each associated artist
+  //     const addArtistsData = async (editions) => {
+  //       for (let edition of editions) {
+  //         for (let i = 0; i < edition.editionArtists.length; i++) {
+  //           let artistRes = await axios.get(
+  //             `/api/artists/${edition.editionArtists[i]}`
+  //           );
+  //           let artistData = artistRes.data.artist;
+  //           edition.editionArtists[i] = artistData;
+  //         }
+  //       }
+  //     };
+  //     await addArtistsData(editions);
+  //     let payload = editions.reverse();
+  //     dispatch({
+  //       type: GET_EDITIONS_SUCCESS,
+  //       payload: payload,
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //     dispatch({ type: GET_EDITIONS_FAILURE });
+  //   }
+  // };
+
+  // Get all editions with associated artist data
   const getEditionsWithArtistData = async () => {
     try {
-      const res = await axios.get('/api/editions');
-      let editions = res.data.editions;
-
-      // For each edition, get artist data for each associated artist
-      const addArtistsData = async (editions) => {
-        for (let edition of editions) {
-          for (let i = 0; i < edition.editionArtists.length; i++) {
-            let artistRes = await axios.get(
-              `/api/artists/${edition.editionArtists[i]}`
-            );
-            let artistData = artistRes.data.artist;
-            edition.editionArtists[i] = artistData;
-          }
-        }
-      };
-      await addArtistsData(editions);
-      let payload = editions.reverse();
+      // Get all editions
+      const editionsRes = await axios.get('/api/editions');
+      let { editions } = editionsRes.data;
+      // Get all artists
+      const artistsRes = await axios.get('/api/artists');
+      let { artists } = artistsRes.data;
+      let artistIds = artists.map((artist) => artist._id);
+      // Match them up
+      const editionsWithArtists = editions.map((edition) => {
+        let artistsWithData = edition.editionArtists.map((artistId) => {
+          let artistIdIndex = artistIds.indexOf(artistId);
+          return artists[artistIdIndex];
+        });
+        edition.editionArtists = artistsWithData;
+        return edition;
+      });
+      let payload = editionsWithArtists.reverse();
       dispatch({
         type: GET_EDITIONS_SUCCESS,
         payload: payload,
