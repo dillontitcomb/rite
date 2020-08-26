@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import AddEdition from '../forms/AddEdition';
 import AddNewsPost from '../forms/AddNewsPost';
+import EditEdition from '../forms/EditEdition';
 import AdminArtists from './AdminArtists';
 
 const editionsView = (
   <div>
     <AddEdition></AddEdition>
+    <EditEdition></EditEdition>
     {/* TODO: Edit Edition, Delete Edition */}
   </div>
 );

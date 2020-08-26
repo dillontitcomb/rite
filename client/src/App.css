@@ -48,6 +48,10 @@ img {
   display: block;
 }
 
+.img-tiny {
+  width: 200px;
+}
+
 /* Admin */
 
 .btn.admin-view-item {
