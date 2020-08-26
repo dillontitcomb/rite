@@ -1,3 +1,4 @@
+import { Editor } from '@tinymce/tinymce-react';
 import React, { useContext, useEffect, useState } from 'react';
 import ArtistContext from '../../context/artist/artistContext';
 import EditionContext from '../../context/edition/editionContext';
@@ -65,6 +66,10 @@ const AddEdition = () => {
       ...state,
       files: [...state.files, ...e.target.files],
     });
+  };
+
+  const onEditorChange = (description) => {
+    setState({ ...state, description });
   };
 
   const onSubmit = async (e) => {
@@ -177,12 +182,25 @@ const AddEdition = () => {
           value={state.price}
           onChange={onChange}
         />
-        <textarea
-          type="text"
-          name="description"
-          placeholder="Edition Description"
+        <Editor
+          apiKey="qgf24zdv82ko9vchv3fio5j2kt4yckxr1w1a56tlpsa05wjo"
           value={state.description}
-          onChange={onChange}
+          onEditorChange={onEditorChange}
+          outputFormat="html"
+          init={{
+            height: 500,
+            menubar: false,
+            plugins: [
+              'advlist autolink lists link image',
+              'charmap print preview anchor help',
+              'searchreplace visualblocks code',
+              'insertdatetime media table paste wordcount',
+            ],
+            toolbar:
+              'undo redo | formatselect | bold italic | \
+            alignleft aligncenter alignright | \
+            bullist numlist outdent indent | help',
+          }}
         />
         <input
           type="checkbox"

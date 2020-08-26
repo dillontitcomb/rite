@@ -1,3 +1,4 @@
+import { Editor } from '@tinymce/tinymce-react';
 import React, { useContext, useEffect, useState } from 'react';
 import artistContext from '../../context/artist/artistContext';
 
@@ -9,14 +10,14 @@ const EditArtist = () => {
     name: '',
     artistLink: '',
     bio: '',
-    id: ''
+    id: '',
   });
 
   const onChange = (e) => {
     const value = e.target.value;
     setState({
       ...state,
-      [e.target.name]: value
+      [e.target.name]: value,
     });
   };
 
@@ -24,14 +25,18 @@ const EditArtist = () => {
     e.preventDefault();
     console.log(state);
     updateArtist({
-      ...state
+      ...state,
     });
     setState({
       name: '',
       artistLink: '',
       bio: '',
-      id: ''
+      id: '',
     });
+  };
+
+  const onEditorChange = (bio) => {
+    setState({ ...state, bio });
   };
 
   const onSelectChange = (e) => {
@@ -45,7 +50,7 @@ const EditArtist = () => {
         name: selectedArtist.name || '',
         artistLink: selectedArtist.artistLink || '',
         bio: selectedArtist.bio || '',
-        id: selectedArtist._id || ''
+        id: selectedArtist._id || '',
       });
     }
   };
@@ -87,12 +92,25 @@ const EditArtist = () => {
           value={state.artistLink}
           onChange={onChange}
         />
-        <textarea
-          type="text"
-          name="bio"
-          placeholder="Artist's bio"
+        <Editor
+          apiKey="qgf24zdv82ko9vchv3fio5j2kt4yckxr1w1a56tlpsa05wjo"
           value={state.bio}
-          onChange={onChange}
+          onEditorChange={onEditorChange}
+          outputFormat="html"
+          init={{
+            height: 500,
+            menubar: false,
+            plugins: [
+              'advlist autolink lists link image',
+              'charmap print preview anchor help',
+              'searchreplace visualblocks code',
+              'insertdatetime media table paste wordcount',
+            ],
+            toolbar:
+              'undo redo | formatselect | bold italic | \
+            alignleft aligncenter alignright | \
+            bullist numlist outdent indent | help',
+          }}
         />
         <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
