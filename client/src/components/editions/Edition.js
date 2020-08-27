@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import EditionContext from '../../context/edition/editionContext';
 
 // Format Artist Names
@@ -36,7 +38,13 @@ const Edition = ({ match }) => {
             {artistNames.length > 0 && formatArtists(artistNames) + ', '}
             <em>{title}</em>, {year}
           </p>
-          <img src={filePaths[0]} alt={`${title}`} />
+
+          <Carousel autoplay>
+            {filePaths.map((file, key) => (
+              <img key={key} alt={title} src={filePaths[key]}></img>
+            ))}
+          </Carousel>
+
           <p className="large my-1">
             {artistNames && formatArtists(artistNames)}
           </p>
