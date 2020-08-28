@@ -22,6 +22,13 @@ app.use('/api/upload', require('./routes/api/upload'));
 app.use('/api/newsPosts', require('./routes/api/newsPosts'));
 app.use('/api/artists', require('./routes/api/artists'));
 
-const PORT = process.env.PORT || 5000;
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
