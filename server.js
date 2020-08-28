@@ -22,6 +22,6 @@ app.use('/api/upload', require('./routes/api/upload'));
 app.use('/api/newsPosts', require('./routes/api/newsPosts'));
 app.use('/api/artists', require('./routes/api/artists'));
 
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
