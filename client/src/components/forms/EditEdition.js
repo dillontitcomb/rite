@@ -106,6 +106,10 @@ const EditEdition = () => {
     });
   };
 
+  const onCheckboxChange = (e) => {
+    setState({ ...state, available: e.target.checked });
+  };
+
   const onEditorChange = (description) => {
     setState({ ...state, description });
   };
@@ -294,8 +298,8 @@ const EditEdition = () => {
         <input
           type="checkbox"
           name="available"
-          value={state.available}
-          onChange={onChange}
+          checked={state.available}
+          onClick={onCheckboxChange}
         />
         <label htmlFor="available"> Available for purchase?</label>
         <br />

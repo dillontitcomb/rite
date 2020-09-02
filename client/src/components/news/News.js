@@ -14,7 +14,7 @@ const News = () => {
 
   return (
     <div className="container">
-      <p className="x-large text-weight-light text-center my-3">NEWS</p>
+      <p className="x-large text-weight-light text-center my-3">NEWS & FAIRS</p>
       <div className="news-post-grid">
         {newsPosts.map((newsPost, key) => (
           <NewsPostItem newsPost={newsPost} key={key}></NewsPostItem>

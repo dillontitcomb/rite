@@ -5,7 +5,7 @@ import AuthContext from '../../context/auth/authContext';
 const activateNavLinks = () => {
   const links = document.getElementsByClassName('nav-item');
   for (let i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function() {
+    links[i].addEventListener('click', function () {
       let activeLink = document.getElementsByClassName('nav-active');
       activeLink[0].className = activeLink[0].className.replace(
         ' nav-active',
@@ -48,7 +48,7 @@ const Navbar = () => {
             Editions
           </Link>
           <Link className="nav-item" to="/news">
-            News
+            News & Fairs
           </Link>
           <Link className="nav-item" to="/about">
             About
