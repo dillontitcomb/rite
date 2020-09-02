@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import artistContext from '../../context/artist/artistContext';
+import SelectArtist from '../forms/SelectArtist';
 
 const DeleteArtist = () => {
   const ArtistContext = useContext(artistContext);
-  const { getArtists, artists, deleteArtist } = ArtistContext;
+  const { deleteArtist } = ArtistContext;
 
   const [state, setState] = useState({
     name: '',
-    id: ''
+    id: '',
   });
 
   const onSubmit = async (e) => {
@@ -16,39 +17,16 @@ const DeleteArtist = () => {
     deleteArtist(state.id);
     setState({
       name: '',
-      id: ''
+      id: '',
     });
   };
 
-  const onSelectChange = (e) => {
-    const index = e.target.options.selectedIndex;
-    // If index < 1, the selected option is the placeholder, so reset state & form fields
-    if (index < 1) {
-      setState({ name: '', id: '' });
-    } else {
-      const selectedArtist = artists[index - 1];
-      setState({
-        name: selectedArtist.name || '',
-        id: selectedArtist._id || ''
-      });
-    }
+  const selectArtist = (artist) => {
+    setState({
+      name: artist.name || '',
+      id: artist._id || '',
+    });
   };
-
-  useEffect(() => {
-    getArtists();
-    //eslint-disable-next-line
-  }, []);
-
-  const selectArtistView = (
-    <select onChange={onSelectChange} id="artists">
-      <option value="placeholder">Select an artist...</option>
-      {artists.map((artist, key) => (
-        <option key={key} value={artist._id}>
-          {artist.name}
-        </option>
-      ))}
-    </select>
-  );
 
   return (
     <div className="my-2">
@@ -57,7 +35,7 @@ const DeleteArtist = () => {
         <i>This option will delete an artist permanently. Use with caution!</i>
       </p>
       <form onSubmit={onSubmit} className="form">
-        {artists.length > 0 && selectArtistView}
+        <SelectArtist selectArtist={selectArtist}></SelectArtist>
         <input
           type="submit"
           value="Delete Artist"
