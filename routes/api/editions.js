@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
   try {
     const editions = await Edition.find()
       .populate('editionArtists')
+      .populate('newsPosts')
       .sort({ date: 1 });
     return res.json({ editions });
   } catch (err) {
@@ -67,9 +68,9 @@ router.post('/', auth, async (req, res) => {
 // @access Public
 router.get('/:id', async (req, res) => {
   try {
-    let edition = await Edition.findById(req.params.id).populate(
-      'editionArtists'
-    );
+    let edition = await Edition.findById(req.params.id)
+      .populate('editionArtists')
+      .populate('newsPosts');
     console.log(edition);
     if (!edition) {
       return res

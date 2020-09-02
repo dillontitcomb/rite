@@ -9,7 +9,9 @@ const NewsPost = require('../../models/NewsPost');
 // @access Public
 router.get('/', async (req, res) => {
   try {
-    const newsPosts = await NewsPost.find();
+    const newsPosts = await NewsPost.find()
+      .populate('editions')
+      .populate('artists');
     if (!newsPosts)
       return res.status(400).json({ msg: 'No news posts could be found.' });
     return res.json({ newsPosts });
@@ -27,7 +29,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    let newsPost = await NewsPost.findById(id);
+    let newsPost = await NewsPost.findById(id)
+      .populate('editions')
+      .populate('artists');
     if (!newsPost)
       return res
         .status(400)
@@ -59,11 +63,11 @@ router.post('/', auth, async (req, res) => {
       editions,
       title,
       description,
-      filePath
+      filePath,
     });
     await newsPost.save();
     return res.json({
-      msg: `News post titled ${title} was saved to database successfully.`
+      msg: `News post titled ${title} was saved to database successfully.`,
     });
   } catch (err) {
     if (err)
@@ -84,7 +88,7 @@ router.put('/:id', auth, async (req, res) => {
       editions,
       title,
       description,
-      filePath
+      filePath,
     });
     if (!newNewsPost)
       return res.status(400).json({ msg: 'News post could not be updated.' });
@@ -105,7 +109,7 @@ router.delete('/:id', auth, async (req, res) => {
   try {
     const deletedPost = await NewsPost.findByIdAndDelete(req.params.id);
     return res.json({
-      msg: `Edition ${deletedPost.title} was succesfully deleted.`
+      msg: `Edition ${deletedPost.title} was succesfully deleted.`,
     });
   } catch (err) {
     if (err)

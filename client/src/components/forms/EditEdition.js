@@ -6,7 +6,7 @@ import AddArtist from '../forms/AddArtist';
 
 const EditEdition = () => {
   const editionContext = useContext(EditionContext);
-  const { updateEdition, editions, getEditionsWithArtistData } = editionContext;
+  const { updateEdition, editions, getEditions } = editionContext;
 
   const artistContext = useContext(ArtistContext);
   const { getArtists, artists } = artistContext;
@@ -143,7 +143,7 @@ const EditEdition = () => {
 
   useEffect(() => {
     getArtists();
-    getEditionsWithArtistData();
+    getEditions();
     //eslint-disable-next-line
   }, []);
 
@@ -299,7 +299,7 @@ const EditEdition = () => {
           type="checkbox"
           name="available"
           checked={state.available}
-          onClick={onCheckboxChange}
+          onChange={onCheckboxChange}
         />
         <label htmlFor="available"> Available for purchase?</label>
         <br />

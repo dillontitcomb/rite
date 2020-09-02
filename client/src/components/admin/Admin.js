@@ -31,7 +31,6 @@ const clearSelections = () => {
 
 const Admin = () => {
   const [selection, setSelection] = useState('artists');
-
   const onSelectionClick = (e) => {
     const selection = e.target;
     clearSelections();

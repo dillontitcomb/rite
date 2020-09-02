@@ -1,10 +1,11 @@
 import { Editor } from '@tinymce/tinymce-react';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import artistContext from '../../context/artist/artistContext';
+import SelectArtist from '../forms/SelectArtist';
 
 const EditArtist = () => {
   const ArtistContext = useContext(artistContext);
-  const { getArtists, artists, updateArtist } = ArtistContext;
+  const { updateArtist } = ArtistContext;
 
   const [state, setState] = useState({
     name: '',
@@ -39,44 +40,19 @@ const EditArtist = () => {
     setState({ ...state, bio });
   };
 
-  const onSelectChange = (e) => {
-    const index = e.target.options.selectedIndex;
-    // If index < 1, the selected option is the placeholder, so reset state & form fields
-    if (index < 1) {
-      setState({ name: '', artistLink: '', bio: '', id: '' });
-    } else {
-      const selectedArtist = artists[index - 1];
-      setState({
-        name: selectedArtist.name || '',
-        artistLink: selectedArtist.artistLink || '',
-        bio: selectedArtist.bio || '',
-        id: selectedArtist._id || '',
-      });
-    }
+  const selectArtist = (artist) => {
+    setState({
+      name: artist.name || '',
+      artistLink: artist.artistLink || '',
+      bio: artist.bio || '',
+      id: artist._id || '',
+    });
   };
-
-  useEffect(() => {
-    getArtists();
-    //eslint-disable-next-line
-  }, []);
-
-  const selectArtistView = (
-    <div className="my-1">
-      <select onChange={onSelectChange} id="artists">
-        <option value="placeholder">Select an artist...</option>
-        {artists.map((artist, key) => (
-          <option key={key} value={artist._id}>
-            {artist.name}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
 
   return (
     <div className="my-2">
       <p className="large">Edit Artist</p>
-      {artists.length > 0 && selectArtistView}
+      <SelectArtist selectArtist={selectArtist}></SelectArtist>
       <form className="form" onSubmit={onSubmit}>
         <input
           type="text"
