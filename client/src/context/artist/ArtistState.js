@@ -60,7 +60,6 @@ const ArtistState = (props) => {
     }
     try {
       console.log('Trying to get artists with these ids', ids);
-
       const res = await axios.get('api/artists');
       const artists = res.data.artists;
       const payload = artists.filter((artist) => {

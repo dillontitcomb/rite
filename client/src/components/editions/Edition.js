@@ -18,10 +18,10 @@ const formatArtists = (artists) => {
 
 const Edition = ({ match }) => {
   const editionContext = useContext(EditionContext);
-  const { getEditionWithArtistData, edition, loading } = editionContext;
+  const { getEdition, edition, loading } = editionContext;
 
   useEffect(() => {
-    getEditionWithArtistData(match.params.id);
+    getEdition(match.params.id);
     // eslint-disable-next-line
   }, []);
 

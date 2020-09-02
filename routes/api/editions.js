@@ -9,7 +9,9 @@ const Edition = require('../../models/Edition');
 // @access Public
 router.get('/', async (req, res) => {
   try {
-    const editions = await Edition.find().sort({ date: 1 });
+    const editions = await Edition.find()
+      .populate('editionArtists')
+      .sort({ date: 1 });
     return res.json({ editions });
   } catch (err) {
     return res
@@ -65,7 +67,10 @@ router.post('/', auth, async (req, res) => {
 // @access Public
 router.get('/:id', async (req, res) => {
   try {
-    let edition = await Edition.findById(req.params.id);
+    let edition = await Edition.findById(req.params.id).populate(
+      'editionArtists'
+    );
+    console.log(edition);
     if (!edition) {
       return res
         .status(400)
@@ -73,6 +78,7 @@ router.get('/:id', async (req, res) => {
     }
     return res.json({ edition });
   } catch (err) {
+    console.log(err);
     return res
       .status(500)
       .json({ msg: 'There was a problem with the server.' });
