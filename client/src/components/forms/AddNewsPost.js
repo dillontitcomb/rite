@@ -1,6 +1,7 @@
 import { Editor } from '@tinymce/tinymce-react';
 import React, { useContext, useState } from 'react';
 import NewsPostContext from '../../context/newsPost/newsPostContext';
+import SelectEdition from './SelectEdition';
 
 // TODO: Create forms to add newsPosts, newsPosts, and artworks, break them into separate components
 
@@ -12,6 +13,7 @@ const AddNewsPost = () => {
     title: '',
     description: '',
     files: [],
+    edition: {},
   });
 
   const onChange = (e) => {
@@ -33,6 +35,10 @@ const AddNewsPost = () => {
     });
   };
 
+  const onSelectEdition = (edition) => {
+    setState({ ...state, edition: edition });
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     addNewsPost({
@@ -48,7 +54,8 @@ const AddNewsPost = () => {
   return (
     <div>
       <p className="large">Add a News Post</p>
-
+      <p className="lead">Attach an Edition</p>
+      <SelectEdition onSelectEdition={onSelectEdition}></SelectEdition>
       <form className="form" onSubmit={onSubmit}>
         <p>
           <strong>Upload an Image</strong>
