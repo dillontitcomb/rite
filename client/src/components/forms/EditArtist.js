@@ -40,7 +40,7 @@ const EditArtist = () => {
     setState({ ...state, bio });
   };
 
-  const selectArtist = (artist) => {
+  const onSelectArtist = (artist) => {
     setState({
       name: artist.name || '',
       artistLink: artist.artistLink || '',
@@ -52,7 +52,7 @@ const EditArtist = () => {
   return (
     <div className="my-2">
       <p className="large">Edit Artist</p>
-      <SelectArtist selectArtist={selectArtist}></SelectArtist>
+      <SelectArtist onSelectArtist={onSelectArtist}></SelectArtist>
       <form className="form" onSubmit={onSubmit}>
         <input
           type="text"

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import artistContext from '../../context/artist/artistContext';
 
-const SelectArtist = ({ selectArtist }) => {
+const SelectArtist = ({ onSelectArtist }) => {
   const ArtistContext = useContext(artistContext);
   const { getArtists, artists } = ArtistContext;
 
@@ -14,10 +14,10 @@ const SelectArtist = ({ selectArtist }) => {
         bio: '',
         id: '',
       };
-      selectArtist(emptyArtist);
+      onSelectArtist(emptyArtist);
     } else {
       const selectedArtist = artists[index - 1];
-      selectArtist(selectedArtist);
+      onSelectArtist(selectedArtist);
     }
   };
 

@@ -21,7 +21,7 @@ const DeleteArtist = () => {
     });
   };
 
-  const selectArtist = (artist) => {
+  const onSelectArtist = (artist) => {
     setState({
       name: artist.name || '',
       id: artist._id || '',
@@ -35,7 +35,7 @@ const DeleteArtist = () => {
         <i>This option will delete an artist permanently. Use with caution!</i>
       </p>
       <form onSubmit={onSubmit} className="form">
-        <SelectArtist selectArtist={selectArtist}></SelectArtist>
+        <SelectArtist onSelectArtist={onSelectArtist}></SelectArtist>
         <input
           type="submit"
           value="Delete Artist"

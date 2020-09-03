@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import ArtistContext from '../../context/artist/artistContext';
 import EditionContext from '../../context/edition/editionContext';
 import AddArtist from '../forms/AddArtist';
+import SelectArtist from '../forms/SelectArtist';
 
 const AddEdition = () => {
   const editionContext = useContext(EditionContext);
@@ -42,15 +43,8 @@ const AddEdition = () => {
     console.log(state);
   };
 
-  const onSelectArtistChange = (e) => {
-    const index = e.target.options.selectedIndex;
-    // If index < 1, the selected option is the placeholder, so reset state & form fields
-    if (index < 1) {
-      setState({ ...state, artist: [] });
-    } else {
-      const selectedArtist = artists[index - 1];
-      setState({ ...state, artist: selectedArtist });
-    }
+  const onSelectArtist = (selectedArtist) => {
+    setState({ ...state, artist: selectedArtist });
   };
 
   const onChange = (e) => {
@@ -59,6 +53,10 @@ const AddEdition = () => {
       ...state,
       [e.target.name]: value,
     });
+  };
+
+  const onCheckboxChange = (e) => {
+    setState({ ...state, available: e.target.checked });
   };
 
   const onFileChange = (e) => {
@@ -98,14 +96,7 @@ const AddEdition = () => {
 
   const selectArtistView = (
     <div className="my-1">
-      <select onChange={onSelectArtistChange} id="artists">
-        <option value="placeholder">Select an artist...</option>
-        {artists.map((artist, key) => (
-          <option key={key} value={artist._id}>
-            {artist.name}
-          </option>
-        ))}
-      </select>
+      <SelectArtist onSelectArtist={onSelectArtist}></SelectArtist>
       {state.artist && (
         <button
           className="btn btn-primary my-1"
@@ -206,7 +197,7 @@ const AddEdition = () => {
           type="checkbox"
           name="available"
           value={state.available}
-          onChange={onChange}
+          onChange={onCheckboxChange}
         />
         <label htmlFor="available"> Available for purchase?</label>
         <br />
