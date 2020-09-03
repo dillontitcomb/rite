@@ -1,6 +1,8 @@
 import { Editor } from '@tinymce/tinymce-react';
 import React, { useContext, useState } from 'react';
 import NewsPostContext from '../../context/newsPost/newsPostContext';
+import { isEmpty } from '../../utils/helpers';
+import SelectArtist from './SelectArtist';
 import SelectEdition from './SelectEdition';
 
 // TODO: Create forms to add newsPosts, newsPosts, and artworks, break them into separate components
@@ -13,7 +15,10 @@ const AddNewsPost = () => {
     title: '',
     description: '',
     files: [],
+    editions: [],
     edition: {},
+    artists: [],
+    artist: {},
   });
 
   const onChange = (e) => {
@@ -39,6 +44,36 @@ const AddNewsPost = () => {
     setState({ ...state, edition: edition });
   };
 
+  const onSelectArtist = (artist) => {
+    setState({ ...state, artist: artist });
+  };
+
+  const onAddEdition = () => {
+    setState({
+      ...state,
+      editions: [...state.editions, state.edition],
+      edition: {},
+    });
+  };
+
+  const onClearEditions = () => {
+    setState({
+      ...state,
+      editions: [],
+    });
+  };
+
+  const onAddArtist = (e) => {
+    setState({
+      ...state,
+      artists: [...state.artists, state.artist],
+      artist: {},
+    });
+  };
+
+  const onClearArtists = (e) => {
+    setState({ ...state, artists: [] });
+  };
   const onSubmit = async (e) => {
     e.preventDefault();
     addNewsPost({
@@ -48,15 +83,53 @@ const AddNewsPost = () => {
       title: '',
       description: '',
       files: [],
+      editions: [],
+      edition: {},
+      artists: [],
+      artist: {},
     });
   };
 
   return (
     <div>
       <p className="large">Add a News Post</p>
-      <p className="lead">Attach an Edition</p>
+      <p className="lead">Select an Edition</p>
       <SelectEdition onSelectEdition={onSelectEdition}></SelectEdition>
-      <form className="form" onSubmit={onSubmit}>
+      {!isEmpty(state.edition) && (
+        <button className="btn btn-primary" onClick={onAddEdition}>
+          Add Edition
+        </button>
+      )}
+      {state.editions.length > 0 &&
+        state.editions.map((edition, key) => (
+          <p className="large" key={key}>
+            {edition.title}
+          </p>
+        ))}
+      {state.editions.length > 0 && (
+        <button className="btn btn-danger" onClick={onClearEditions}>
+          Clear Editions
+        </button>
+      )}
+      <p className="lead">Add Artists</p>
+      <SelectArtist onSelectArtist={onSelectArtist}></SelectArtist>
+      {!isEmpty(state.artist) && (
+        <button className="btn btn-primary" onClick={onAddArtist}>
+          Add Artist
+        </button>
+      )}
+      {state.artists.length > 0 &&
+        state.artists.map((artist, key) => (
+          <p className="large" key={key}>
+            {artist.name}
+          </p>
+        ))}
+      {state.artists.length > 0 && (
+        <button className="btn btn-danger" onClick={onClearArtists}>
+          Clear Artists
+        </button>
+      )}
+      <form className="form my-2" onSubmit={onSubmit}>
         <p>
           <strong>Upload an Image</strong>
         </p>

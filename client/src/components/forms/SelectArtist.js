@@ -8,12 +8,7 @@ const SelectArtist = ({ onSelectArtist }) => {
   const onSelectChange = (e) => {
     const index = e.target.options.selectedIndex;
     if (index < 1) {
-      let emptyArtist = {
-        name: '',
-        artistLink: '',
-        bio: '',
-        id: '',
-      };
+      let emptyArtist = {};
       onSelectArtist(emptyArtist);
     } else {
       const selectedArtist = artists[index - 1];

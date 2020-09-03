@@ -11,7 +11,8 @@ router.get('/', async (req, res) => {
   try {
     const newsPosts = await NewsPost.find()
       .populate('editions')
-      .populate('artists');
+      .populate('artists')
+      .sort({ date: 1 });
     if (!newsPosts)
       return res.status(400).json({ msg: 'No news posts could be found.' });
     return res.json({ newsPosts });

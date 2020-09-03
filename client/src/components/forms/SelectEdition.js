@@ -8,17 +8,7 @@ const SelectEdition = ({ onSelectEdition }) => {
   const onSelectChange = (e) => {
     const index = e.target.options.selectedIndex;
     if (index < 1) {
-      let emptyEdition = {
-        editionArtists: [],
-        newsPosts: [],
-        title: '',
-        year: '',
-        description: '',
-        files: [],
-        price: '',
-        available: false,
-        _id: '',
-      };
+      let emptyEdition = {};
       onSelectEdition(emptyEdition);
     } else {
       const selection = editions[index - 1];

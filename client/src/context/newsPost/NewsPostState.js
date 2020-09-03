@@ -51,7 +51,7 @@ const NewsPostState = (props) => {
   };
 
   const addNewsPost = async (newsPost) => {
-    const { title, description, files } = newsPost;
+    let { title, description, files, editions, artists } = newsPost;
     const imageFile = files[0];
     const formData = new FormData();
     formData.append('fileGroup', imageFile, imageFile.name.replace(' ', ''));
@@ -72,11 +72,15 @@ const NewsPostState = (props) => {
     try {
       const res = await axios.post('/api/upload', formData, uploadConfig);
       const filePath = res.data.filePaths[0];
+      if (editions.length) editions = editions.map((edition) => edition._id);
+      if (artists.length) artists = artists.map((artist) => artist._id);
 
       const newsPostData = {
         title,
         description,
         filePath,
+        editions,
+        artists,
       };
 
       await axios.post('./api/newsPosts', newsPostData, addNewsPostConfig);
