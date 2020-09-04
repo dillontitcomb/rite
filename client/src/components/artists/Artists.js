@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import ArtistContext from '../../context/artist/artistContext';
 import './Artists.css';
+import ArtistItem from './ArtistItem'
 
 const Artists = () => {
   const artistContext = useContext(ArtistContext);
@@ -14,24 +15,10 @@ const Artists = () => {
   return (
     <div className="container">
       <p className="x-large text-weight-light text-center my-3">THE ARTISTS</p>
-      <div className="artists-container text-center">
-        {artists &&
+      <div className="artists-container">
+        {artists.length > 0 &&
           artists.map((artist, key) => (
-            // TODO: Create ArtistItem component and use here
-            <div className="card" key={key}>
-              <p className="lead">{artist.name}</p>
-              <div dangerouslySetInnerHTML={{ __html: artist.bio }}></div>
-              <p>
-                Check out their work at{' '}
-                <a
-                  href={artist.artistLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {artist.artistLink}
-                </a>
-              </p>
-            </div>
+            <ArtistItem artist={artist} key={key}></ArtistItem>
           ))}
       </div>
     </div>

@@ -30,8 +30,16 @@ const ArtistState = (props) => {
   const getArtists = async () => {
     try {
       const res = await axios.get('/api/artists');
-      const payload = res.data.artists.reverse();
-      dispatch({ type: GET_ARTISTS_SUCCESS, payload: payload });
+      const payload = res.data.artists;
+      // Sort alphabetically by last name
+      let sorted = res.data.artists.sort((artistOne, artistTwo) => {
+        if (artistOne.name.split(' ')[1] > artistTwo.name.split(' ')[1])
+          return 1;
+        if (artistOne.name.split(' ')[1] < artistTwo.name.split(' ')[1])
+          return -1;
+        return 0;
+      });
+      dispatch({ type: GET_ARTISTS_SUCCESS, payload: sorted });
     } catch (err) {
       console.log(err);
       dispatch({ type: GET_ARTISTS_FAILURE });

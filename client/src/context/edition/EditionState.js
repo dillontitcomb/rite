@@ -3,6 +3,8 @@ import React, { useReducer } from 'react';
 import {
   ADD_EDITION_FAILURE,
   ADD_EDITION_SUCCESS,
+  GET_EDITIONS_BY_ARTIST_FAILURE,
+  GET_EDITIONS_BY_ARTIST_SUCCESS,
   GET_EDITIONS_FAILURE,
   GET_EDITIONS_SUCCESS,
   GET_EDITION_FAILURE,
@@ -46,7 +48,7 @@ const EditionState = (props) => {
     }
   };
 
-  // Get One Edition by ID with Artist Data
+  // Get One Edition by Edition ID with Artist Data
   const getEdition = async (id) => {
     const getEditionRoute = `/api/editions/${id}`;
     try {
@@ -60,6 +62,19 @@ const EditionState = (props) => {
     } catch (err) {
       console.log(err);
       dispatch({ type: GET_EDITION_FAILURE });
+    }
+  };
+
+  // Get Edition(s) from Artist ID
+  const getEditionsByArtist = async (id) => {
+    try {
+      const res = await axios.get(`/api/editions/byartist/${id}`);
+      const payload = res.data.editions;
+      console.log(payload);
+      dispatch({ type: GET_EDITIONS_BY_ARTIST_SUCCESS, payload: payload });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: GET_EDITIONS_BY_ARTIST_FAILURE });
     }
   };
 
@@ -210,6 +225,7 @@ const EditionState = (props) => {
         getEdition,
         addEdition,
         getEditions,
+        getEditionsByArtist,
         updateEdition,
       }}
     >

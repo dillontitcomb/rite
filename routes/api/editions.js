@@ -86,6 +86,22 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// @route GET api/editions/:id
+// @desc Get edition(s) by artist ID
+// @access Public
+router.get('/byartist/:id', async (req, res) => {
+  try {
+    let artistId = req.params.id;
+    let editions = await Edition.find({ editionArtists: artistId });
+    console.log(editions);
+    return res.json({ editions });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ msg: 'There was a problem with the server.' });
+  }
+});
+
 // @route PUT api/editions/:id
 // @desc Update a specific edition
 // @access Private
