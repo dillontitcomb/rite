@@ -48,7 +48,7 @@ const EditionState = (props) => {
     }
   };
 
-  // Get One Edition by Edition ID with Artist Data
+  // Get One Populated Edition by Edition ID
   const getEdition = async (id) => {
     const getEditionRoute = `/api/editions/${id}`;
     try {

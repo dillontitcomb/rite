@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ArtistContext from '../../context/artist/artistContext';
 import './Artists.css';
-import ArtistItem from './ArtistItem'
 
 const Artists = () => {
   const artistContext = useContext(ArtistContext);
@@ -18,7 +18,11 @@ const Artists = () => {
       <div className="artists-container">
         {artists.length > 0 &&
           artists.map((artist, key) => (
-            <ArtistItem artist={artist} key={key}></ArtistItem>
+            <Link key={artist._id} to={`/artists/${artist._id}`}>
+              <p className="artist-list-item lead-sm" key={artist._id}>
+                {artist.name}
+              </p>
+            </Link>
           ))}
       </div>
     </div>

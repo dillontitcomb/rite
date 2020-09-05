@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Admin from './components/admin/Admin';
+import Artist from './components/artists/Artist';
 import Artists from './components/artists/Artists';
 import Edition from './components/editions/Edition';
 import Editions from './components/editions/Editions';
@@ -50,6 +51,7 @@ const App = () => {
                 <Route exact path="/admin" component={Admin}></Route>
                 <Route exact path="/editions/:id" component={Edition}></Route>
                 <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
+                <Route exact path="/artists/:id" component={Artist}></Route>
               </Switch>
               <Footer></Footer>
             </div>

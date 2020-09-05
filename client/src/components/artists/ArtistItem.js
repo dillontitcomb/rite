@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ArtistDetail from './ArtistDetail';
 
 const ArtistItem = ({ artist }) => {
   const [state, setState] = useState({
@@ -19,6 +20,7 @@ const ArtistItem = ({ artist }) => {
       {state.showMore && (
         <div className="my-1">
           <p className="lead-sm">{artist.bio}</p>
+          <ArtistDetail artist={artist}></ArtistDetail>
         </div>
       )}
     </div>

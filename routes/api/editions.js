@@ -92,7 +92,9 @@ router.get('/:id', async (req, res) => {
 router.get('/byartist/:id', async (req, res) => {
   try {
     let artistId = req.params.id;
-    let editions = await Edition.find({ editionArtists: artistId });
+    let editions = await Edition.find({ editionArtists: artistId }).populate(
+      'editionArtists'
+    );
     console.log(editions);
     return res.json({ editions });
   } catch (err) {
