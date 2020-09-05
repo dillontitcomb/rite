@@ -1,11 +1,3 @@
-.home-header-backdrop {
-  background-image: url('/img/face_mask_project.jpg');
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.home-container {
+  max-width: 1000px;
 }
