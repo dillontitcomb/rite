@@ -6,6 +6,7 @@ const Inquiry = () => {
     from_name: '',
     subject: '',
     message: '',
+    contact: '',
   });
 
   const onChange = (e) => {
@@ -34,7 +35,7 @@ const Inquiry = () => {
           console.log(error.text);
         }
       );
-    setState({ from_name: '', subject: '', message: '' });
+    setState({ from_name: '', subject: '', message: '', contact: '' });
   };
 
   return (
@@ -44,6 +45,7 @@ const Inquiry = () => {
       </p>
       <div className="form-container">
         <form className="form" onSubmit={onSubmit}>
+          <p className="lead-sm my-1=">Contact Us</p>
           <input
             type="text"
             name="from_name"
@@ -54,16 +56,25 @@ const Inquiry = () => {
           <input
             type="text"
             name="subject"
-            placeholder="Subject (e.g. Requesting information about recent edition)"
+            placeholder="Subject"
             value={state.subject}
             onChange={onChange}
           />
           <textarea
             name="message"
-            placeholder="Your message"
+            placeholder="Message"
             value={state.message}
             onChange={onChange}
           ></textarea>
+          <br />
+          <p className="lead-sm my-1">How should we reach you?</p>
+          <input
+            type="text"
+            name="contact"
+            placeholder="Phone or email address"
+            value={state.contact}
+            onChange={onChange}
+          />
           <p>
             <input type="submit" value="Submit" className="btn btn-primary" />
           </p>
