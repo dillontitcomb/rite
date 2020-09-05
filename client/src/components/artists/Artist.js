@@ -26,7 +26,7 @@ const Artist = ({ match }) => {
             {artist.name ? artist.name.toUpperCase() : ''}
           </p>
           <div
-            className="text-center lead"
+            className="text-center"
             dangerouslySetInnerHTML={{ __html: artist.bio }}
           ></div>
           <p className="x-large text-weight-light text-center my-3">

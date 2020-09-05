@@ -39,7 +39,7 @@ const Edition = ({ match }) => {
             <em>{title}</em>, {year}
           </p>
 
-          <Carousel autoplay>
+          <Carousel dynamicHeight={true} autoplay>
             {filePaths.map((file, key) => (
               <img key={key} alt={title} src={filePaths[key]}></img>
             ))}

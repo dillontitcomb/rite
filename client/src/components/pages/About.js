@@ -16,15 +16,17 @@ const About = () => {
           </p>
           <br />
           <p>
-            Since its inception, RITE Editions has published 16 editions. The
+            Since its inception, RITE Editions has published 24 editions. The
             inaugural edition was Sound of Music, A Record of the Sound of Its
             Own Making by Jonathan Monk, an LP recording referencing Robert
             Morris’s Box with the Sound of Its Own Making (1961). Subsequent
-            multiples include The White Album by Mungo Thomson (2009), Travis
-            Meinolf’s Social Fabric Berlin Mitte (2010), and Paul Sietsema’s At
-            the hour of tea (2014). This year, three editions will be published:
-            Davina Semo’s Letter Opener, 2019, a monograph entitled Steven
-            Leiber Catalogs, and an edition by Carissa Potter.
+            multiples include The White Album by Mungo Thomson (2009), Paul
+            Sietsema’s At the hour of tea (2014) Margo Wolowiec’s Blanket (2017)
+            and Steven Leiber Catalogs (2019). This year, in addition to
+            producing limited edition face masks designed by Jeffry Mitchell and
+            Leah Rosenberg, RE will publish three books: Rumi Koshino’s Solo
+            Walks, First 100 Days (Fall 2020), Laeh Glenn MUM, (September 2020)
+            and Ant Farm, Media Burn and the Making of an Image (October 2020).
           </p>
           <br />
           <p>
@@ -38,13 +40,12 @@ const About = () => {
           </p>
           <br />
           <p>
-            Steven Leiber passed away in 2012. RITE Editions published artists &
+            Steven Leiber passed away in 2012. RITE Editions published Artists &
             Editions in 2013 as a tribute to Steven and his work as a dealer,
             collector, and teacher. Fourteen artists, many of whom engaged in an
             ongoing dialogue with Steven during his lifetime, contributed
-            extraordinary works to the edition. All proceeds from the sale of
-            this boxed edition will benefit the Steven Leiber Scholarship fund
-            at California College of Arts in San Francisco.
+            extraordinary works to the edition. (For more information, see the
+            publication in the RE EDITIONS section.)
           </p>
           <br />
           <p className="lead">
