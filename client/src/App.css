@@ -393,7 +393,7 @@ textarea {
   border: 1px solid #ccc;
 }
 textarea {
-  min-height: 120px;
+  min-height: 150px;
 }
 
 input[type='submit'],
@@ -413,7 +413,7 @@ table th {
 
 .navbar {
   border: none;
-  height: 120px;
+  height: 110px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -434,7 +434,7 @@ table th {
 .navbar .nav-item {
   font-weight: lighter;
   color: var(--dark-lighter);
-  margin: 0.1rem 0.35rem;
+  margin: 0.1rem 0.45rem;
   position: relative;
   display: inline-block;
 }
@@ -471,7 +471,7 @@ table th {
 }
 
 .rite-logo {
-  width: 220px;
+  width: 250px;
 }
 
 .nav-brand {

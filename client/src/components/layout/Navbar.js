@@ -41,11 +41,12 @@ const Navbar = () => {
           <Link className="nav-item nav-active" to="/">
             Home
           </Link>
-          <Link className="nav-item" to="/artists">
-            Artists
-          </Link>
+
           <Link className="nav-item" to="/editions">
             Editions
+          </Link>
+          <Link className="nav-item" to="/artists">
+            Artists
           </Link>
           <Link className="nav-item" to="/news">
             News & Fairs
@@ -53,11 +54,11 @@ const Navbar = () => {
           <Link className="nav-item" to="/about">
             About
           </Link>
+          <Link className="nav-item" to="/inquiry">
+            Inquiries
+          </Link>
           {!isAuthenticated ? (
             <>
-              <Link className="nav-item" to="/register">
-                Register
-              </Link>
               <Link className="nav-item" to="/login">
                 Log In
               </Link>

@@ -14,6 +14,7 @@ import About from './components/pages/About';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
+import Inquiry from './components/forms/Inquiry';
 import ArtistState from './context/artist/ArtistState';
 import AuthContext from './context/auth/authContext';
 import EditionState from './context/edition/EditionState';
@@ -49,6 +50,7 @@ const App = () => {
                 <Route exact path="/login" component={Login}></Route>
                 <Route exact path="/register" component={Register}></Route>
                 <Route exact path="/admin" component={Admin}></Route>
+                <Route exact path="/inquiry" component={Inquiry}></Route>
                 <Route exact path="/editions/:id" component={Edition}></Route>
                 <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
                 <Route exact path="/artists/:id" component={Artist}></Route>
