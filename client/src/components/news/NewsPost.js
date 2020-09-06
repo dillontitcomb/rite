@@ -19,8 +19,11 @@ const NewsPost = ({ match }) => {
       ) : (
         <div className="my-2">
           <p className="large my-1">{title}</p>
-          <img src={filePath} alt="coolpix" />
-          <div dangerouslySetInnerHTML={{ __html: description }}></div>
+          <img className="news-post-image" src={filePath} alt="News Post" />
+          <div
+            className="news-post-description"
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></div>
         </div>
       )}
     </div>

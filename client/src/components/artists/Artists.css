@@ -11,3 +11,8 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.artist-bio {
+  max-width: 600px;
+  margin: auto;
+}

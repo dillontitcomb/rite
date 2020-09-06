@@ -26,18 +26,25 @@ const Artist = ({ match }) => {
             {artist.name ? artist.name.toUpperCase() : ''}
           </p>
           <div
-            className="text-center"
+            className="artist-bio text-center"
             dangerouslySetInnerHTML={{ __html: artist.bio }}
           ></div>
           <p className="x-large text-weight-light text-center my-3">
             RECENT WORK
           </p>
-          <div className="editions-grid">
-            {editions.length > 0 &&
-              editions.map((edition, key) => (
-                <EditionItem key={edition._id} edition={edition}></EditionItem>
-              ))}
-          </div>
+          {editions.length > 0 ? (
+            <div className="editions-grid">
+              {editions.length > 0 &&
+                editions.map((edition, key) => (
+                  <EditionItem
+                    key={edition._id}
+                    edition={edition}
+                  ></EditionItem>
+                ))}
+            </div>
+          ) : (
+            <p className="text-center">New Edition Coming Soon</p>
+          )}
         </div>
       )}
     </div>

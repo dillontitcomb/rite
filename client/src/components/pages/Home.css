@@ -1,3 +1,11 @@
 .home-container {
   max-width: 1000px;
 }
+
+.home-upcoming {
+  margin: 4rem 0rem 4rem 0rem;
+}
+
+.home-emoji-gif {
+  max-width: 400px;
+}

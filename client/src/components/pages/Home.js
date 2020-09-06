@@ -29,47 +29,37 @@ const Home = () => {
           masks. The face masks are co-produced with RITE Editions and the Rena
           Bransten Gallery in collaboration with Stevie Howell.
         </p>
-        <Link to="/editions/5f444110e8240b0c04a77a69" className="lead-sm">
-          Learn More →
-        </Link>
+        <p className="lead-sm my-1">
+          <Link to="/editions/5f444110e8240b0c04a77a69">Learn More →</Link>
+        </p>
       </div>
-      <div className="home-upcoming my-2">
-        <p className="large my-2">Upcoming Editions & Fairs</p>
+      <div className="home-upcoming">
+        <p className="large my-2">Upcoming Editions</p>
         <p className="lead-sm my-1">
           <strong>
             <i>Media Burn: Ant Farm and the Making of an Image</i>
           </strong>{' '}
-          - available end of October
+          - available Fall 2020
         </p>
-        <p>Steve Seid</p>
-        <p>Introduction by Chip Lord</p>
-        <p>Paperback</p>
-        <p>Color throughout</p>
-        <p>9 x 12 inches</p>
-        <p>128 pages</p>
         <p>
-          Design by <a href="http://in-fo.co/">IN-FO.CO</a>
+          Steve Said. Monograph. Introduction by Chip Lord. Co-published by RITE
+          Editions and Inventory Press 2020. Design by{' '}
+          <a href="http://in-fo.co/">IN-FO.CO</a>. Paperback. Full color. 9
+          x12”. 128 pages. $35.
         </p>
-        <p>Co-published by Inventory Press and RITE Editions</p>
-        <p>2020</p>
-        <p>$35</p>
+
         <p className="lead-sm my-1">
           <strong>
             <i>MUM</i>
           </strong>{' '}
-          - available end of September
+          - available September 2020
         </p>
-        <p>Laeh Glenn</p>
-        <p>Co-published by Apogee Graphics and RITE Editions</p>
-        <p>In collaboration with Altman Siegel Gallery</p>
-        <p>Fall 2020</p>
-        <p>Designed by Apogee Graphics</p>
-        <p>Digital printing</p>
-        <p>56 pages</p>
-        <p>Softbound. Perfect Bind.</p>
-        <p>6 x 9.5&rdquo;</p>
-        <p>Edition of 100</p>
-        <p>Sales price (TBD)</p>
+        <p>
+          Laeh Glenn. Artist’s book. Co-published by Apogee Graphics and RITE
+          Editions in collaboration with Altman Siegel Gallery, 2020. Designed
+          by Apogee Graphics. Limited edition. Paperback. Digital printing. Full
+          color. 6 x 9.5”. 56 pages. Sales price tbd.
+        </p>
       </div>
     </div>
   );

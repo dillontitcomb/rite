@@ -1,3 +1,11 @@
+.news-post-item {
+  margin-bottom: 8rem;
+}
+
 .news-post-image {
   max-width: 600px;
+}
+
+.news-post-description {
+  max-width: 800px;
 }
