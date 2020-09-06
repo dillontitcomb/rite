@@ -6,6 +6,7 @@ import Artist from './components/artists/Artist';
 import Artists from './components/artists/Artists';
 import Edition from './components/editions/Edition';
 import Editions from './components/editions/Editions';
+import Inquiry from './components/forms/Inquiry';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import News from './components/news/News';
@@ -14,11 +15,11 @@ import About from './components/pages/About';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
-import Inquiry from './components/forms/Inquiry';
 import ArtistState from './context/artist/ArtistState';
 import AuthContext from './context/auth/authContext';
 import EditionState from './context/edition/EditionState';
 import NewsPostState from './context/newsPost/NewsPostState';
+import PrivateRoute from './utils/PrivateRoute';
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
@@ -49,7 +50,11 @@ const App = () => {
                 <Route exact path="/news" component={News}></Route>
                 <Route exact path="/login" component={Login}></Route>
                 <Route exact path="/register" component={Register}></Route>
-                <Route exact path="/admin" component={Admin}></Route>
+                <PrivateRoute
+                  exact
+                  path="/admin"
+                  component={Admin}
+                ></PrivateRoute>
                 <Route exact path="/inquiry" component={Inquiry}></Route>
                 <Route exact path="/editions/:id" component={Edition}></Route>
                 <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
