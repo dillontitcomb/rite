@@ -60,6 +60,9 @@ const Home = () => {
           by Apogee Graphics. Limited edition. Paperback. Digital printing. Full
           color. 6 x 9.5”. 56 pages. Sales price tbd.
         </p>
+        <p className="lead-sm my-1">
+          <Link to="/editions/5f444110e8240b0c04a77a69">View Editions →</Link>
+        </p>
       </div>
     </div>
   );
