@@ -272,9 +272,10 @@ const EditEdition = () => {
               'insertdatetime media table paste wordcount',
             ],
             toolbar:
-              'undo redo | formatselect | bold italic | \
+              'undo redo | formatselect | bold italic | link image | \
             alignleft aligncenter alignright | \
             bullist numlist outdent indent | help',
+            typeahead_urls: false,
           }}
         />
         <input
