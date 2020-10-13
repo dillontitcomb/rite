@@ -33,7 +33,7 @@ const Edition = ({ match }) => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div>
+        <div className="edition-body">
           <p className="x-large my-1">
             {artistNames.length > 0 && formatArtists(artistNames) + ', '}
             <em>{title}</em>, {year}

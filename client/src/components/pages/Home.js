@@ -9,7 +9,7 @@ const Home = () => {
         <Link to="/editions">
           <img
             className="home-image"
-            src="/img/face_mask_project.jpg"
+            src="/img/face_mask_project2.jpg"
             alt="Face Mask Project"
           />
         </Link>

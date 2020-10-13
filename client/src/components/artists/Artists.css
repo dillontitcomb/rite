@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: left;
   max-width: 800px;
+  margin-bottom: 2rem;
 }
 
 .artist-list-item:hover {

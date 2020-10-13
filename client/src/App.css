@@ -516,3 +516,14 @@ table th {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 510px) {
+  .nav-item {
+    font-size: 0.9rem;
+  }
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 150px;
+  }
+}
