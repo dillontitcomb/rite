@@ -30,7 +30,7 @@ const Artist = ({ match }) => {
             dangerouslySetInnerHTML={{ __html: artist.bio }}
           ></div>
           <p className="x-large text-weight-light text-center my-3">
-            MORE EDITIONS
+            RITE EDITIONS
           </p>
           {editions.length > 0 ? (
             <div className="editions-grid">
