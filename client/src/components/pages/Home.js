@@ -35,33 +35,15 @@ const Home = () => {
       </div>
       <div className="home-upcoming">
         <p className="large my-2">Upcoming Editions</p>
+        <p className="lead-sm my-1"><strong>Woody De Othello. <em>Jigsaw Puzzle.</em></strong> Available in December 2020.</p>
+        <p>5 original color images by Woody De Othello (with 3 puzzles per image). Co-published by RITE Editions, Jessica Silverman Gallery, San Francisco, Karma Gallery, New York. In collaboration with Mark A. Rodriguez and Soulfrawg Puzzles. 2020. Maximum dimensions: 10 x 12”. </p>
+        <p>Approximately 150 pieces.</p>
+        <p>Edition of 15.</p>
+        <p>*Pre-orders available. Submit your order on the <em>Inquiry</em> page.</p>
+        <br/>
+        <p>The limited edition jigsaw puzzle will have hand cut wooden pieces; each puzzle will be unique. The puzzles are intended to be challenging. They will be in the tradition of jigsaws that have no guiding images. </p>
         <p className="lead-sm my-1">
-          <strong>
-            <i>Media Burn: Ant Farm and the Making of an Image</i>
-          </strong>{' '}
-          - available Fall 2020
-        </p>
-        <p>
-          Steve Said. Monograph. Introduction by Chip Lord. Co-published by RITE
-          Editions and Inventory Press 2020. Design by{' '}
-          <a href="http://in-fo.co/">IN-FO.CO</a>. Paperback. Full color. 9
-          x12”. 128 pages. $35.
-        </p>
-
-        <p className="lead-sm my-1">
-          <strong>
-            <i>MUM</i>
-          </strong>{' '}
-          - available September 2020
-        </p>
-        <p>
-          Laeh Glenn. Artist’s book. Co-published by Apogee Graphics and RITE
-          Editions in collaboration with Altman Siegel Gallery, 2020. Designed
-          by Apogee Graphics. Limited edition. Paperback. Digital printing. Full
-          color. 6 x 9.5”. 56 pages. Sales price tbd.
-        </p>
-        <p className="lead-sm my-1">
-          <Link to="/editions/5f444110e8240b0c04a77a69">View Editions →</Link>
+          <Link to="/editions">View Editions →</Link>
         </p>
       </div>
     </div>
