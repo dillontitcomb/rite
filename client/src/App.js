@@ -14,6 +14,7 @@ import NewsPost from './components/news/NewsPost';
 import About from './components/pages/About';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
+import Shop from './components/shop/Shop';
 import Register from './components/pages/Register';
 import ArtistState from './context/artist/ArtistState';
 import AuthContext from './context/auth/authContext';
@@ -23,50 +24,50 @@ import PrivateRoute from './utils/PrivateRoute';
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
-  setAuthToken(localStorage.token);
+	setAuthToken(localStorage.token);
 }
 
 const App = () => {
-  const authContext = useContext(AuthContext);
-  const { loadUser } = authContext;
+	const authContext = useContext(AuthContext);
+	const { loadUser } = authContext;
 
-  useEffect(() => {
-    loadUser();
-    // eslint-disable-next-line
-  }, []);
+	useEffect(() => {
+		loadUser();
+		// eslint-disable-next-line
+	}, []);
 
-  return (
-    <EditionState>
-      <ArtistState>
-        <NewsPostState>
-          <Router>
-            <div className="App">
-              <Navbar title="Rite Editions" />
-              <Switch>
-                <Route exact path="/" component={Home}></Route>
-                <Route exact path="/about" component={About}></Route>
-                <Route exact path="/editions" component={Editions}></Route>
-                <Route exact path="/artists" component={Artists}></Route>
-                <Route exact path="/news" component={News}></Route>
-                <Route exact path="/login" component={Login}></Route>
-                <Route exact path="/register" component={Register}></Route>
-                <PrivateRoute
-                  exact
-                  path="/admin"
-                  component={Admin}
-                ></PrivateRoute>
-                <Route exact path="/inquiry" component={Inquiry}></Route>
-                <Route exact path="/editions/:id" component={Edition}></Route>
-                <Route exact path="/newsPosts/:id" component={NewsPost}></Route>
-                <Route exact path="/artists/:id" component={Artist}></Route>
-              </Switch>
-              <Footer></Footer>
-            </div>
-          </Router>
-        </NewsPostState>
-      </ArtistState>
-    </EditionState>
-  );
+	return (
+		<EditionState>
+			<ArtistState>
+				<NewsPostState>
+					<Router>
+						<div className='App'>
+							<Navbar title='Rite Editions' />
+							<Switch>
+								<Route exact path='/' component={Home}></Route>
+								<Route exact path='/about' component={About}></Route>
+								<Route exact path='/editions' component={Editions}></Route>
+								<Route exact path='/artists' component={Artists}></Route>
+								<Route exact path='/news' component={News}></Route>
+								<Route exact path='/login' component={Login}></Route>
+								<Route exact path='/register' component={Register}></Route>
+								<Route exact path='/shop' component={Shop}></Route>
+								<PrivateRoute
+									exact
+									path='/admin'
+									component={Admin}></PrivateRoute>
+								<Route exact path='/inquiry' component={Inquiry}></Route>
+								<Route exact path='/editions/:id' component={Edition}></Route>
+								<Route exact path='/newsPosts/:id' component={NewsPost}></Route>
+								<Route exact path='/artists/:id' component={Artist}></Route>
+							</Switch>
+							<Footer></Footer>
+						</div>
+					</Router>
+				</NewsPostState>
+			</ArtistState>
+		</EditionState>
+	);
 };
 
 export default App;
