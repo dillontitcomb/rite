@@ -14,7 +14,6 @@ import NewsPost from './components/news/NewsPost';
 import About from './components/pages/About';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
-import Shop from './components/shop/Shop';
 import Register from './components/pages/Register';
 import ArtistState from './context/artist/ArtistState';
 import AuthContext from './context/auth/authContext';
@@ -51,7 +50,6 @@ const App = () => {
 								<Route exact path='/news' component={News}></Route>
 								<Route exact path='/login' component={Login}></Route>
 								<Route exact path='/register' component={Register}></Route>
-								<Route exact path='/shop' component={Shop}></Route>
 								<PrivateRoute
 									exact
 									path='/admin'
