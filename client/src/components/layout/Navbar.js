@@ -22,7 +22,6 @@ const Navbar = () => {
 	const { isAuthenticated, logout } = authContext;
 
 	const onClick = () => {
-		console.log('Loggin Out!');
 		logout();
 	};
 	return (
