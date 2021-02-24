@@ -1,4 +1,4 @@
 {
-	"mongoURI": "mongodb://dillont34:pugdogben1525@ds063170.mlab.com:63170/rite_editions",
+	"mongoURI": "mongodb+srv://dillont34:pugdogben1525@rite-editions.pzslx.mongodb.net/rite_editions?retryWrites=true&w=majority",
 	"jwtSecret": "bigseeky"
 }

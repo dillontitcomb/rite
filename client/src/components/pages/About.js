@@ -55,11 +55,13 @@ const About = () => {
             <li>MoMa, NY</li>
             <li>SFMOMA, San Francisco</li>
             <li>Fogg Art Museum, Harvard, Cambridge</li>
-            <li>National Gallery of Canada, Ottowa</li>
+            <li>National Gallery of Canada, Ottawa</li>
             <li>Walker Art Center, Minneapolis</li>
             <li>Henry Art Gallery, Seattle</li>
             <li>Seattle Art Museum</li>
             <li>ArtNow International</li>
+            <li>Berkeley Art Museum and Pacific Film Archive</li>
+            <li>Clark Art Institute, Williams College</li>
           </ul>
           <p className="lead">Acknowledgements</p>
           <p>
