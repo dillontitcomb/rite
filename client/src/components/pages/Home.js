@@ -52,7 +52,7 @@ const Home = () => {
         </p>
         <img
           className='home-additional-image'
-          src='/img/face_mask_000.jpg'
+          src='/img/masks_3.jpg'
           alt='Face Mask Project'
         />
         <p className='my-1'>
