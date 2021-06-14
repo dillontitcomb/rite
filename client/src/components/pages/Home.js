@@ -38,7 +38,7 @@ const Home = () => {
           To order, <a href='/shop.html'>visit our shop.</a>
         </p>
         <p className='lead-sm my-1'>
-          <Link to='/editions/6035c4373a86003d60a914ed'>Learn More →</Link>
+          <Link to='/editions/60c79e994745b31b00fcf161'>Learn More →</Link>
         </p>
       </div>
       <div className='home-upcoming'>
