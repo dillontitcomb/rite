@@ -9,23 +9,33 @@ const Home = () => {
         <Link to='/editions'>
           <img
             className='home-image'
-            src='/img/improved_rite_image.jpeg'
-            alt='Othello Jigsaw Puzzle'
+            src='/img/laskey_home.jpg'
+            alt='Ruth Laskey Twill'
           />
         </Link>
         <p className='large my-2'>
-          Woody De Othello,
+          Ruth Laskey,
           <strong>
             {' '}
-            <i>Jigsaw Puzzle, 2020-21</i>
+            <i>Twill Series, 2021</i>
           </strong>
         </p>
         <p>
-          The limited-edition jigsaw puzzles are hand cut by Mark A. Rodriquez
-          and Soulfrawg Puzzles. Each puzzle varies in the number of pieces and
-          the configuration. The puzzles are intended to be challenging. There
-          are no images or straight edges to guide the user. Woody De Othello’s
-          design will be revealed when the owner completes the puzzle.
+          RITE Editions, in collaboration with Ratio 3, is proud to announce,
+          Twill Series, the first monograph to be published on the work of Ruth
+          Laskey. Produced in a limited edition of 500, every aspect of the
+          book's design was overseen by the artist. The resulting publication is
+          a tactile artifact that provides an immersive survey of a singular
+          artistic practice.
+        </p>
+        <br />
+        <p>
+          Monograph. Designed by Ruth Laskey and Ben Tear. Co-published by RITE
+          Editions and Ratio 3. Hard back. Full color. 9.75 x 9.75”.
+        </p>
+        <p>$75</p>
+        <p>
+          To order, <a href='/shop.html'>visit our shop.</a>
         </p>
         <p className='lead-sm my-1'>
           <Link to='/editions/6035c4373a86003d60a914ed'>Learn More →</Link>
@@ -55,8 +65,8 @@ const Home = () => {
           src='/img/masks_3.jpg'
           alt='Face Mask Project'
         />
-        <p className='my-1'>
-          <i>*For purchase, navigate to the Buy RITE tab.</i>
+        <p>
+          To order, <a href='/shop.html'>visit our shop.</a>
         </p>
         <p className='lead-sm my-1'>
           <Link to='/editions'>View Editions →</Link>
