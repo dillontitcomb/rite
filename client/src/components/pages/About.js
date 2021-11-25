@@ -4,9 +4,9 @@ import './About.css';
 const About = () => {
   return (
     <div>
-      <div className="container">
-        <div className="about">
-          <p className="x-large text-weight-light text-center my-3">
+      <div className='container'>
+        <div className='about'>
+          <p className='x-large text-weight-light text-center my-3'>
             ABOUT RITE EDITIONS
           </p>
           <p>
@@ -22,11 +22,13 @@ const About = () => {
             Morris’s Box with the Sound of Its Own Making (1961). Subsequent
             multiples include The White Album by Mungo Thomson (2009), Paul
             Sietsema’s At the hour of tea (2014) Margo Wolowiec’s Blanket (2017)
-            and Steven Leiber Catalogs (2019). This year, in addition to
-            producing limited edition face masks designed by Jeffry Mitchell and
-            Leah Rosenberg, RE will publish three books: Rumi Koshino’s Solo
-            Walks, First 100 Days (Fall 2020), Laeh Glenn MUM, (September 2020)
-            and Ant Farm, Media Burn and the Making of an Image (October 2020).
+            and Steven Leiber Catalogs (2019). In 2020, in addition to producing
+            limited edition face masks designed by Jeffry Mitchell, Leah
+            Rosenberg and Hung Liu, RE published three books: Rumi Koshino’s
+            Solo Walks, First 100 Days, Laeh Glenn MUM and Ant Farm, Media Burn
+            and the Making of an Image. In 2021, RE added 3 new editions to the
+            list: Woody De Othello’s Jigsaw Puzzle, Ruth Laskey’s artist’s book
+            Twill Series and Giovanna Lomanto’s Erase This.
           </p>
           <br />
           <p>
@@ -48,10 +50,10 @@ const About = () => {
             publication in the RE EDITIONS section.)
           </p>
           <br />
-          <p className="lead">
+          <p className='lead'>
             RITE Editions are represented in the following public collections:
           </p>
-          <ul className="about-collections-list my-1">
+          <ul className='about-collections-list my-1'>
             <li>MoMa, NY</li>
             <li>SFMOMA, San Francisco</li>
             <li>Fogg Art Museum, Harvard, Cambridge</li>
@@ -63,7 +65,7 @@ const About = () => {
             <li>Berkeley Art Museum and Pacific Film Archive</li>
             <li>Clark Art Institute, Williams College</li>
           </ul>
-          <p className="lead">Acknowledgements</p>
+          <p className='lead'>Acknowledgements</p>
           <p>
             All editions photography is by <strong>Ian Reeves</strong>
           </p>
