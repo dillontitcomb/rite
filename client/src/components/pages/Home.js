@@ -9,65 +9,41 @@ const Home = () => {
         <Link to='/editions'>
           <img
             className='home-image'
-            src='/img/laskey_home.jpg'
+            src='/img/recent_publications/editions.jpg'
             alt='Ruth Laskey Twill'
           />
         </Link>
-        <p className='large my-2'>
-          Ruth Laskey,
-          <strong>
-            {' '}
-            <i>Twill Series, 2021</i>
-          </strong>
-        </p>
+        <p className='large my-2'>Recent RITE Editions Publications</p>
+        <p>Publications clockwise: </p>
+        <br />
         <p>
-          RITE Editions, in collaboration with Ratio 3, is proud to announce,
-          Twill Series, the first monograph to be published on the work of Ruth
-          Laskey. Produced in a limited edition of 500, every aspect of the
-          book's design was overseen by the artist. The resulting publication is
-          a tactile artifact that provides an immersive survey of a singular
-          artistic practice.
+          Jenny Monick, <em>Spiral</em>. Ruth Laskey, <em>Twill Series</em>.
+          <em>Steven Leiber Catalogs</em>. Elisheva Biernoff, <em>One Day</em>.
+          Veronica De Jesus, <em>People are a light to Love</em>. Laeh Glenn,
+          <em>MUM</em>. Media Burn, <em>Ant Farm and the Making of an Image</em>
+          .
         </p>
         <br />
         <p>
-          Monograph. Designed by Ruth Laskey and Ben Tear. Co-published by RITE
-          Editions and Ratio 3. Hard back. Full color. 9.75 x 9.75”.
-        </p>
-        <p>$75</p>
-        <p>
-          To order, <a href='/shop.html'>visit our shop.</a>
+          RE publications will be available at the SFABF 2022,{' '}
+          <strong>July 14-17th</strong> at Minnesota Street Projects.
         </p>
         <p className='lead-sm my-1'>
-          <Link to='/editions/60c79e994745b31b00fcf161'>Learn More →</Link>
+          <a href='https://sfartbookfair.com/'>
+            Click here for more information.
+          </a>
+        </p>
+        <p>
+          To order a recent edition, <a href='/shop.html'>visit our shop.</a>
         </p>
       </div>
       <div className='home-upcoming'>
-        <p className='large my-2'>New Edition Addition</p>
-        <p className='lead-sm my-1'>
-          <strong>
-            Hung Liu, Jeffry Mitchell, and Leah Rosenberg,{' '}
-            <em>Face Mask Project, </em>2020-2021
-          </strong>
-        </p>
-        <p className='lead-sm my-1'>Set of 3 Masks</p>
-        <p className='my-1'>
-          In response to the Covid-19 crisis, the Face Mask Project, 2020 was
-          developed to benefit the Artist Relief Fund (artistrelief.org) and the
-          World Central Kitchen (wck.org). Artists, Hung Liu, Jeffry Mitchell
-          and Leah Rosenberg each created face covering designs. The
-          compositions were digitally transposed onto cotton, then sewn into
-          non-surgical face masks. The face masks are co-produced with RITE
-          Editions and the Rena Bransten Gallery in collaboration with Stevie
-          Howell.
-        </p>
-        <img
-          className='home-additional-image'
-          src='/img/masks_3.jpg'
-          alt='Face Mask Project'
-        />
+        <p className='large my-2'>Upcoming Editions 2022-2023</p>
         <p>
-          To order, <a href='/shop.html'>visit our shop.</a>
+          Three new RITE Editions are in progress and will be launched in early
+          2023.
         </p>
+        <Link to='/newsPosts/62b270aa3e83240018325eec'>Learn More →</Link>
         <p className='lead-sm my-1'>
           <Link to='/editions'>View Editions →</Link>
         </p>
