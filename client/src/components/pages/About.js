@@ -16,19 +16,17 @@ const About = () => {
           </p>
           <br />
           <p>
-            Since its inception, RITE Editions has published 24 editions. The
-            inaugural edition was Sound of Music, A Record of the Sound of Its
-            Own Making by Jonathan Monk, an LP recording referencing Robert
-            Morris’s Box with the Sound of Its Own Making (1961). Subsequent
-            multiples include The White Album by Mungo Thomson (2009), Paul
-            Sietsema’s At the hour of tea (2014) Margo Wolowiec’s Blanket (2017)
-            and Steven Leiber Catalogs (2019). In 2020, in addition to producing
-            limited edition face masks designed by Jeffry Mitchell, Leah
-            Rosenberg and Hung Liu, RE published three books: Rumi Koshino’s
-            Solo Walks, First 100 Days, Laeh Glenn MUM and Ant Farm, Media Burn
-            and the Making of an Image. In 2021, RE added 3 new editions to the
-            list: Woody De Othello’s Jigsaw Puzzle, Ruth Laskey’s artist’s book
-            Twill Series and Giovanna Lomanto’s Erase This.
+            Since its inception, RITE Editions has published 28 editions. The
+            inaugural edition (in 2007) was Sound of Music, A Record of the
+            Sound of Its Own Making by Jonathan Monk, an LP recording
+            referencing Robert Morris’s Box with the Sound of Its Own Making
+            (1961). Subsequent publications include Paul Sietsema’s At the hour
+            of tea (2014) Margo Wolowiec’s Blanket (2017) Steven Leiber Catalogs
+            (2019) Woody De Othello’s Jigsaw Puzzle (2020-21) and Ruth Laskey’s
+            artist’s book Twill Series in 2021. In 2022-23, RE will add 3 new
+            editions to the list: Dawn Cerny’s Tabletop Sculptures or Holders, a
+            multiple and publication , Emily Furr’s Artist Book and a book
+            exploring Cecelia Vicuna’s Palabrarmas.
           </p>
           <br />
           <p>

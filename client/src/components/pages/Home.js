@@ -43,7 +43,6 @@ const Home = () => {
           Three new RITE Editions are in progress and will be launched in early
           2023.
         </p>
-        <Link to='/newsPosts/62b270aa3e83240018325eec'>Learn More →</Link>
         <p className='lead-sm my-1'>
           <Link to='/editions'>View Editions →</Link>
         </p>
