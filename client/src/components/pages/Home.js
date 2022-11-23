@@ -13,7 +13,7 @@ const Home = () => {
 						alt='Ruth Laskey Twill'
 					/>
 				</Link>
-				<p className='large my-2'>Recent RITE Editions Publications</p>
+				<p className='large my-2'>Some RITE Editions Publications</p>
 				<p>Publications clockwise: </p>
 				<br />
 				<p>
@@ -24,7 +24,7 @@ const Home = () => {
 					.
 				</p>
 				<br />
-				<p>
+				<p className='lead-sm'>
 					RE publications will be available at the SFMOMA Small Press Book
 					Bazaar,
 					<strong> December 1st, 2022</strong>, 1–8 p.m.
@@ -39,12 +39,8 @@ const Home = () => {
 				</p>
 			</div>
 			<div className='home-upcoming'>
-				<p className='large my-2'>Upcoming Editions 2022-2023</p>
-				<p>
-					Three new RITE Editions are in progress and will be launched in early
-					2023.
-				</p>
-				<p className='lead-sm my-1'>
+				<p className='large'>New and Upcoming 2022-2023</p>
+				<p className='lead-sm'>
 					<Link to='/editions'>View Editions →</Link>
 				</p>
 			</div>
