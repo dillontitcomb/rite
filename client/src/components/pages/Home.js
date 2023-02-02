@@ -17,7 +17,7 @@ const Home = () => {
         <p>Published by RITE Editions</p>
         <p>Curated by Apsara DiQuinzio</p>
         <p>Cast iron, painted paper with fluor paint</p>
-        <p>3.56 x 2.5” (8.8 x 6.4 cm)</p>
+        <p>3.5 x 2.5” (8.8 x 6.4 cm)</p>
         <p>1.1 lbs </p>
         <p>Limited edition of 20</p>
         <p>Signed and numbered by the artist</p>
