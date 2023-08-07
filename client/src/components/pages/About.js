@@ -17,17 +17,18 @@ const About = () => {
 					<br />
 					<p>
 						Since its inception, RITE Editions has published 28 editions. The
-						inaugural edition (in 2007) was Sound of Music, A Record of the
-						Sound of Its Own Making by Jonathan Monk, an LP recording
-						referencing Robert Morris’s Box with the Sound of Its Own Making
-						(1961). Subsequent publications include Paul Sietsema’s At the hour
-						of tea (2014) Margo Wolowiec’s Blanket (2017) Steven Leiber Catalogs
-						(2019) Woody De Othello’s Jigsaw Puzzle (2020-21) and Ruth Laskey’s
-						artist’s book Twill Series in 2021. In 2022-23, RE will add 4 new
+						inaugural edition (in 2007) was "Sound of Music, A Record of the
+						Sound of Its Own Making" by Jonathan Monk, an LP recording
+						referencing Robert Morris’s "Box with the Sound of Its Own Making"
+						(1961). Subsequent publications include Paul Sietsema’s "At the hour
+						of tea" (2014) Margo Wolowiec’s "Blanket" (2017), "Steven Leiber Catalogs"
+						(2019), Woody De Othello’s "Jigsaw Puzzle" (2020-21), and Ruth Laskey’s
+						artist’s book Twill Series in 2021. In 2022-23, RE will add 5 new
 						editions to the list: Dawn Cerny’s Tabletop Sculptures or Holders, a
 						multiple and publication, Toyin Ojih Odutola's Artist’s Book,
-						Satellite, Gabriel Sierra’s limited edition, The Fingerprints of
-						Bruce Nauman, and a book exploring Cecelia Vicuna’s Palabrarmas.
+						"Satellite", Gabriel Sierra’s limited edition, "The Fingerprints of
+						Bruce Nauman", a book exploring Cecilia Vicuña’s Palabrarmas, entitled 
+						"Word Weapons" and Carissa Potter's "How to Breathe Under Water," Book and Kit Edition.
 					</p>
 					<br />
 					<p>
