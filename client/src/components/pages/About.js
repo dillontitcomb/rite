@@ -16,7 +16,7 @@ const About = () => {
 					</p>
 					<br />
 					<p>
-						Since its inception, RITE Editions has published 28 editions. The
+						Since its inception, RITE Editions has published 30 editions. The
 						inaugural edition (in 2007) was "Sound of Music, A Record of the
 						Sound of Its Own Making" by Jonathan Monk, an LP recording
 						referencing Robert Morris’s "Box with the Sound of Its Own Making"
@@ -54,7 +54,7 @@ const About = () => {
 						RITE Editions are represented in the following public collections:
 					</p>
 					<ul className='about-collections-list my-1'>
-						<li>MoMa, NY</li>
+						<li>MoMA, NY</li>
 						<li>SFMOMA, San Francisco</li>
 						<li>Fogg Art Museum, Harvard, Cambridge</li>
 						<li>National Gallery of Canada, Ottawa</li>
@@ -64,6 +64,8 @@ const About = () => {
 						<li>ArtNow International</li>
 						<li>Berkeley Art Museum and Pacific Film Archive</li>
 						<li>Clark Art Institute, Williams College</li>
+						<li>Reed College Art Museum, Portland, Oregon</li>
+						<li>Portland Art Museum</li>
 					</ul>
 					<p className='lead'>Acknowledgements</p>
 					<p>
