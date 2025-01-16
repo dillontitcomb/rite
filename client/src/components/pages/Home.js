@@ -9,42 +9,56 @@ const Home = () => {
         <Link to="/editions">
           <img
             className="home-image"
-            src="/img/recent_publications/01_Nichols.jpg"
+            src="/img/uploads/matriarchy/Manfredi_001.jpg"
             alt="Tucker Nichols Painting"
           />
         </Link>
         <p className="large my-2">
           <Link to="/editions/66a0571e6e1850176a61c2c8">
-            Tucker Nichols, <em>Untitled flowers</em>, 2024
+            Isabella Manfredi, <em>Matriarchy</em>, 2024
           </Link>
         </p>
         <p>
-          During the pandemic shutdowns in 2020, Nichols began to send flower
-          paintings to sick people on behalf of their loved ones, eventually
-          sending thousands of small paintings to those in need. The project,
-          “Flowers for Sick People,” became an outlet that helped Nichols “stop
-          scrolling and participate in our strange times.” This set of prints
-          are based on small flower paintings from this project.
+          I started printing on fabric when I attended UC Berkeley in 2017. The
+          first images I printed on fabric were scans of calling cards my
+          grandmother left me in an album that also contained stamps from the
+          early 1900’s. The cards and the stamps were collected by my great
+          grandmother’s on my mom’s side. “Matriarch” is the latest rendition of
+          this textile that I have been developing since those first prints on
+          fabric. The square image with the flowers in a vase is from the album
+          and is a persistent calling card image that I continue to use in my
+          work. When I took the card out of the album it tore, and my
+          fingerprint smudged the image. I pieced it back together and scanned
+          it. This image of the flower and the vase is the touchstone to all the
+          other images; it is feminine and beautiful, broken and torn.
         </p>
         <br />
         <p>
-          RITE Editions most recent edition, co-published with Gallery 16, is a
-          visual celebration. The Tucker Nichols 2024 prints are a needed
-          antidote for our complicated times. These works are joyous and
-          gorgeous and restorative. Working with the artist, Troy Peters,
-          Gallery 16 Master Printer, produced a special edition of 3 flower
-          images. Retaining the subtle details and vibrant colors of Tucker’s
-          paintings, these extraordinary prints are intimate and at the same
-          time spectacular.{" "}
+          I am drawn to nature for image sourcing and find things in my everyday
+          life to photograph and film for use in my fabric prints. A dead
+          butterfly I found on the Market Street bike path or possibly on a rock
+          at the Yuba River, a bouquet of flowers I picked at the farm I worked
+          on over the summer, shells I found on the beach in Baja, a flower
+          picture my sister sent me; these are all objects that I find deep
+          connection with.
         </p>
         <br />
-        <p>Co published by Gallery 16 and RITE Editions</p>
-        <p>Pigment print</p>
-        <p>On archival Optica 300gsm fine art stock.</p>
-        <p>20 x 16”</p>
-        <p>Edition of 50</p>
         <p>
-          <strong>$100</strong>
+          Over the years I've been progressively more interested in death and
+          decay as an aspect of the original calling card images. For example, I
+          took photos of skulls in the Capuchin Crypt while visiting Rome last
+          spring. Candles I burn in my studio also remind me of the passing of
+          time and the inevitable unraveling of life. Matriarch is a meditation
+          on life and death and an effort to honor the women in my family who
+          came before me.
+        </p>
+        <br />
+        <p>RITE Editions</p>
+        <p>Hand printed linen</p>
+        <p>Edition of 40</p>
+        <p>26 x 26”</p>
+        <p>
+          <strong>$75</strong>
         </p>
 
         {/* <p className='lead-sm'>
